@@ -122,7 +122,7 @@ ReconForge v3 was built ground-up with a **medically conscious ergonomic color s
 
 ### 3. 13,600+ Mega Dork Intelligence Vault
 
-ReconForge v3 embeds an offline database of **13,600+ pre-compiled search queries** spanning 16 specialized modules:
+ReconForge v3 embeds an offline database of **13,600+ pre-compiled search queries** spanning 16 targeted modules:
 - **Instant Client-Side Search**: Filter tens of thousands of dorks in <10ms via memory-indexed regex search.
 - **Dynamic Scope Injection**: Active target domains are automatically substituted into dork queries. Clicking a dork opens it directly on Google, Shodan, or GitHub.
 - **Automated Live Dork Checker**: Tests dork queries against your target with non-invasive Bing/Google queries and marks them with cached visual status indicators:
@@ -285,7 +285,7 @@ Manage multiple engagements in isolation without losing your session data:
 
 ## 📦 Wordlists & Curated Data Assets
 
-ReconForge v3 includes **9 specialized wordlists** (~750 KB) located in the [`wordlists/`](wordlists/) directory:
+ReconForge v3 includes **9 curated wordlists** (~750 KB) located in the [`wordlists/`](wordlists/) directory:
 
 | Filename | Purpose & Content | Typical Tools |
 | :--- | :--- | :--- |
@@ -295,7 +295,7 @@ ReconForge v3 includes **9 specialized wordlists** (~750 KB) located in the [`wo
 | [`github-secret-dorks.txt`](wordlists/github-secret-dorks.txt) | 591 battle-tested queries targeting API keys, private certificates, and passwords on GitHub. | GitHub Code Search, `trufflehog` |
 | [`google-dorks-master.txt`](wordlists/google-dorks-master.txt) | Master collection of high-impact Google search queries across 14 vulnerability categories. | Google Search, automated dorkers |
 | [`pentest-google-dorks.md`](wordlists/pentest-google-dorks.md) | Penetration testing focused Google dorks for sensitive files, databases, and portal logins. | Search engines |
-| [`shodan-dorks.txt`](wordlists/shodan-dorks.txt) | 92 specialized Shodan search strings for identifying internet-exposed devices, cameras, and databases. | Shodan CLI, Shodan web |
+| [`shodan-dorks.txt`](wordlists/shodan-dorks.txt) | 92 targeted Shodan search strings for identifying internet-exposed devices, cameras, and databases. | Shodan CLI, Shodan web |
 | [`sqli-parameters.txt`](wordlists/sqli-parameters.txt) | 12,000+ vulnerable parameter names commonly associated with SQL injection flaws. | `arjun`, `param-miner`, `ffuf` |
 | [`vdp-bb-target-discovery.txt`](wordlists/vdp-bb-target-discovery.txt) | 93 search queries to uncover new, unlisted, and private Vulnerability Disclosure Programs. | Google Search |
 
