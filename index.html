@@ -976,7 +976,7 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
           <button type="button" id="domainImportBtn" class="btn-terminal-secondary" title="Import scope from HackerOne, Bugcrowd, Intigriti, YesWeHack or text file">
             📁 IMPORT FILE
           </button>
-          <button type="button" class="btn-terminal-secondary" onclick="typeof startLiveCheck==='function'&&startLiveCheck()">
+          <button type="button" id="liveCheckBtn" class="btn-terminal-secondary" onclick="typeof startLiveCheck==='function'&&startLiveCheck()" title="Auto-check dorks against active target">
             ⚡ Live Check Dorks
           </button>
           <input type="file" id="domainFileInput" accept=".txt,.csv,.json,.yaml,.yml,.md,.log" style="display:none;">
@@ -998,29 +998,38 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
       <div class="badges-wrap">
         <div class="badges-title">FAST PHASE NAVIGATOR (CLICK ANY MODULE TO JUMP)</div>
         <div class="badges">
-          <span class="badge" onclick="document.getElementById('p1').scrollIntoView({behavior:'smooth'})">01 SUBDOMAIN ENUM</span>
+          <span class="badge" onclick="document.getElementById('p1').scrollIntoView({behavior:'smooth'})">01 SUBDOMAINS</span>
           <span class="badge" onclick="document.getElementById('p2').scrollIntoView({behavior:'smooth'})">02 ASN &amp; INFRA</span>
           <span class="badge" onclick="document.getElementById('p3').scrollIntoView({behavior:'smooth'})">03 LIVE HOSTS</span>
           <span class="badge" onclick="document.getElementById('p4').scrollIntoView({behavior:'smooth'})">04 CRAWL &amp; PARAMS</span>
           <span class="badge" onclick="document.getElementById('p5').scrollIntoView({behavior:'smooth'})">05 SENSITIVE LEAKS</span>
           <span class="badge" onclick="document.getElementById('p6').scrollIntoView({behavior:'smooth'})">06 NUCLEI AUDIT</span>
           <span class="badge" onclick="document.getElementById('p7').scrollIntoView({behavior:'smooth'})">07 SQLi / XSS / LFI</span>
-          <span class="badge" onclick="document.getElementById('p8').scrollIntoView({behavior:'smooth'})">08 CORS / SSRF / TAKEOVER</span>
+          <span class="badge" onclick="document.getElementById('p8').scrollIntoView({behavior:'smooth'})">08 CORS / SSRF</span>
+          <span class="badge" onclick="document.getElementById('p9').scrollIntoView({behavior:'smooth'})">09 ONE-LINERS</span>
           <span class="badge" onclick="document.getElementById('p10').scrollIntoView({behavior:'smooth'})">10 PORT SCANNING</span>
+          <span class="badge" onclick="document.getElementById('p11').scrollIntoView({behavior:'smooth'})">11 TARGETED NUCLEI</span>
           <span class="badge" onclick="document.getElementById('p12').scrollIntoView({behavior:'smooth'})">12 ORIGIN IP / WAF</span>
           <span class="badge" onclick="document.getElementById('p13').scrollIntoView({behavior:'smooth'})">13 GITHUB DORKS</span>
           <span class="badge" onclick="document.getElementById('p14').scrollIntoView({behavior:'smooth'})">14 CLOUD BUCKETS</span>
           <span class="badge" onclick="document.getElementById('p15').scrollIntoView({behavior:'smooth'})">15 GRAPHQL / JWT</span>
           <span class="badge" onclick="document.getElementById('p16').scrollIntoView({behavior:'smooth'})">16 RACE CONDITIONS</span>
+          <span class="badge" onclick="document.getElementById('p17').scrollIntoView({behavior:'smooth'})">17 GOOGLE DORKS</span>
           <span class="badge" onclick="document.getElementById('p18').scrollIntoView({behavior:'smooth'})">18 GHDB VAULT</span>
+          <span class="badge" onclick="document.getElementById('p19').scrollIntoView({behavior:'smooth'})">19 PARAM DORKS</span>
           <span class="badge" onclick="document.getElementById('p20').scrollIntoView({behavior:'smooth'})">20 OSINT MASTER</span>
-          <span class="badge" onclick="document.getElementById('p21').scrollIntoView({behavior:'smooth'})">21 MEGA DORK DB (13K+)</span>
+          <span class="badge" onclick="document.getElementById('p21').scrollIntoView({behavior:'smooth'})">21 MEGA DORK DB</span>
           <span class="badge" onclick="document.getElementById('p22').scrollIntoView({behavior:'smooth'})">22 REQUEST SMUGGLING</span>
+          <span class="badge" onclick="document.getElementById('p23').scrollIntoView({behavior:'smooth'})">23 CACHE POISONING</span>
+          <span class="badge" onclick="document.getElementById('p24').scrollIntoView({behavior:'smooth'})">24 SSTI / XXE</span>
+          <span class="badge" onclick="document.getElementById('p25').scrollIntoView({behavior:'smooth'})">25 OAUTH / OIDC</span>
           <span class="badge" onclick="document.getElementById('p26').scrollIntoView({behavior:'smooth'})">26 LLM / AI SEC</span>
+          <span class="badge" onclick="document.getElementById('p27').scrollIntoView({behavior:'smooth'})">27 REPORT WRITING</span>
           <span class="badge" onclick="document.getElementById('p28').scrollIntoView({behavior:'smooth'})">28 PAYLOAD LIBRARY</span>
           <span class="badge" onclick="document.getElementById('p29').scrollIntoView({behavior:'smooth'})">29 MOBILE TESTING</span>
           <span class="badge" onclick="document.getElementById('p30').scrollIntoView({behavior:'smooth'})">30 API DEEP-DIVE</span>
           <span class="badge" onclick="document.getElementById('p31').scrollIntoView({behavior:'smooth'})">31 SHODAN VAULT</span>
+          <span class="badge" onclick="document.getElementById('p32').scrollIntoView({behavior:'smooth'})">32 GITHUB SECRETS</span>
           <span class="badge" onclick="document.getElementById('p33').scrollIntoView({behavior:'smooth'})">33 PROGRAM DISCOVERY</span>
         </div>
       </div>
