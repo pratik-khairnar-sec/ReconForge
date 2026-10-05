@@ -1,0 +1,14 @@
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.bak
+*~
+.vscode/
+.idea/
+
+# Temp & Cache
+__pycache__/
+*.pyc
+recon_output/
+*.log

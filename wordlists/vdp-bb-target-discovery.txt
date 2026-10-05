@@ -1,0 +1,224 @@
+
+# 🎯 Bug Bounty Platform Programs
+inurl /bug bounty
+inurl : / security
+inurl:security.txt
+inurl:security "reward"
+inurl : /responsible disclosure
+inurl : /responsible-disclosure/ reward
+inurl : / responsible-disclosure/ swag
+inurl : / responsible-disclosure/ bounty
+inurl:'/responsible disclosure' hoodie
+responsible disclosure swag r=h:com
+responsible disclosure hall of fame
+responsible disclosure europe
+responsible disclosure white hat
+white hat program
+insite:"responsible disclosure" -inurl:nl
+intext responsible disclosure
+site eu responsible disclosure
+site .nl responsible disclosure
+site responsible disclosure
+responsible disclosure:sites
+responsible disclosure r=h:nl
+responsible disclosure r=h:uk
+responsible disclosure r=h:eu
+responsible disclosure bounty r=h:nl
+responsible disclosure bounty r=h:uk
+responsible disclosure bounty r=h:eu
+responsible disclosure swag r=h:nl
+responsible disclosure swag r=h:uk
+responsible disclosure swag r=h:eu
+responsible disclosure reward r=h:nl
+responsible disclosure reward r=h:uk
+responsible disclosure reward r=h:eu
+"powered by bugcrowd" -site:bugcrowd.com
+"submit vulnerability report"
+site:*.gov.* "responsible disclosure"
+intext:"we take security very seriously"
+site:responsibledisclosure.com
+inurl:'vulnerability-disclosure-policy' reward
+intext:Vulnerability Disclosure site:nl
+intext:Vulnerability Disclosure site:eu
+site:*.*.nl intext:security report reward
+site:*.*.nl intext:responsible disclosure reward
+"security vulnerability" "report"
+inurl"security report"
+"responsible disclosure" university
+inurl:/responsible-disclosure/ university
+buy bitcoins "bug bounty"
+inurl:/security ext:txt "contact"
+"powered by synack"
+intext:responsible disclosure bounty
+inurl: private bugbountyprogram
+inurl:/.well-known/security ext:txt
+inurl:/.well-known/security ext:txt intext:hackerone
+inurl:/.well-known/security ext:txt -hackerone -bugcrowd -synack -openbugbounty
+inurl:reporting-security-issues
+inurl:security-policy.txt ext:txt
+site:*.*.* inurl:bug inurl:bounty
+site:help.*.* inurl:bounty
+site:support.*.* intext:security report reward
+intext:security report monetary inurl:security 
+intext:security report reward inurl:report
+site:security.*.* inurl: bounty
+site:*.*.de inurl:bug inurl:bounty
+site:*.*.uk intext:security report reward
+site:*.*.cn intext:security report reward
+"vulnerability reporting policy"
+"van de melding met een minimum van een" -site:responsibledisclosure.nl
+inurl:/security ext:txt "contact"
+inurl:responsible-disclosure-policy
+"If you believe you've found a security vulnerability"
+intext:"BugBounty" and intext:"BTC" and intext:"reward"
+intext:bounty inurl:/security
+inurl:"bug bounty" and intext:"€" and inurl:/security
+inurl:"bug bounty" and intext:"$" and inurl:/security
+inurl:"bug bounty" and intext:"INR" and inurl:/security
+inurl:/security.txt "mailto*" -github.com  -wikipedia.org -portswigger.net -magento
+/trust/report-a-vulnerability
+site:*.edu intext:security report vulnerability
+site:hackerone.com "submit report" "scope"
+site:hackerone.com/reports
+"powered by hackerone" -site:hackerone.com
+intext:"powered by hackerone" "submit vulnerability"
+site:bugcrowd.com "submit a bug" "targets"
+"powered by bugcrowd" -site:bugcrowd.com
+intext:"powered by bugcrowd" "report a vulnerability"
+site:intigriti.com "scope" "reward"
+"powered by intigriti" -site:intigriti.com
+site:yeswehack.com "program" "scope"
+"powered by yeswehack" -site:yeswehack.com
+"powered by synack" -site:synack.com
+site:synack.com "responsible disclosure"
+site:openbugbounty.org "program"
+site:cobalt.io "pentest" OR "program"
+"submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone" | "powered by intigriti"
+
+# 💰 Responsible Disclosure & VDP Pages
+inurl:responsible-disclosure
+inurl:/responsible_disclosure
+inurl:/security/disclosure
+inurl:coordinated-disclosure
+inurl:vulnerability-disclosure-policy
+inurl:reporting-security-issues
+inurl:security-policy
+inurl:security-vulnerability
+inurl:/trust/report-a-vulnerability
+intext:"responsible disclosure" "reward" -site:hackerone.com -site:bugcrowd.com
+intext:"we take security seriously" "report" "vulnerability"
+intext:"If you find a security vulnerability" "reward" OR "thank you"
+intext:"responsible disclosure" "hall of fame"
+intext:"responsible disclosure" "bounty" OR "swag" OR "reward"
+site:responsibledisclosure.com
+inurl:/.well-known/security.txt
+inurl:security.txt "mailto" "bug bounty" OR "reward"
+"vulnerability reporting policy" "reward"
+"report security issues" "bounty" OR "reward" -github.com
+intext:"coordinated vulnerability disclosure" "bounty"
+
+# 🔍 Security.txt Discovery (RFC 9116)
+inurl:"/.well-known/security.txt"
+inurl:"/security.txt" "mailto" "expires"
+inurl:/.well-known/security.txt "hackerone.com"
+inurl:/.well-known/security.txt "bugcrowd.com"
+inurl:/.well-known/security.txt "intigriti.com"
+inurl:/.well-known/security.txt "reward" OR "bounty"
+inurl:security.txt "contact" "mailto"
+filetype:txt "security.txt" "mailto" "expires"
+inurl:security.txt -inurl:bugcrowd -inurl:hackerone "reward"
+inurl:/.well-known/security.txt intext:"bounty"
+
+# 🌍 BB Programs by Region / Country
+inurl:bug-bounty intext:"INR" OR intext:"₹"
+inurl:responsible-disclosure site:*.in
+site:*.in intext:"bug bounty" "reward"
+site:*.in intext:"responsible disclosure" "report"
+site:*.de inurl:bug inurl:bounty
+site:*.nl intext:"responsible disclosure" "reward"
+site:*.uk intext:"security report" "reward"
+site:*.eu responsible disclosure "reward"
+site:*.be intext:"responsible disclosure"
+site:*.fr intext:"signaler une vulnérabilité" OR intext:"programme de bug bounty"
+site:*.br responsible disclosure
+site:*.com.br intext:"bug bounty" "recompensa"
+site:*.au intext:"responsible disclosure" "reward"
+site:*.nz inurl:security "report vulnerability"
+site:*.gov intext:"vulnerability disclosure" OR intext:"responsible disclosure"
+site:*.mil intext:"vulnerability disclosure"
+site:*.edu intext:"security report" "vulnerability"
+site:*.ac.uk intext:"responsible disclosure"
+intext:"bug bounty" intext:"BTC" OR intext:"ETH" OR intext:"USDT" "reward"
+inurl:bug-bounty site:*.io "crypto" OR "blockchain" OR "defi"
+
+# 🏢 Enterprise & Startup BB Programs (undisclosed)
+intext:"security hall of fame" -site:hackerone.com
+intext:"hall of fame" "security researcher" "thank you"
+"bug bounty program" "scope" "out of scope" -site:hackerone.com -site:bugcrowd.com
+intext:"we offer a bounty" "vulnerability"
+intext:"security researchers" "report" "reward" "responsible"
+"eligible for a reward" "vulnerability"
+"we may reward" "security vulnerability"
+"cash reward" "security vulnerability" "responsible disclosure"
+intext:"bounty" inurl:/security "report"
+inurl:/security "If you believe you have found" "reward"
+"You may be eligible" "monetary" "vulnerability"
+"security.txt" "policy" "reward" site:*.com
+intext:"private program" site:hackerone.com
+"invite only" "bug bounty" inurl:security
+"public program" site:bugcrowd.com new 2024 OR 2025
+
+# 🚀 New & Recently Launched Programs
+"launched our bug bounty" OR "started our bug bounty" 2024 OR 2025
+"announcing our bug bounty program" 2024 OR 2025
+"we are launching" "bug bounty" 2024 OR 2025
+"new bug bounty program" 2024 OR 2025
+site:hackerone.com "launched" 2025
+site:bugcrowd.com "new program" 2025
+"expanding our bug bounty" 2024 OR 2025
+"we have launched a" "vulnerability disclosure"
+"security.txt" "expires" 2025
+"vulnerability disclosure program" "launched" 2024 OR 2025
+
+# 💼 High-Value Corporate Targets
+"bug bounty" "scope" site:*.bank OR site:*.finance OR site:*.financial
+"security report" "reward" site:*.healthcare OR site:*.health OR site:*.hospital
+"responsible disclosure" site:*.insurance
+"bug bounty" site:*.gov "vulnerability disclosure"
+"security vulnerability" "reward" site:*.airline OR site:*.travel
+"responsible disclosure" "reward" site:*.tech -site:hackerone.com
+"bug bounty" "in scope" site:*.app OR site:*.io
+"vulnerability disclosure" site:*.crypto OR site:*.exchange
+"bug bounty" "rewards" "web application" "mobile"
+"report a vulnerability" "we will respond" "reward"
+
+# 🔎 Finding Specific Program Scopes
+"*.target.com" "in scope" OR "in-scope" "bug bounty"
+"target.com" site:hackerone.com
+"target.com" site:bugcrowd.com
+"target.com" site:intigriti.com
+"target.com" "responsible disclosure" "reward"
+"target.com" "security.txt"
+site:*.target.com "security" OR "disclosure" OR "bounty"
+"target" "bug bounty" "scope" "reward"
+"@target.com" "security" "report" "vulnerability"
+"target" "vulnerability disclosure policy" "scope"
+
+# 📊 Shodan — Finding BB Program Hosts
+ssl:"hackerone" org:"target" 200
+html:"security.txt" "mailto" "bounty"
+http.title:"responsible disclosure" 200
+html:"bug-bounty" html:"reward"
+http.favicon.hash:116323821 org:"target"
+
+# 🐙 GitHub — Finding BB Program Policies
+"bug bounty" "scope" "reward" filename:SECURITY.md
+"responsible disclosure" "vulnerability" filename:SECURITY.md
+"vulnerability disclosure policy" filename:SECURITY.md
+"bug bounty program" "eligible" filename:*.md
+"security.txt" "bounty" filename:security.txt
+org:target "SECURITY.md" "reward"
+"bug_bounty_url" OR "security_contact"
+"hackerone_url" OR "bugcrowd_url" filename:*.json
+path:/.well-known/security.txt "bounty"
+"responsible_disclosure_url" language:json
