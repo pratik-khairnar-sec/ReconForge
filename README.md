@@ -16,6 +16,10 @@
 
 ---
 
+<p align="center">
+  <img src="reconforge_dashboard.png" alt="ReconForge v3 Tactical Dashboard" width="100%">
+</p>
+
 ## 🌟 Executive Summary
 
 **ReconForge v3** is a state-of-the-art, **100% client-side, zero-dependency, offline reconnaissance operating system and intelligence vault** engineered specifically for professional Bug Bounty Hunters, Penetration Testers, and Red Teams.
