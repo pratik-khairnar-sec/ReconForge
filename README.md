@@ -12,7 +12,15 @@
   <img src="https://img.shields.io/badge/Architecture-100%25%20Offline%20Client--Side-38bdf8?style=for-the-badge" alt="Offline">
 </p>
 
+<p align="center">
+  <a href="https://pratik-khairnar-sec.medium.com/reconforge-v3-automating-33-phases-of-bug-bounty-reconnaissance-zero-install-13-600-search-7c0e353a709b"><img src="https://img.shields.io/badge/Medium-Official_Deep_Dive-black.svg?style=for-the-badge&logo=medium" alt="Medium Story"></a>
+  <a href="https://x.com/PratikSec/status/2108584870293451190"><img src="https://img.shields.io/badge/X-Official_Thread-000000.svg?style=for-the-badge&logo=x" alt="X Thread"></a>
+  <a href="https://pratik-khairnar-sec.github.io/portfolio/"><img src="https://img.shields.io/badge/Live_Sandbox-Portfolio_Demo-38bdf8.svg?style=for-the-badge&logo=shield" alt="Portfolio Sandbox"></a>
+</p>
+
 > 🚀 **Instant Live Access:** Launch ReconForge v3 directly in your browser with zero installation: **[pratik-khairnar-sec.github.io/ReconForge](https://pratik-khairnar-sec.github.io/ReconForge/)**
+> 
+> 📖 **Featured In-Depth Research:** Read the official architectural publication on [Medium](https://pratik-khairnar-sec.medium.com/reconforge-v3-automating-33-phases-of-bug-bounty-reconnaissance-zero-install-13-600-search-7c0e353a709b) and explore the breakdown on [X / Twitter](https://x.com/PratikSec/status/2108584870293451190).
 
 ---
 
