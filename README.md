@@ -16,6 +16,7 @@
   <a href="https://pratik-khairnar-sec.medium.com/reconforge-v3-automating-33-phases-of-bug-bounty-reconnaissance-zero-install-13-600-search-7c0e353a709b"><img src="https://img.shields.io/badge/Medium-Official_Deep_Dive-black.svg?style=for-the-badge&logo=medium" alt="Medium Story"></a>
   <a href="https://x.com/PratikSec/status/2108584870293451190"><img src="https://img.shields.io/badge/X-Official_Thread-000000.svg?style=for-the-badge&logo=x" alt="X Thread"></a>
   <a href="https://pratik-khairnar-sec.github.io/portfolio/"><img src="https://img.shields.io/badge/Live_Sandbox-Portfolio_Demo-38bdf8.svg?style=for-the-badge&logo=shield" alt="Portfolio Sandbox"></a>
+  <a href="https://discord.com/users/1531910259080167494"><img src="https://img.shields.io/badge/Discord-pratik.khairnar.sec-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
 > 🚀 **Instant Live Access:** Launch ReconForge v3 directly in your browser with zero installation: **[pratik-khairnar-sec.github.io/ReconForge](https://pratik-khairnar-sec.github.io/ReconForge/)**
