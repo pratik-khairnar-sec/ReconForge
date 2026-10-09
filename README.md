@@ -354,10 +354,9 @@ python -m http.server 8080
 ### Workflow 2: Wildcard Multi-Target Reconnaissance
 1. Copy a wildcard list from your bounty program brief:
    ```text
-   *.nykaa.com
-   *.nykaaman.com
-   *.nykaafashion.com
-   *.superstore.in
+   *.target.com
+   *.targetnew.com
+  
    ```
 2. Paste the raw list directly into the target input box (ReconForge automatically strips wildcards and cleans domain schemas).
 3. Click **"⚡ APPLY TO ALL"**.
