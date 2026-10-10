@@ -6726,7 +6726,8 @@ window.clearAllTargets = function(){
 # Engineered for Bug Bounty Hunters, Penetration Testers & Red Teams
 # Author: Pratik Khairnar (@pratik-khairnar-sec)
 # ==============================================================================
-# Compatible with: Kali Linux, Ubuntu 20.04/22.04/24.04, Debian 11/12, WSL2, VPS
+# All tools are automatically linked to /usr/local/bin so they run directly
+# as native CLI commands from ANY directory without full path or cd!
 # ==============================================================================
 
 set -e
@@ -6852,6 +6853,11 @@ declare -A GO_TOOLS=(
     ["uncover"]="github.com/projectdiscovery/uncover/cmd/uncover@latest"
     ["gf"]="github.com/tomnomnom/gf@latest"
     ["ffuf"]="github.com/ffuf/ffuf/v2@latest"
+    ["subjs"]="github.com/lc/subjs@latest"
+    ["hakrawler"]="github.com/hakluke/hakrawler@latest"
+    ["aquatone"]="github.com/michenriksen/aquatone@latest"
+    ["gitleaks"]="github.com/zricethezav/gitleaks/v8@latest"
+    ["amass"]="github.com/owasp-amass/amass/v4/...@master"
 )
 
 for TOOL in "\${!GO_TOOLS[@]}"; do
@@ -6865,6 +6871,21 @@ for TOOL in "\${!GO_TOOLS[@]}"; do
     fi
 done
 
+# Findomain binary install
+if ! command -v findomain >/dev/null 2>&1; then
+    echo -ne "  \${C_BLUE}→ Installing findomain...\${C_RESET} "
+    wget -q "https://github.com/Findomain/Findomain/releases/latest/download/findomain-linux.zip" -O /tmp/findomain.zip 2>/dev/null || true
+    if [ -f /tmp/findomain.zip ]; then
+        unzip -q /tmp/findomain.zip -d /tmp/ 2>/dev/null || true
+        chmod +x /tmp/findomain 2>/dev/null || true
+        $SUDO_CMD cp /tmp/findomain /usr/local/bin/ 2>/dev/null || true
+        rm -f /tmp/findomain.zip /tmp/findomain
+        echo -e "\${C_GREEN}[INSTALLED]\${C_RESET}"
+    else
+        echo -e "\${C_YELLOW}[SKIPPED]\${C_RESET}"
+    fi
+fi
+
 # Update Nuclei templates immediately
 if command -v nuclei >/dev/null 2>&1 || [ -f "$GOPATH/bin/nuclei" ]; then
     echo -e "\${C_CYAN}[+] Updating Nuclei vulnerability templates to latest release...\${C_RESET}"
@@ -6875,10 +6896,10 @@ fi
 echo -e "\${C_CYAN}[+] Step 5: Installing Python Recon Tools & Libraries...\${C_RESET}"
 pip3 install --upgrade --break-system-packages \\
     arjun dirsearch sqlmap uro x8 holehe theHarvester maigret trufflehog \\
-    requests beautifulsoup4 jsbeautifier shodan >/dev/null 2>&1 || \\
+    requests beautifulsoup4 jsbeautifier shodan inql originiphunter >/dev/null 2>&1 || \\
 pip3 install --upgrade \\
     arjun dirsearch sqlmap uro x8 holehe theHarvester maigret trufflehog \\
-    requests beautifulsoup4 jsbeautifier shodan >/dev/null 2>&1 || true
+    requests beautifulsoup4 jsbeautifier shodan inql originiphunter >/dev/null 2>&1 || true
 
 echo -e "\${C_GREEN}[✓] Python CLI packages installed.\${C_RESET}"
 
@@ -6913,22 +6934,77 @@ clone_or_update "blackbird"      "https://github.com/p1ngul1n0/blackbird.git"
 clone_or_update "mosint"         "https://github.com/alpkeskin/mosint.git"
 clone_or_update "CloakQuest3r"   "https://github.com/spyboy-productions/CloakQuest3r.git"
 clone_or_update "bxss"           "https://github.com/ethicalhackingplayground/bxss.git"
+clone_or_update "GraphQLmap"     "https://github.com/swisskyrepo/GraphQLmap.git"
+clone_or_update "git-dumper"     "https://github.com/arthaud/git-dumper.git"
 
 # Install requirements for cloned tools
 echo -e "\${C_CYAN}[+] Step 7: Resolving Dependencies for Cloned Repositories...\${C_RESET}"
-for REPO in LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r; do
+for REPO in LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r GraphQLmap; do
     if [ -f "\${INSTALL_DIR}/\${REPO}/requirements.txt" ]; then
         pip3 install --break-system-packages -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || \\
         pip3 install -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || true
     fi
 done
 
-# Create global wrapper symlinks in /usr/local/bin so they can be run directly anywhere
-echo -e "\${C_CYAN}[+] Step 8: Creating Global CLI Shortcuts...\${C_RESET}"
-[ -f "\${INSTALL_DIR}/SecretFinder/SecretFinder.py" ] && $SUDO_CMD ln -sf "\${INSTALL_DIR}/SecretFinder/SecretFinder.py" /usr/local/bin/SecretFinder.py 2>/dev/null || true
-[ -f "\${INSTALL_DIR}/LinkFinder/linkfinder.py" ]     && $SUDO_CMD ln -sf "\${INSTALL_DIR}/LinkFinder/linkfinder.py" /usr/local/bin/linkfinder.py 2>/dev/null || true
-[ -f "\${INSTALL_DIR}/jwt_tool/jwt_tool.py" ]         && $SUDO_CMD ln -sf "\${INSTALL_DIR}/jwt_tool/jwt_tool.py" /usr/local/bin/jwt_tool.py 2>/dev/null || true
-[ -f "\${INSTALL_DIR}/GitDorker/GitDorker.py" ]       && $SUDO_CMD ln -sf "\${INSTALL_DIR}/GitDorker/GitDorker.py" /usr/local/bin/GitDorker.py 2>/dev/null || true
+# --- STEP 8: SYMLINK ALL TOOLS INTO /usr/local/bin (DIRECT GLOBAL CLI EXECUTION) ---
+echo -e "\${C_CYAN}[+] Step 8: Linking ALL Tools Directly into /usr/local/bin for Global Execution...\${C_RESET}"
+
+# 8.1 Symlink all Go binaries from $GOPATH/bin
+if [ -d "$GOPATH/bin" ]; then
+    for bin in "$GOPATH/bin"/*; do
+        if [ -f "$bin" ]; then
+            bname="$(basename "$bin")"
+            $SUDO_CMD ln -sf "$bin" "/usr/local/bin/$bname" 2>/dev/null || true
+        fi
+    done
+fi
+
+# 8.2 Symlink any user pip binaries from ~/.local/bin to /usr/local/bin
+if [ -d "$HOME/.local/bin" ]; then
+    for pbin in "$HOME/.local/bin"/*; do
+        if [ -f "$pbin" ]; then
+            pbname="$(basename "$pbin")"
+            $SUDO_CMD ln -sf "$pbin" "/usr/local/bin/$pbname" 2>/dev/null || true
+        fi
+    done
+fi
+
+# 8.3 Helper function to create executable wrappers for Python scripts
+create_py_wrapper() {
+    local cmd_name="$1"
+    local script_path="$2"
+    if [ -f "$script_path" ]; then
+        $SUDO_CMD bash -c "cat << 'EOF' > /usr/local/bin/\${cmd_name}
+#!/usr/bin/env bash
+exec python3 \\"\${script_path}\\" \\"\\$@\\"
+EOF"
+        $SUDO_CMD chmod +x "/usr/local/bin/\${cmd_name}"
+        # Also create counterpart with or without .py
+        if [[ "$cmd_name" == *.py ]]; then
+            local base_name="\${cmd_name%.py}"
+            $SUDO_CMD ln -sf "/usr/local/bin/\${cmd_name}" "/usr/local/bin/\${base_name}" 2>/dev/null || true
+            local lower_name="$(echo "$base_name" | tr '[:upper:]' '[:lower:]')"
+            $SUDO_CMD ln -sf "/usr/local/bin/\${cmd_name}" "/usr/local/bin/\${lower_name}" 2>/dev/null || true
+        else
+            $SUDO_CMD ln -sf "/usr/local/bin/\${cmd_name}" "/usr/local/bin/\${cmd_name}.py" 2>/dev/null || true
+        fi
+    fi
+}
+
+# Create wrappers for cloned tools so typing either "tool" or "tool.py" runs immediately from anywhere!
+create_py_wrapper "SecretFinder.py" "\${INSTALL_DIR}/SecretFinder/SecretFinder.py"
+create_py_wrapper "linkfinder.py"   "\${INSTALL_DIR}/LinkFinder/linkfinder.py"
+create_py_wrapper "GitDorker.py"    "\${INSTALL_DIR}/GitDorker/GitDorker.py"
+create_py_wrapper "favUp.py"        "\${INSTALL_DIR}/favUp/favUp.py"
+create_py_wrapper "favfreak.py"     "\${INSTALL_DIR}/FavFreak/favfreak.py"
+create_py_wrapper "jwt_tool.py"     "\${INSTALL_DIR}/jwt_tool/jwt_tool.py"
+create_py_wrapper "cloud_enum"      "\${INSTALL_DIR}/cloud_enum/cloud_enum.py"
+create_py_wrapper "sherlock.py"     "\${INSTALL_DIR}/sherlock/sherlock/sherlock.py"
+create_py_wrapper "blackbird.py"    "\${INSTALL_DIR}/blackbird/blackbird.py"
+create_py_wrapper "mosint.py"       "\${INSTALL_DIR}/mosint/mosint.py"
+create_py_wrapper "CloakQuest3r.py" "\${INSTALL_DIR}/CloakQuest3r/CloakQuest3r.py"
+create_py_wrapper "graphqlmap.py"   "\${INSTALL_DIR}/GraphQLmap/graphqlmap.py"
+create_py_wrapper "gitdumper.sh"    "\${INSTALL_DIR}/git-dumper/git_dumper.py"
 
 # --- STEP 9: WORDLISTS & GF PATTERNS SETUP ---
 echo -e "\${C_CYAN}[+] Step 9: Configuring GF Patterns & SecLists...\${C_RESET}"
@@ -6960,14 +7036,16 @@ fi
 # --- SUMMARY & VERIFICATION ---
 echo ""
 echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
-echo -e "\${C_GREEN}\${C_BOLD}   🎉 ALL RECONFORGE ARSENAL TOOLS INSTALLED & CONFIGURED SUCCESSFULLY!\${C_RESET}"
+echo -e "\${C_GREEN}\${C_BOLD}   🎉 ALL RECONFORGE ARSENAL TOOLS INSTALLED & DIRECTLY IN PATH (/usr/local/bin)!\${C_RESET}"
 echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
-echo -e "  • Go Binaries:     \${C_BOLD}$HOME/go/bin\${C_RESET} (Exported to PATH)"
+echo -e "  • Global Binaries: \${C_BOLD}/usr/local/bin\${C_RESET} (Direct execution anywhere!)"
+echo -e "  • Go Binaries:     \${C_BOLD}$HOME/go/bin\${C_RESET}"
 echo -e "  • Cloned Tools:    \${C_BOLD}$INSTALL_DIR\${C_RESET}"
 echo -e "  • Wordlists:       \${C_BOLD}/usr/share/seclists / $WORDLIST_DIR\${C_RESET}"
 echo -e "  • GF Patterns:     \${C_BOLD}$HOME/.gf/\${C_RESET}"
 echo ""
-echo -e "\${C_YELLOW}[!] Pro Tip: Run 'source ~/.bashrc' or open a new terminal tab to refresh PATH.\${C_RESET}"
+echo -e "\${C_GREEN}[✓] You can now run any tool command directly from your terminal:\${C_RESET}"
+echo -e "    \${C_BOLD}subfinder, httpx, katana, nuclei, naabu, SecretFinder.py, favUp.py, etc.\${C_RESET}"
 echo -e "\${C_CYAN}==============================================================================\${C_RESET}"
 `;
 
