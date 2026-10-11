@@ -184,7 +184,7 @@ Manage multiple engagements in isolation without losing your session data:
 | **04** | **Crawling & Parameter Mining** | `katana`, `hakrawler`, `gau`, `waybackurls`, `uro`, `arjun` | Deep headless spidering, historical archive extraction, parameter mining |
 | **05** | **Content Discovery & Sensitive Leaks**| `ffuf`, `feroxbuster`, `dirsearch`, `trufflehog` | Hidden directories, backup files (`.bak`, `.zip`, `.old`), `.env` leaks |
 | **06** | **Automated Vuln Auditing** | `nuclei`, `custom-templates`, `cent` | Automated CVE verification, misconfigurations, exposed admin panels |
-| **07** | **SQLi / XSS / LFI Testing** | `sqlmap`, `ghauri`, `dalfox`, `Gxss`, `kxss`, `qsreplace` | Injection flaw discovery, context-aware reflected XSS, path traversal |
+| **07** | **SQLi / XSS / LFI Testing** | `BlindStrike`, `Reflectra`, `sqlmap`, `ghauri`, `dalfox` | Empirical Blind SQLi testing (BlindStrike), context-aware headless browser XSS (Reflectra), injection flaw validation |
 | **08** | **CORS, SSRF, Redirects & Takeovers**| `Corsy`, `CORScanner`, `subzy`, `interactsh` | Insecure CORS policies, DNS takeover verification, SSRF out-of-band |
 | **09** | **Master One-Liner Pipelines** | Unix CLI, `anew`, `sed`, `awk`, `parallel` | Chained high-speed bash pipelines for instant reconnaissance |
 | **10** | **IP-Centric Port Scanning** | `naabu`, `nmap`, `masscan` | Fast SYN scanning, version fingerprinting, non-standard web ports |
@@ -265,11 +265,18 @@ Manage multiple engagements in isolation without losing your session data:
   ```
 
 #### Phase 07 — Vulnerability Testing: SQLi, XSS, and LFI
-- **Goal**: Isolate endpoints with injectable query parameters and perform automated validation for Reflected XSS, Boolean-based SQLi, and Local File Inclusion.
+- **Goal**: Isolate endpoints with injectable query parameters and perform empirical verification for Reflected XSS (**Reflectra**), Time/Boolean Blind SQLi (**BlindStrike**), and Local File Inclusion.
 - **Key Command**:
   ```bash
-  cat all_endpoints_target.com.txt | gf xss | qsreplace '"><svg onload=confirm(1)>' | dalfox pipe -o xss_findings_target.com.txt
-  cat all_endpoints_target.com.txt | gf sqli | sqlmap --batch --random-agent --level 1 --risk 1
+  # Context-Aware Headless Chrome XSS Confirmation via Reflectra
+  reflectra -f all_endpoints_target.com.txt -t 10 --stop-on-first-confirmed -o reflectra_xss_report.html
+
+  # Empirical Baseline Latency & Boolean Blind SQLi via BlindStrike
+  blindstrike -l all_endpoints_target.com.txt -p payloads/generic.txt -t 10 --stop-on-confirm --html-report blindstrike_report.html
+
+  # Secondary Fast Pipe & LFI Verification
+  cat all_endpoints_target.com.txt | gf xss | Gxss -p Rxss | dalfox pipe --silence
+  cat all_endpoints_target.com.txt | gf lfi | qsreplace "file:///etc/passwd" | httpx -silent -ms "root:x:0:0:"
   ```
 
 #### Phase 08 — CORS, SSRF, Open Redirects & Takeovers

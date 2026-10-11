@@ -198,6 +198,8 @@ clone_or_update() {
     fi
 }
 
+clone_or_update "BlindStrike"     "https://github.com/pratik-khairnar-sec/BlindStrike.git"
+clone_or_update "Reflectra"       "https://github.com/pratik-khairnar-sec/Reflectra.git"
 clone_or_update "LinkFinder"     "https://github.com/GerbenJavado/LinkFinder.git"
 clone_or_update "SecretFinder"   "https://github.com/m4ll0k/SecretFinder.git"
 clone_or_update "GitDorker"      "https://github.com/obheda12/GitDorker.git"
@@ -217,7 +219,7 @@ clone_or_update "git-dumper"     "https://github.com/arthaud/git-dumper.git"
 
 # Install requirements for cloned tools
 echo -e "${C_CYAN}[+] Step 7: Resolving Dependencies for Cloned Repositories...${C_RESET}"
-for REPO in LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r GraphQLmap; do
+for REPO in BlindStrike Reflectra LinkFinder SecretFinder GitDorker favUp jwt_tool cloud_enum sherlock blackbird mosint CloakQuest3r GraphQLmap; do
     if [ -f "${INSTALL_DIR}/${REPO}/requirements.txt" ]; then
         pip3 install --break-system-packages -r "${INSTALL_DIR}/${REPO}/requirements.txt" >/dev/null 2>&1 || \
         pip3 install -r "${INSTALL_DIR}/${REPO}/requirements.txt" >/dev/null 2>&1 || true
@@ -270,6 +272,8 @@ EOF"
 }
 
 # Create wrappers for cloned tools so typing either "tool" or "tool.py" runs immediately from anywhere!
+create_py_wrapper "blindstrike"     "${INSTALL_DIR}/BlindStrike/blindstrike.py"
+create_py_wrapper "reflectra"       "${INSTALL_DIR}/Reflectra/reflectra.py"
 create_py_wrapper "SecretFinder.py" "${INSTALL_DIR}/SecretFinder/SecretFinder.py"
 create_py_wrapper "linkfinder.py"   "${INSTALL_DIR}/LinkFinder/linkfinder.py"
 create_py_wrapper "GitDorker.py"    "${INSTALL_DIR}/GitDorker/GitDorker.py"
