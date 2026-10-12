@@ -6,7 +6,7 @@
   </a>
   <img src="https://img.shields.io/badge/Version-v3.0--Universal-38bdf8?style=for-the-badge&logo=shield" alt="Version">
   <img src="https://img.shields.io/badge/Author-Pratik-38bdf8?style=for-the-badge&logo=github" alt="Author">
-  <img src="https://img.shields.io/badge/Dork%20Vault-13%2C600%2B-ffd23f?style=for-the-badge&logo=google" alt="Dorks">
+  <img src="https://img.shields.io/badge/Dork%20Vault-17%2C071%2B-ffd23f?style=for-the-badge&logo=google" alt="Dorks">
   <img src="https://img.shields.io/badge/Phases-33%20Master%20Modules-ff3b5c?style=for-the-badge" alt="Phases">
   <img src="https://img.shields.io/badge/License-MIT-0284c7?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Architecture-100%25%20Offline%20Client--Side-38bdf8?style=for-the-badge" alt="Offline">
@@ -33,7 +33,7 @@
 
 **ReconForge v3** is a state-of-the-art, **100% client-side, zero-dependency, offline reconnaissance operating system and intelligence vault** engineered specifically for professional Bug Bounty Hunters, Penetration Testers, and Red Teams.
 
-Created and curated by **[Pratik Khairnar (@pratik-khairnar-sec)](https://github.com/pratik-khairnar-sec)**, ReconForge v3 consolidates years of field-tested offensive security methodology into an ultra-fast, single-dashboard reconnaissance suite. It bridges the gap between manual recon note-taking, automated CLI tool chaining, and OSINT dorking by unifying **33 comprehensive reconnaissance phases**, over **13,600+ curated search queries**, a **multi-target tool-major execution engine**, dual-channel **Telegram bot reporting**, and an **anti-glare ergonomic UI designed for zero visual fatigue**.
+Created and curated by **[Pratik Khairnar (@pratik-khairnar-sec)](https://github.com/pratik-khairnar-sec)**, ReconForge v3 consolidates years of field-tested offensive security methodology into an ultra-fast, single-dashboard reconnaissance suite. It bridges the gap between manual recon note-taking, automated CLI tool chaining, and OSINT dorking by unifying **33 comprehensive reconnaissance phases**, over **17,071+ curated search queries**, a **multi-target tool-major execution engine**, dual-channel **Telegram bot reporting**, and an **anti-glare ergonomic UI designed for zero visual fatigue**.
 
 Everything operates directly inside the browser using modern web standards—**no Node.js installation required, no Python runtime needed, no external API keys forced, and zero telemetry leaving your machine**.
 
@@ -45,7 +45,7 @@ Everything operates directly inside the browser using modern web standards—**n
 - [🎯 Core Architecture & Innovations](#-core-architecture--innovations)
   - [1. Tool-Major Multi-Target Pipeline Engine](#1-tool-major-multi-target-pipeline-engine)
   - [2. Anti-Glare Ergonomic UI & Eye Comfort Mode](#2-anti-glare-ergonomic-ui--eye-comfort-mode)
-  - [3. 13,600+ Mega Dork Intelligence Vault](#3-13600-mega-dork-intelligence-vault)
+  - [3. 17,071+ Mega Dork Intelligence Vault & Multi-Target Engine](#3-17071-mega-dork-intelligence-vault--multi-target-engine)
   - [4. Dual-Channel Telegram Dispatch & 33-Phase HTML Report](#4-dual-channel-telegram-dispatch--33-phase-html-report)
   - [5. Bug Bounty Engagement Workspace](#5-bug-bounty-engagement-workspace)
   - [6. Active Engagement Timer](#6-active-engagement-timer)
@@ -70,7 +70,7 @@ Everything operates directly inside the browser using modern web standards—**n
   - [Phase 18 — GHDB Categorized Dork Vault (9,784 Dorks)](#phase-18--ghdb-categorized-dork-vault-9784-dorks)
   - [Phase 19 — Path & Parameter Dork Generators](#phase-19--path--parameter-dork-generators)
   - [Phase 20 — OSINT Master Investigation](#phase-20--osint-master-investigation)
-  - [Phase 21 — Embedded Mega Dork Database (13,451 Dorks)](#phase-21--embedded-mega-dork-database-13451-dorks)
+  - [Phase 21 — Embedded Mega Dork Database (17,071 Dorks — Searchable)](#phase-21--embedded-mega-dork-database-17071-dorks--searchable)
   - [Phase 22 — HTTP Request Smuggling & Desync Attacks](#phase-22--http-request-smuggling--desync-attacks)
   - [Phase 23 — Cache Poisoning, Cache Deception & Prototype Pollution](#phase-23--cache-poisoning-cache-deception--prototype-pollution)
   - [Phase 24 — SSTI, XXE, File Upload Bypass & Deserialization](#phase-24--ssti-xxe-file-upload-bypass--deserialization)
@@ -133,15 +133,34 @@ ReconForge v3 was built ground-up with a **medically conscious ergonomic color s
 
 ---
 
-### 3. 13,600+ Mega Dork Intelligence Vault
+### 3. 17,071+ Mega Dork Intelligence Vault & Multi-Target Engine
 
-ReconForge v3 embeds an offline database of **13,600+ pre-compiled search queries** spanning 16 targeted modules:
-- **Instant Client-Side Search**: Filter tens of thousands of dorks in <10ms via memory-indexed regex search.
-- **Dynamic Scope Injection**: Active target domains are automatically substituted into dork queries. Clicking a dork opens it directly on Google, Shodan, or GitHub.
-- **Automated Live Dork Checker**: Tests dork queries against your target with non-invasive Bing/Google queries and marks them with cached visual status indicators:
-  - ⚡ **Results Found**: Potential sensitive exposure detected.
-  - 🔴 **Zero Results**: Clean query, no public leakage.
-  - ⚪ **Pending**: Unchecked.
+ReconForge v3 embeds an exhaustive offline database of **17,071 pre-compiled offensive search queries** across 16 categorized modules directly into **Phase 21 (Step 96)**, perfectly respecting professional bug bounty methodology (*Recon First -> Deep Dorking*):
+
+#### 🎯 13 Character-Wise Category Tabs & Dynamic Concept Explanations:
+- **`🎯 BBP (Paid Programs)` (81 dorks)**: Discovers unlisted paid bug bounty programs, bug bounty scopes, asset reward tables, and bounty submission guidelines.
+- **`🛡️ VDP & security.txt` (40 dorks)**: Uncovers RFC 9116 security contact points (`/.well-known/security.txt`), vulnerability disclosure programs, and hall-of-fame portals.
+- **`👑 Top 1% Elite` (65 dorks)**: Highest-signal offensive vectors: exposed CI/CD runners, internal git configs, developer secrets, and critical admin gateways.
+- **`🐙 GitHub Secrets` (591 dorks)**: Leaked OAuth tokens, AWS access keys, Stripe keys, GCP credentials, and private configuration commits.
+- **`🔍 Shodan Recon` (97 dorks)**: Internet-wide perimeter intelligence: exposed cameras, SCADA/ICS controllers, Elasticsearch clusters, and unauthenticated management consoles.
+- **`☁️ Cloud S3 & Buckets` (48 dorks)**: Unauthenticated AWS S3, Azure Blob, and GCP Cloud Storage buckets with public read/write permissions.
+- **`🔑 .env & Passwords` (129 dorks)**: Exposed environment files (`.env`), database connection strings, SSH private keys, and plaintext credentials.
+- **`🚪 Admin & Portals` (772 dorks)**: Internal administrative consoles, single sign-on (SSO) login portals, and management interfaces.
+- **`💉 SQLi & IDOR` (130 dorks)**: High-risk injectable query parameters (`?id=`, `?cat=`, `?page=`, `?account=`) for SQL injection and broken access control testing.
+- **`📂 Open Directories` (153 dorks)**: Apache/Nginx web servers with `Index of /` enabled leaking source files, logs, and database archives.
+- **`⚡ APIs & Endpoints` (65 dorks)**: Swagger UI documentation, OpenAPI JSON specifications, GraphQL endpoints, and undocumented REST APIs.
+- **`🧬 Actuators & Metrics` (42 dorks)**: Spring Boot `/actuator/heapdump`, Prometheus metrics, `/env`, and JVM debug endpoints leaking memory credentials.
+- **`🌐 All 17,071 Dorks`**: Universal instant search across the complete offline database with smart substring filtering and category aliases.
+
+#### 🌐 Dynamic Multi-Domain Scope Integration:
+- **Scope Dropdown Switcher**: Effortlessly switch active target among 50+ loaded scope domains with synchronized query re-rendering.
+- **Cycle Buttons (`◀` / `▶`)**: One-click previous/next target cycling for rapid reconnaissance workflows.
+- **Single vs. Combined Mode**:
+  - `🎯 Active Target Mode`: Generates precision queries tailored to the currently selected domain (`site:api.target.com inurl:...`).
+  - `🌐 All Targets Combined Mode`: Synthesizes Google OR search queries across your entire target inventory: `(site:domain1 | site:domain2 | site:domain3) inurl:...`.
+- **Bulk Multi-Target Wordlist Export**: One-click download compiling the active category multiplied across all loaded target domains, ready to feed into `ffuf`, `nuclei`, or `katana`.
+- **Safe RFC-2606 Demo Scopes**: Includes zero real enterprise targets in presets—standardized on `example.com`, `example.org`, and `example.net`.
+- **Instant Phase 21 Jump**: One-click jump buttons in the top navigation bar and scope ingestion terminal take you directly to the dork console.
 
 ---
 
@@ -198,7 +217,7 @@ Manage multiple engagements in isolation without losing your session data:
 | **18** | **GHDB Categorized Dork Vault** | Google Hacking Database | 9,784 categorized Exploit-DB Google dorks for sensitive assets |
 | **19** | **Path & Parameter Dork Generators** | Dynamic Dork Engine | Wordlist-driven target-specific dork query synthesis |
 | **20** | **OSINT Master Investigation** | `theHarvester`, `recon-ng`, `metagoofil` | Corporate email harvesting, employee discovery, document metadata |
-| **21** | **Embedded Mega Dork Database** | Offline In-Memory DB | 13,451 live searchable, instant-filter dorks with target injection |
+| **21** | **Embedded Mega Dork Database** | Offline In-Memory DB | 17,071 live searchable dorks, 13 concept tabs, multi-target dropdown & combined mode |
 | **22** | **HTTP Request Smuggling & Desync** | `smuggler.py`, `HTTP Request Smuggler` | CL.TE, TE.CL, TE.TE desync, HTTP/2 downgrade smuggling |
 | **23** | **Cache Poisoning & Prototype Pollution**| `Param Miner`, `ppmap`, `DOM Invader` | Unkeyed header poisoning, web cache deception, prototype pollution |
 | **24** | **SSTI, XXE & Deserialization** | `tplmap`, `ysoserial`, `interactsh` | Template engine injection, XML external entities, serialized gadgets |
@@ -318,6 +337,29 @@ ReconForge v3 includes **9 curated wordlists** (~750 KB) located in the [`wordli
 | [`shodan-dorks.txt`](wordlists/shodan-dorks.txt) | 92 targeted Shodan search strings for identifying internet-exposed devices, cameras, and databases. | Shodan CLI, Shodan web |
 | [`sqli-parameters.txt`](wordlists/sqli-parameters.txt) | 12,000+ vulnerable parameter names commonly associated with SQL injection flaws. | `arjun`, `param-miner`, `ffuf` |
 | [`vdp-bb-target-discovery.txt`](wordlists/vdp-bb-target-discovery.txt) | 93 search queries to uncover new, unlisted, and private Vulnerability Disclosure Programs. | Google Search |
+
+### 🗂️ Character-Separated Modular Dork Vaults (`wordlists/dorks/`)
+
+ReconForge organizes all **17,071 dorks** into 16 discrete, single-purpose text wordlists in [`wordlists/dorks/`](wordlists/dorks/) so hunters can feed them directly into automation scripts, `nuclei`, or `gau`:
+
+| Wordlist | Dorks | Offensive Scope & Vectors |
+| :--- | :---: | :--- |
+| [`01_top_1_percent_elite_vault.txt`](wordlists/dorks/01_top_1_percent_elite_vault.txt) | **1,674** | 🔥 Top 1% Elite Vault (P1/P2 critical exploits & cloud leaks) |
+| [`02_bbp_paid_bug_bounty_programs.txt`](wordlists/dorks/02_bbp_paid_bug_bounty_programs.txt) | **81** | 🎯 Paid Bug Bounty platform programs & bounty scope tables |
+| [`03_vdp_responsible_disclosure_and_security_txt.txt`](wordlists/dorks/03_vdp_responsible_disclosure_and_security_txt.txt) | **40** | 🛡️ RFC 9116 security.txt endpoints & responsible disclosure pages |
+| [`04_github_secrets_and_api_tokens.txt`](wordlists/dorks/04_github_secrets_and_api_tokens.txt) | **591** | 🐙 Leaked OAuth keys, cloud credentials & API secrets |
+| [`05_admin_portals_and_login_panels.txt`](wordlists/dorks/05_admin_portals_and_login_panels.txt) | **1,075** | 🚪 Admin portals, SSO endpoints, and control dashboards |
+| [`06_passwords_credentials_and_env_files.txt`](wordlists/dorks/06_passwords_credentials_and_env_files.txt) | **310** | 🔑 Leaked `.env` files, database dumps & configuration secrets |
+| [`07_sqli_and_injection_parameters.txt`](wordlists/dorks/07_sqli_and_injection_parameters.txt) | **4,000** | 💉 High-yield SQLi injection parameters & database error triggers |
+| [`08_database_dumps_and_backups.txt`](wordlists/dorks/08_database_dumps_and_backups.txt) | **21** | 💾 Database dump files (`.sql.gz`, `.tar.gz`) & site backups |
+| [`09_open_directory_listings.txt`](wordlists/dorks/09_open_directory_listings.txt) | **153** | 📂 Web server directory indexing (`Index of /`) |
+| [`10_shodan_dorks_and_recon.txt`](wordlists/dorks/10_shodan_dorks_and_recon.txt) | **97** | 🔍 Internet-wide Shodan OSINT asset queries |
+| [`11_apis_and_target_discovery.txt`](wordlists/dorks/11_apis_and_target_discovery.txt) | **25** | ⚡ Swagger/OpenAPI documentation & REST route discovery |
+| [`12_network_iot_and_management_consoles.txt`](wordlists/dorks/12_network_iot_and_management_consoles.txt) | **102** | 🌐 Network hardware, IP cameras, and printer management consoles |
+| [`13_vulnerable_software_and_version_banners.txt`](wordlists/dorks/13_vulnerable_software_and_version_banners.txt) | **243** | ⚠️ Known vulnerable software stacks & version banners |
+| [`14_shopping_and_financial_data.txt`](wordlists/dorks/14_shopping_and_financial_data.txt) | **4** | 💳 Payment gateway & transaction receipts exposure |
+| [`15_google_master_broad_attack_surface.txt`](wordlists/dorks/15_google_master_broad_attack_surface.txt) | **600** | 🗺️ Broad attack surface mapping across enterprise assets |
+| [`16_ghdb_comprehensive_juicy_files_vault.txt`](wordlists/dorks/16_ghdb_comprehensive_juicy_files_vault.txt) | **8,055** | 📚 GHDB sensitive files & information disclosure archive |
 
 ---
 

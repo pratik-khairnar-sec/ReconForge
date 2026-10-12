@@ -1,0 +1,40 @@
+inurl:responsible-disclosure
+inurl:/responsible_disclosure
+inurl:/security/disclosure
+inurl:coordinated-disclosure
+inurl:vulnerability-disclosure-policy
+inurl:reporting-security-issues
+inurl:security-policy
+inurl:security-vulnerability
+inurl:/trust/report-a-vulnerability
+intext:"responsible disclosure" "reward" -site:hackerone.com -site:bugcrowd.com
+intext:"we take security seriously" "report" "vulnerability"
+intext:"If you find a security vulnerability" "reward" OR "thank you"
+intext:"responsible disclosure" "hall of fame"
+intext:"responsible disclosure" "bounty" OR "swag" OR "reward"
+site:responsibledisclosure.com
+inurl:/.well-known/security.txt
+inurl:security.txt "mailto" "bug bounty" OR "reward"
+"vulnerability reporting policy" "reward"
+"report security issues" "bounty" OR "reward" -github.com
+intext:"coordinated vulnerability disclosure" "bounty"
+inurl:"/.well-known/security.txt"
+inurl:"/security.txt" "mailto" "expires"
+inurl:/.well-known/security.txt "hackerone.com"
+inurl:/.well-known/security.txt "bugcrowd.com"
+inurl:/.well-known/security.txt "intigriti.com"
+inurl:/.well-known/security.txt "reward" OR "bounty"
+inurl:security.txt "contact" "mailto"
+filetype:txt "security.txt" "mailto" "expires"
+inurl:security.txt -inurl:bugcrowd -inurl:hackerone "reward"
+inurl:/.well-known/security.txt intext:"bounty"
+"bug bounty" "scope" "reward" filename:SECURITY.md
+"responsible disclosure" "vulnerability" filename:SECURITY.md
+"vulnerability disclosure policy" filename:SECURITY.md
+"bug bounty program" "eligible" filename:*.md
+"security.txt" "bounty" filename:security.txt
+org:target "SECURITY.md" "reward"
+"bug_bounty_url" OR "security_contact"
+"hackerone_url" OR "bugcrowd_url" filename:*.json
+path:/.well-known/security.txt "bounty"
+"responsible_disclosure_url" language:json
