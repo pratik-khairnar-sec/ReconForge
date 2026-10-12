@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 
 def run_audit():
     print("=" * 75)
-    print("  RECONFORGE v3 COMPREHENSIVE AUTOMATION AUDIT & VALIDATION SUITE  ")
+    print("  RECONFORGE v4 COMPREHENSIVE AUTOMATION AUDIT & VALIDATION SUITE  ")
     print("=" * 75)
 
     html_path = os.path.abspath("index.html")

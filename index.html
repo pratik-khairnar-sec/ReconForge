@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <script>
-  // ReconForge v3 — Defensive Popup Shield
+  // ReconForge v4 — Defensive Popup Shield
   // Protects against intrusive payload executions while preserving genuine application alerts
   window._origAlert = window.alert;
   window._origConfirm = window.confirm;
@@ -30,7 +30,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReconForge v3 :: Master Bug Bounty &amp; VAPT Multi-Target Recon Framework</title>
+<title>ReconForge v4 :: Master Bug Bounty &amp; VAPT Multi-Target Recon Framework</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22rfBg%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%230b111e%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23050811%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22rfStroke%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%22100%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338bdf8%22/%3E%3Cstop%20offset%3D%2250%25%22%20stop-color%3D%22%230ea5e9%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%23818cf8%22/%3E%3C/linearGradient%3E%3ClinearGradient%20id%3D%22rfGlow%22%20x1%3D%220%25%22%20y1%3D%220%25%22%20x2%3D%220%25%22%20y2%3D%22100%25%22%3E%3Cstop%20offset%3D%220%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220.25%22/%3E%3Cstop%20offset%3D%22100%25%22%20stop-color%3D%22%2338bdf8%22%20stop-opacity%3D%220.02%22/%3E%3C/linearGradient%3E%3Cfilter%20id%3D%22rfShadow%22%20x%3D%22-20%25%22%20y%3D%22-20%25%22%20width%3D%22140%25%22%20height%3D%22140%25%22%3E%3CfeDropShadow%20dx%3D%220%22%20dy%3D%222%22%20stdDeviation%3D%223%22%20flood-color%3D%22%2338bdf8%22%20flood-opacity%3D%220.4%22/%3E%3C/filter%3E%3C/defs%3E%3C%21--%20Container%20--%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22url%28%23rfBg%29%22/%3E%3Crect%20x%3D%221.5%22%20y%3D%221.5%22%20width%3D%2261%22%20height%3D%2261%22%20rx%3D%2212.5%22%20fill%3D%22none%22%20stroke%3D%22url%28%23rfStroke%29%22%20stroke-width%3D%222%22%20stroke-opacity%3D%220.85%22/%3E%3C%21--%20Tactical%20Reticle%20Corner%20Accents%20--%3E%3Cpath%20d%3D%22M7%2015%20V10%20H12%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%20opacity%3D%220.6%22/%3E%3Cpath%20d%3D%22M57%2015%20V10%20H52%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%20opacity%3D%220.6%22/%3E%3Cpath%20d%3D%22M7%2049%20V54%20H12%22%20stroke%3D%22%23818cf8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%20opacity%3D%220.6%22/%3E%3Cpath%20d%3D%22M57%2049%20V54%20H52%22%20stroke%3D%22%23818cf8%22%20stroke-width%3D%221.8%22%20stroke-linecap%3D%22round%22%20fill%3D%22none%22%20opacity%3D%220.6%22/%3E%3C%21--%20Central%20Shield%20Surface%20with%20Glow%20--%3E%3Cpath%20d%3D%22M32%2011%20L48%2018%20V33%20C48%2043.5%2041%2050.5%2032%2054%20C23%2050.5%2016%2043.5%2016%2033%20V18%20Z%22%20fill%3D%22url%28%23rfGlow%29%22%20stroke%3D%22url%28%23rfStroke%29%22%20stroke-width%3D%222.5%22%20stroke-linejoin%3D%22round%22%20filter%3D%22url%28%23rfShadow%29%22/%3E%3C%21--%20Radar%20Scope%20Reticle%20--%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%229%22%20fill%3D%22none%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%221.5%22%20stroke-dasharray%3D%222.5%202%22%20opacity%3D%220.75%22/%3E%3Cline%20x1%3D%2232%22%20y1%3D%2219%22%20x2%3D%2232%22%20y2%3D%2243%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22/%3E%3Cline%20x1%3D%2220%22%20y1%3D%2231%22%20x2%3D%2244%22%20y2%3D%2231%22%20stroke%3D%22%2338bdf8%22%20stroke-width%3D%222.2%22%20stroke-linecap%3D%22round%22/%3E%3C%21--%20Center%20Forged%20Cyber%20Core%20--%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%223.2%22%20fill%3D%22%23e0f2fe%22%20stroke%3D%22%230ea5e9%22%20stroke-width%3D%221.8%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2231%22%20r%3D%221.2%22%20fill%3D%22%230369a1%22/%3E%3C/svg%3E">
 <style>
 :root{
@@ -608,7 +608,7 @@ body.light-theme .step{background:#fafafa;border-color:#e0e0e0;}
 .cve-sev-MEDIUM{color:#ffcc00;}
 
 
-/* ── ReconForge v3: Professional Ergonomic Eye Comfort System ── */
+/* ── ReconForge v4: Professional Ergonomic Eye Comfort System ── */
 body::before { display: none !important; }
 canvas#matrix { display: none !important; }
 :root {
@@ -653,7 +653,7 @@ body.eye-comfort, .eye-comfort * {
 
 
 /* ================================================================
-   RECONFORGE v3 ELITE HERO & COMMAND DECK DESIGN SYSTEM
+   RECONFORGE v4 ELITE HERO & COMMAND DECK DESIGN SYSTEM
    ================================================================ */
 .top-toolbar {
   position: sticky;
@@ -1306,7 +1306,7 @@ body.theme-light .gsearch-tag {
     </svg>
   </div>
 
-  <h1 class="hero-title">RECONFORGE <span class="hero-v-badge">v3.0 UNIVERSAL</span></h1>
+  <h1 class="hero-title">RECONFORGE <span class="hero-v-badge">v4.0 ENTERPRISE</span></h1>
   <p class="hero-sub">// Master Bug Bounty &amp; VAPT Multi-Target Reconnaissance Framework</p>
   <p class="hero-tagline">Subdomain enum → live host probing → crawling → parameter mining → content discovery → automated vuln scanning. A field-tested methodology to map attack surface before you touch a single payload.</p>
 
@@ -4062,7 +4062,7 @@ function substitute(html, domain){
 const INLINE_EXPAND_CAP = Infinity; // Unlimited domains supported across all command blocks
 
 
-// ── ReconForge v3 Eye Comfort Mode & Tool-First Execution ──
+// ── ReconForge v4 Eye Comfort Mode & Tool-First Execution ──
 function toggleEyeComfort(){
   const isShield = document.body.classList.toggle('eye-comfort');
   localStorage.setItem('reconforge_eye_comfort', isShield ? '1' : '0');
@@ -5247,7 +5247,7 @@ function initPayloadLibrary(){
   // Click delegation for copy + delete
   document.addEventListener('click',e=>{
     const copyBtn = e.target.closest('.pl-copy-btn');
-    if(copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.payload||''); copyBtn.textContent='✅ Copied'; setTimeout(()=>copyBtn.textContent='📋 Copy',1200); return; }
+    if(copyBtn){ navigator.clipboard.writeText(copyBtn.dataset.payload||'').catch(()=>{}); copyBtn.textContent='✅ Copied'; setTimeout(()=>copyBtn.textContent='📋 Copy',1200); return; }
     const delBtn = e.target.closest('.pl-del-btn');
     if(delBtn && confirm('Delete this custom payload?')){
       const custom = loadCustomPayloads();
@@ -5474,7 +5474,7 @@ _Report generated by Recon Master Methodology_`;
   });
   document.getElementById('rgCopy')&&document.getElementById('rgCopy').addEventListener('click',()=>{
     const t=document.getElementById('rgOutput').textContent;
-    navigator.clipboard.writeText(t);
+    navigator.clipboard.writeText(t).catch(()=>{});
     document.getElementById('rgCopy').textContent='✅ Copied';
     setTimeout(()=>document.getElementById('rgCopy').textContent='📋 Copy Markdown',1300);
   });
@@ -5548,7 +5548,7 @@ function buildSnapshotMarkdown(){
   });
   const findings = eng && Array.isArray(eng.findings) ? eng.findings : [];
 
-  let md = `# 🛡️ ReconForge v3 — Reconnaissance Snapshot\n\n`;
+  let md = `# 🛡️ ReconForge v4 — Reconnaissance Snapshot\n\n`;
   md += `**Timestamp:** ${new Date().toISOString()}\n`;
   if(eng) md += `**Active Engagement:** ${eng.name||'(unnamed)'}\n`;
   md += `**Targets Loaded:** ${domains.length} (${domains.join(', ')||'none'})\n`;
@@ -5580,7 +5580,7 @@ function buildSnapshotMarkdown(){
   md += findings.length
     ? findings.map(f=>`- **[${f.severity||'?'}] ${f.title||'(untitled)'}** — ${f.url||''}\n  ${f.summary||''}`).join('\n')
     : '_No findings logged yet in active engagement_\n';
-  md += '\n---\n_ReconForge v3 — Advanced Bug Bounty Reconnaissance Framework_\n';
+  md += '\n---\n_ReconForge v4 — Advanced Bug Bounty Reconnaissance Framework_\n';
   return md;
 }
 
@@ -5671,7 +5671,7 @@ function buildFullHtmlReport(){
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ReconForge v3 Complete Methodology Audit Report — ${escHtml(primaryDomain)}</title>
+<title>ReconForge v4 Complete Methodology Audit Report — ${escHtml(primaryDomain)}</title>
 <style>
   :root{ --text:#1e293b; --bg:#ffffff; --panel:#f8fafc; --border:#cbd5e1; --muted:#64748b; --primary:#0284c7; --green:#0ea5e9; }
   *{ box-sizing:border-box; margin:0; padding:0; }
@@ -5721,7 +5721,7 @@ function buildFullHtmlReport(){
 <body>
 <div class="header">
   <div>
-    <h1>ReconForge v3 — Full 30-Phase Reconnaissance Methodology Report</h1>
+    <h1>ReconForge v4 — Full 30-Phase Reconnaissance Methodology Report</h1>
     <p style="margin:4px 0 0;font-size:13px;color:#475569;">Target: <strong>${escHtml(primaryDomain)}</strong>${domains.length > 1 ? ' (+ ' + (domains.length - 1) + ' related targets)' : ''}</p>
   </div>
   <div class="meta">
@@ -5750,7 +5750,7 @@ ${allPhasesHtml}
 ${findingsHtml}
 
 <div class="footer">
-  ReconForge v3 :: Advanced Bug Bounty &amp; VAPT Reconnaissance Framework :: Created by Pratik :: <a href="https://github.com/pratik-khairnar-sec" style="color:var(--primary);">github.com/pratik-khairnar-sec</a>
+  ReconForge v4 :: Advanced Bug Bounty &amp; VAPT Reconnaissance Framework :: Created by Pratik :: <a href="https://github.com/pratik-khairnar-sec" style="color:var(--primary);">github.com/pratik-khairnar-sec</a>
 </div>
 </body>
 </html>`;
@@ -5830,7 +5830,7 @@ function initSnapshotTelegram(){
 
   copyBtn && copyBtn.addEventListener('click', ()=>{
     const md = window.refreshTgPreview();
-    navigator.clipboard.writeText(md);
+    navigator.clipboard.writeText(md).catch(()=>{});
     copyBtn.textContent = '✓ Copied';
     setTimeout(()=>copyBtn.textContent='📋 Copy Markdown', 1400);
   });
@@ -5925,7 +5925,7 @@ function initSnapshotTelegram(){
       const reportHtml = buildFullHtmlReport();
       const fd = new FormData();
       fd.append('chat_id', chatId);
-      fd.append('caption', `🛡️ ReconForge v3 Complete 30-Phase Methodology Report for ${primary}\nTargets: ${DOMAINS.length}\nGenerated: ${new Date().toISOString()}`);
+      fd.append('caption', `🛡️ ReconForge v4 Complete 30-Phase Methodology Report for ${primary}\nTargets: ${DOMAINS.length}\nGenerated: ${new Date().toISOString()}`);
       fd.append('document', new Blob([reportHtml], {type:'text/html'}), fileName);
 
       const res = await fetch(`https://api.telegram.org/bot${token}/sendDocument`, {
@@ -5966,13 +5966,23 @@ function initPipelineGenerator(){
 
   document.getElementById('pipeGen')&&document.getElementById('pipeGen').addEventListener('click',()=>{
     syncPipeDomainCount();
+    const out=document.getElementById('pipeOutput');
     if(!DOMAINS.length){
-      alert('Load at least one target domain first (top of page), then come back here.');
+      if(out){
+        out.textContent = '# ⚠️ No targets loaded.\n# Load at least one target domain in the Target Scope Ingestion Engine above, then generate.';
+        out.style.display = 'block';
+      }
       return;
     }
     const targets = DOMAINS.slice();
     const selected=[...wrap.querySelectorAll('input:checked')].map(i=>i.value);
-    if(!selected.length){ alert('Select at least one phase.'); return; }
+    if(!selected.length){
+      if(out){
+        out.textContent = '# ⚠️ Please select at least one methodology phase from the checkboxes above.';
+        out.style.display = 'block';
+      }
+      return;
+    }
 
     let script='#!/bin/bash\n# Recon Master Pipeline Script\n# Generated: '+new Date().toISOString()+'\n# Targets: '+targets.length+'\n\nset -e\n\nTARGETS=(\n'
       + targets.map(d=>'  "'+d+'"').join('\n') + '\n)\n\n'
@@ -5988,13 +5998,12 @@ function initPipelineGenerator(){
     script += '  echo "[+] Done: $TARGET — results in recon_$TARGET/"\n  cd ..\ndone\n\n';
     script += 'echo "[+] ALL '+targets.length+' TARGETS COMPLETE"';
 
-    const out=document.getElementById('pipeOutput');
     out.textContent=script; out.style.display='block';
     document.getElementById('pipeDl').style.display='';
     document.getElementById('pipeCopy').style.display='';
   });
   document.getElementById('pipeCopy')&&document.getElementById('pipeCopy').addEventListener('click',()=>{
-    navigator.clipboard.writeText(document.getElementById('pipeOutput').textContent);
+    navigator.clipboard.writeText(document.getElementById('pipeOutput').textContent).catch(()=>{});
     document.getElementById('pipeCopy').textContent='✅ Copied';
     setTimeout(()=>document.getElementById('pipeCopy').textContent='📋 Copy',1300);
   });
@@ -6249,17 +6258,20 @@ window.injectPreset = function(domainsList){
 window.clearAllTargets = function(){
   const inp = document.getElementById('domainInput');
   if(inp) inp.value = '';
-  if(confirm('Clear all loaded targets?')){
-    if(typeof DOMAINS !== 'undefined') DOMAINS.length = 0;
-    if(typeof resetAllCommandBlocks === 'function') resetAllCommandBlocks();
-    if(typeof window.refreshTgPreview === 'function') window.refreshTgPreview();
-    const mini = document.getElementById('miniDomainInput');
-    if(mini) mini.value = '';
-    const targetLabel = document.getElementById('gsearchTargetLabel');
-    if(targetLabel) targetLabel.textContent = 'target.com';
-    if(typeof window.runGlobalDorkSearch === 'function'){
-      window.runGlobalDorkSearch();
-    }
+  if(typeof DOMAINS !== 'undefined') DOMAINS.length = 0;
+  if(typeof resetAllCommandBlocks === 'function') resetAllCommandBlocks();
+  if(typeof window.refreshTgPreview === 'function') window.refreshTgPreview();
+  const mini = document.getElementById('miniDomainInput');
+  if(mini) mini.value = '';
+  const countLine = document.getElementById('domainCountLine');
+  if(countLine) countLine.innerHTML = '<b>0</b> targets loaded';
+  const chipsBar = document.getElementById('domainChipsBar');
+  if(chipsBar) chipsBar.innerHTML = '';
+  const targetLabel = document.getElementById('gsearchTargetLabel');
+  if(targetLabel) targetLabel.textContent = 'target.com';
+  if(typeof window.populateDorkTargetDropdown === 'function') window.populateDorkTargetDropdown();
+  if(typeof window.runGlobalDorkSearch === 'function'){
+    window.runGlobalDorkSearch();
   }
 };
 
@@ -6268,7 +6280,7 @@ window.clearAllTargets = function(){
 (function(){
   const scriptContent = `#!/usr/bin/env bash
 # ==============================================================================
-# ⚡ ReconForge v3 — Universal 1-Click Master Arsenal Installer & Tool Cloner
+# ⚡ ReconForge v4 — Universal 1-Click Master Arsenal Installer & Tool Cloner
 # Engineered for Bug Bounty Hunters, Penetration Testers & Red Teams
 # Author: Pratik Khairnar (@pratik-khairnar-sec)
 # ==============================================================================
@@ -6297,7 +6309,7 @@ banner() {
     echo "  ██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗"
     echo "  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝"
     echo -e "\${C_RESET}"
-    echo -e "\${C_BOLD}   ⚡ RECONFORGE v3 — 1-CLICK ALL TOOLS INSTALLER & CLONER ⚡\${C_RESET}"
+    echo -e "\${C_BOLD}   ⚡ RECONFORGE v4 — 1-CLICK ALL TOOLS INSTALLER & CLONER ⚡\${C_RESET}"
     echo -e "\${C_CYAN}   Zero-Friction Bug Bounty Reconnaissance Suite Automated Setup\${C_RESET}"
     echo -e "\${C_BLUE}   Author: Pratik Khairnar (@pratik-khairnar-sec)\${C_RESET}"
     echo " =============================================================================="
@@ -7194,7 +7206,7 @@ echo -e "\${C_CYAN}=============================================================
           var old = copyAllBtn.textContent;
           copyAllBtn.textContent = '✓ Copied ' + items.length + '!';
           setTimeout(function(){ copyAllBtn.textContent = old; }, 1500);
-        });
+        }).catch(function(){});
       });
     }
 
@@ -7263,7 +7275,7 @@ echo -e "\${C_CYAN}=============================================================
                 btn.style.borderColor = '';
                 btn.style.color = '';
               }, 1200);
-            });
+            }).catch(function(){});
           }
         }
       });

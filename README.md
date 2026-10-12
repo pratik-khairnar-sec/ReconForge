@@ -1,12 +1,12 @@
-# ⚡ ReconForge v3 — Advanced Bug Bounty Reconnaissance Framework & Automated Dork Intelligence Engine
+# ⚡ ReconForge v4 — Enterprise Bug Bounty Reconnaissance Framework & Universal Dork Intelligence Architecture
 
 <p align="center">
   <a href="https://pratik-khairnar-sec.github.io/ReconForge/">
     <img src="https://img.shields.io/badge/🌐_LIVE_WEB_APP-LAUNCH_RECONFORGE-0284c7?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Web App">
   </a>
-  <img src="https://img.shields.io/badge/Version-v3.0--Universal-38bdf8?style=for-the-badge&logo=shield" alt="Version">
+  <img src="https://img.shields.io/badge/Version-v4.0--Enterprise-38bdf8?style=for-the-badge&logo=shield" alt="Version">
   <img src="https://img.shields.io/badge/Author-Pratik-38bdf8?style=for-the-badge&logo=github" alt="Author">
-  <img src="https://img.shields.io/badge/Dork%20Vault-52%2C640%2B-ffd23f?style=for-the-badge&logo=google" alt="Dorks">
+  <img src="https://img.shields.io/badge/Dork%20Vault-52%2C630%2B-ffd23f?style=for-the-badge&logo=google" alt="Dorks">
   <img src="https://img.shields.io/badge/Phases-30%20Master%20Modules-ff3b5c?style=for-the-badge" alt="Phases">
   <img src="https://img.shields.io/badge/License-MIT-0284c7?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/Architecture-100%25%20Offline%20Client--Side-38bdf8?style=for-the-badge" alt="Offline">
@@ -19,29 +19,57 @@
   <a href="https://discord.com/users/1531910259080167494"><img src="https://img.shields.io/badge/Discord-pratik.khairnar.sec-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
 </p>
 
-> 🚀 **Instant Live Access:** Launch ReconForge v3 directly in your browser with zero installation: **[pratik-khairnar-sec.github.io/ReconForge](https://pratik-khairnar-sec.github.io/ReconForge/)**
+> 🚀 **Instant Live Access:** Launch ReconForge v4 directly in your browser with zero installation: **[pratik-khairnar-sec.github.io/ReconForge](https://pratik-khairnar-sec.github.io/ReconForge/)**
 > 
 > 📖 **Featured In-Depth Research:** Read the official architectural publication on [Medium](https://pratik-khairnar-sec.medium.com/reconforge-v3-automating-33-phases-of-bug-bounty-reconnaissance-zero-install-13-600-search-7c0e353a709b) and explore the breakdown on [X / Twitter](https://x.com/PratikSec/status/2108584870293451190).
 
 ---
 
 <p align="center">
-  <img src="reconforge_dashboard.png" alt="ReconForge v3 Tactical Dashboard" width="100%">
+  <img src="reconforge_dashboard.png" alt="ReconForge v4 Tactical Dashboard" width="100%">
 </p>
 
 ## 🌟 Executive Summary
 
-**ReconForge v3** is a state-of-the-art, **100% client-side, zero-dependency, offline reconnaissance operating system and intelligence vault** engineered specifically for professional Bug Bounty Hunters, Penetration Testers, and Red Teams.
+**ReconForge v4** is a state-of-the-art, **100% client-side, zero-dependency, offline reconnaissance operating system and intelligence vault** engineered specifically for professional Bug Bounty Hunters, Penetration Testers, and Red Teams.
 
-Created and curated by **[Pratik Khairnar (@pratik-khairnar-sec)](https://github.com/pratik-khairnar-sec)**, ReconForge v3 consolidates years of field-tested offensive security methodology into an ultra-fast, single-dashboard reconnaissance suite. It bridges the gap between manual recon note-taking, automated CLI tool chaining, and OSINT dorking by unifying **30 comprehensive reconnaissance phases**, over **52,630+ curated search queries**, a **multi-target tool-major execution engine**, dual-channel **Telegram bot reporting**, and an **anti-glare ergonomic UI designed for zero visual fatigue**.
+Created and curated by **[Pratik Khairnar (@pratik-khairnar-sec)](https://github.com/pratik-khairnar-sec)**, ReconForge v4 consolidates years of field-tested offensive security methodology into an ultra-fast, single-dashboard reconnaissance suite. It bridges the gap between manual recon note-taking, automated CLI tool chaining, and OSINT dorking by unifying **30 comprehensive reconnaissance phases**, over **52,630+ curated search queries**, a **multi-target tool-major execution engine**, dual-channel **Telegram bot reporting**, and an **anti-glare ergonomic UI designed for zero visual fatigue**.
 
 Everything operates directly inside the browser using modern web standards—**no Node.js installation required, no Python runtime needed, no external API keys forced, and zero telemetry leaving your machine**.
+
+---
+
+---
+
+## 🌟 What's New in Version 4 (v4.0 Enterprise Edition)
+
+ReconForge v4 represents a major architectural evolution, elevating the framework from a modular guide into a unified, enterprise-grade offensive intelligence and reconnaissance workstation:
+
+1. **🌐 Universal 52,630+ Dork Intelligence Vault (Offline In-Memory Engine):**
+   - **Zero-Dependency Browser Search**: Embeds 52,630 unique, high-signal dork queries directly within `index.html` with zero external API calls or scraping latency.
+   - **16 Modular CLI Wordlists**: Categorized character-wise in [`wordlists/dorks/`](wordlists/dorks/) for direct headless feeding into `nuclei`, `ffuf`, `katana`, and `gau`.
+
+2. **⚡ Endless Virtual Batch Scrolling (`CHUNK_SIZE = 150`):**
+   - Completely removes the previous 300-dork query display ceiling.
+   - Smooth progressive batch loading seamlessly renders batches as the user scrolls, complemented by an immediate **`⚡ Render All`** control.
+
+3. **🏗️ 30 Master Methodology Phases Consolidation (Zero Redundancy):**
+   - **Architectural Justification (Why Phases 31, 32, and 33 were consolidated):** In earlier iterations, Phase 31 (*Shodan Recon*), Phase 32 (*GitHub Secret Dorking*), and Phase 33 (*Bug Bounty & VDP Discovery*) contained redundant subsets of queries that duplicated the broader search engine. In v4, all static duplicates have been consolidated into the unified **Phase 21 Universal Mega Dork Engine** under dedicated instant filter chips (`🐙 GitHub Secrets`, `🔍 Shodan Recon`, `🎯 Paid BBP`, `🛡️ VDP`).
+   - This eliminates repetitive methodology steps while **preserving 100% of all queries** and establishing a clean, streamlined **30 Master Methodology Phases** standard.
+
+4. **🎯 Real-Time Multi-Target Ingestion & Query Auto-Injection:**
+   - Seamlessly switch between **Active Target Mode** (`site:api.target.com inurl:...`) and **All Targets Combined Mode** (`(site:target1.com | site:target2.com) inurl:...`).
+   - One-click bulk wordlist export generating customized search queries across all loaded in-scope targets simultaneously.
+
+5. **🛡️ 100% Operational Integrity & Executive Cybersecurity Standards:**
+   - 0 broken click handlers, fail-safe clipboard handlers, zero third-party scrape metadata, and exclusively authored by **[Pratik Khairnar (@pratik-khairnar-sec)](https://github.com/pratik-khairnar-sec)**.
 
 ---
 
 ## 📑 Table of Contents
 
 - [🌟 Executive Summary](#-executive-summary)
+- [🌟 What's New in Version 4 (v4.0 Enterprise Edition)](#-whats-new-in-version-4-v40-enterprise-edition)
 - [🎯 Core Architecture & Innovations](#-core-architecture--innovations)
   - [1. Tool-Major Multi-Target Pipeline Engine](#1-tool-major-multi-target-pipeline-engine)
   - [2. Anti-Glare Ergonomic UI & Eye Comfort Mode](#2-anti-glare-ergonomic-ui--eye-comfort-mode)
@@ -102,7 +130,7 @@ Target 1 -> Subfinder -> httpx -> Katana -> Nuclei
 Target 2 -> Subfinder -> httpx -> Katana -> Nuclei
 Target 3 -> Subfinder -> httpx -> Katana -> Nuclei
 
-⚡ ReconForge v3 (Tool-Major Architecture):
+⚡ ReconForge v4 (Tool-Major Architecture):
 [Subfinder] -> Target 1, Target 2, Target 3  ==> Consolidated Attack Surface
 [httpx]     -> Target 1, Target 2, Target 3  ==> Verified Active Targets
 [Katana]    -> Target 1, Target 2, Target 3  ==> Crawled Endpoints
@@ -121,7 +149,7 @@ Target 3 -> Subfinder -> httpx -> Katana -> Nuclei
 
 Extended bug bounty and penetration testing sessions often stretch across 8 to 14 hours. High-contrast neon themes, glowing green terminal text, and flickering CRT scanlines cause severe visual fatigue and eye strain.
 
-ReconForge v3 was built ground-up with a **medically conscious ergonomic color system**:
+ReconForge v4 was built ground-up with a **medically conscious ergonomic color system**:
 - **Nord / Steel Slate Dark Mode**: Deep `#090d14` background with `#121a27` container panels.
 - **Cyber Ice-Blue Accents (`#38bdf8`)**: Crisp, clear contrast without chromatic aberration.
 - **Zero Pure Green (`#00ff00`)**: Eliminates visual glare and text vibrating artifacts.
@@ -132,7 +160,7 @@ ReconForge v3 was built ground-up with a **medically conscious ergonomic color s
 
 ### 3. 52,630+ Mega Dork Intelligence Vault & Multi-Target Engine
 
-ReconForge v3 embeds an exhaustive offline database of **52,630 pre-compiled offensive search queries** across 16 categorized modules directly into **Phase 21 (Step 96)**, perfectly respecting professional bug bounty methodology (*Recon First -> Deep Dorking*):
+ReconForge v4 embeds an exhaustive offline database of **52,630 pre-compiled offensive search queries** across 16 categorized modules directly into **Phase 21 (Step 96)**, perfectly respecting professional bug bounty methodology (*Recon First -> Deep Dorking*):
 
 #### 🎯 14 Character-Wise Category Tabs & Dynamic Concept Explanations:
 - **`🎯 BBP (Paid Programs)` (125 dorks)**: Discovers unlisted paid bug bounty programs, bug bounty scopes, asset reward tables, and bounty submission guidelines.
@@ -322,7 +350,7 @@ Manage multiple engagements in isolation without losing your session data:
 
 ## 📦 Wordlists & Curated Data Assets
 
-ReconForge v3 includes **9 curated wordlists** (~750 KB) located in the [`wordlists/`](wordlists/) directory:
+ReconForge v4 includes **16 modular dork wordlists + 9 curated wordlists** (~750 KB) located in the [`wordlists/`](wordlists/) directory:
 
 | Filename | Purpose & Content | Typical Tools |
 | :--- | :--- | :--- |
@@ -363,7 +391,7 @@ ReconForge organizes all **52,630 dorks** into 16 discrete, single-purpose text 
 
 ## 🚀 Quick Start & Installation
 
-Because ReconForge v3 is **100% client-side**, there is zero installation overhead for the dashboard itself.
+Because ReconForge v4 is **100% client-side**, there is zero installation overhead for the dashboard itself.
 
 ### 📦 Automated 1-Click Arsenal Setup (Install & Clone All Tools)
 ReconForge includes a complete, automated installation script [`install_reconforge_tools.sh`](install_reconforge_tools.sh) to install, compile, clone, and configure all 60+ CLI tools (`subfinder`, `httpx`, `katana`, `nuclei`, `naabu`, `dalfox`, `arjun`, `SecretFinder`, etc.), GF patterns (`~/.gf/`), and SecLists in one command:
@@ -406,7 +434,7 @@ python -m http.server 8080
 ## 💼 Practical Workflows & Field Scenarios
 
 ### Workflow 1: Single Target In-Depth Audit
-1. Open ReconForge v3 in your browser.
+1. Open ReconForge v4 in your browser.
 2. In the top target input box, enter `target.com` and click **"⚡ APPLY TO ALL"** (or press `Ctrl+Enter`).
 3. Click **"⏱ 00:00:00"** to start your engagement timer.
 4. Follow **Phases 01 through 08** sequentially:
@@ -457,7 +485,7 @@ python -m http.server 8080
 ## ❓ Frequently Asked Questions (FAQ) & Troubleshooting
 
 #### Q1: Does ReconForge send my target data or API tokens anywhere?
-**A**: **Absolutely not.** ReconForge v3 has zero tracking, zero analytics, and zero external backend servers. All state, notes, engagements, and Telegram tokens are stored exclusively inside your browser's private `localStorage`.
+**A**: **Absolutely not.** ReconForge v4 has zero tracking, zero analytics, and zero external backend servers. All state, notes, engagements, and Telegram tokens are stored exclusively inside your browser's private `localStorage`.
 
 #### Q2: Why did Telegram API return a CORS error when testing from `file://`?
 **A**: Web browsers deliberately block client-side JavaScript from making cross-origin requests (`fetch`) to external APIs when running from a local file URL (`file:///...`). ReconForge v3 handles this gracefully by generating a pre-filled, one-click `curl` command that you can execute in your terminal. Alternatively, run `python -m http.server 8080` and open `http://localhost:8080`.
@@ -470,7 +498,7 @@ python -m http.server 8080
 ## 🔒 Ethical Conduct & Disclaimer
 
 > [!IMPORTANT]
-> **ReconForge v3** is engineered strictly for **authorized security testing**, educational research, and certified Bug Bounty engagements with explicit written scope authorization. 
+> **ReconForge v4** is engineered strictly for **authorized security testing**, educational research, and certified Bug Bounty engagements with explicit written scope authorization. 
 > 
 > Performing port scans, vulnerability probes, or invasive security checks against assets without prior written permission is illegal and violates global cyber laws (such as the US CFAA, UK Computer Misuse Act, and Indian IT Act). Always adhere strictly to the rules of engagement defined by the program host.
 
@@ -484,4 +512,4 @@ python -m http.server 8080
 - **Project Repository**: [ReconForge](https://github.com/pratik-khairnar-sec/ReconForge)
 - **Community Contributions**: Pull requests, new phase methodologies, and updated dork collections are warmly welcomed! Please review [`CONTRIBUTING.md`](CONTRIBUTING.md) before submitting.
 
-⭐ **If ReconForge v3 helps you discover a critical vulnerability or streamline your recon workflow, please consider giving the repository a Star on GitHub!**
+⭐ **If ReconForge v4 helps you discover a critical vulnerability or streamline your recon workflow, please consider giving the repository a Star on GitHub!**
