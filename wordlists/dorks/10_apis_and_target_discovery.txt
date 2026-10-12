@@ -1,0 +1,25 @@
+site:*.target.com
+site:*.*.target.com
+site:target.com -www
+site:*.target.com -www -mail -ftp -smtp
+site:target.com inurl:dev OR inurl:staging OR inurl:test OR inurl:uat
+site:target.com inurl:beta OR inurl:alpha OR inurl:sandbox
+site:target.com inurl:old OR inurl:backup OR inurl:bak
+"target.com" inurl:jenkins OR inurl:jira OR inurl:confluence
+site:target.com inurl:admin OR inurl:api OR inurl:swagger
+site:target.com inurl:api
+site:target.com inurl:/api/v1 OR inurl:/api/v2 OR inurl:/api/v3
+site:target.com inurl:graphql
+site:target.com swagger OR openapi OR "api-docs"
+site:target.com intitle:"Swagger UI"
+site:target.com inurl:swagger.json OR inurl:openapi.json
+site:target.com inurl:rest OR inurl:soap
+site:target.com intext:"api_key" OR intext:"access_token"
+site:target.com inurl:wp-content OR inurl:wp-includes
+site:target.com inurl:actuator OR inurl:/health OR inurl:/metrics
+site:target.com "X-Powered-By" OR "Powered by"
+"target" site:s3.amazonaws.com
+"target" site:blob.core.windows.net
+"target" site:storage.googleapis.com
+"target" site:firebaseio.com
+site:target.com inurl:robots.txt

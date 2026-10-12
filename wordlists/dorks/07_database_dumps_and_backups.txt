@@ -1,0 +1,21 @@
+" Dumping data for table"
+"#mysql dump" filetype:sql
+"#mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
+"Dumping data for table"
+"mysql dump" filetype:sql
+"mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
+#mysql dump” filetype:sql
+#mysql dump” filetype:sql 21232f297a57a5a743894a0e4a801fc3
+Dumping data for table”
+filetype:sql +"IDENTIFIED BY" -cvs
+filetype:sql +”IDENTIFIED BY” -cvs
+intext:"#mysql dump" filetype:sql
+intext:"#mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
+intext:"@gmail.com" AND intext:"@yahoo.com" filetype:sql
+inurl:nuke filetype:sql
+mysql dump” filetype:sql
+filetype:pdb pdb backup (Pilot | Pluckerdb)
+intitle:"Backup-Management (phpMyBackup v.0.4 beta * )" -johnny.ihackstuff
+intitle:index.of intext:"secring.skr"|"secring.pgp"|"secring.bak"
+intitle:index.of intext:”secring.skr”|”secring.pgp”|”secring.bak”
+inurl:backup filetype:mdb
