@@ -1,4 +1,4 @@
-# ReconForge Top 1% Elite Dork Vault (1674+ Dorks)
+# ReconForge Top 1% Elite Dork Vault (2,905+ Dorks)
 
 Curated, battle-tested, high-impact Google Dorks for finding **P1/P2 vulnerabilities**, exposed cloud storage, credentials, internal debuggers, and independent bug bounty programs.
 

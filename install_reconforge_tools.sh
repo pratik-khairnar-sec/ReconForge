@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# ⚡ ReconForge v3 — Universal 1-Click Master Arsenal Installer & Tool Cloner
+# ⚡ ReconForge v4 — Universal 1-Click Master Arsenal Installer & Tool Cloner
 # Engineered for Bug Bounty Hunters, Penetration Testers & Red Teams
 # Author: Pratik Khairnar (@pratik-khairnar-sec)
 # ==============================================================================
@@ -29,7 +29,7 @@ banner() {
     echo "  ██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║██║     ╚██████╔╝██║  ██║╚██████╔╝███████╗"
     echo "  ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝╚═╝      ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝"
     echo -e "${C_RESET}"
-    echo -e "${C_BOLD}   ⚡ RECONFORGE v3 — 1-CLICK ALL TOOLS INSTALLER & CLONER ⚡${C_RESET}"
+    echo -e "${C_BOLD}   ⚡ RECONFORGE v4 — 1-CLICK ALL TOOLS INSTALLER & CLONER ⚡${C_RESET}"
     echo -e "${C_CYAN}   Zero-Friction Bug Bounty Reconnaissance Suite Automated Setup${C_RESET}"
     echo -e "${C_BLUE}   Author: Pratik Khairnar (@pratik-khairnar-sec)${C_RESET}"
     echo " =============================================================================="

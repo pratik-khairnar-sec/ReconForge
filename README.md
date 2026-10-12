@@ -488,10 +488,10 @@ python -m http.server 8080
 **A**: **Absolutely not.** ReconForge v4 has zero tracking, zero analytics, and zero external backend servers. All state, notes, engagements, and Telegram tokens are stored exclusively inside your browser's private `localStorage`.
 
 #### Q2: Why did Telegram API return a CORS error when testing from `file://`?
-**A**: Web browsers deliberately block client-side JavaScript from making cross-origin requests (`fetch`) to external APIs when running from a local file URL (`file:///...`). ReconForge v3 handles this gracefully by generating a pre-filled, one-click `curl` command that you can execute in your terminal. Alternatively, run `python -m http.server 8080` and open `http://localhost:8080`.
+**A**: Web browsers deliberately block client-side JavaScript from making cross-origin requests (`fetch`) to external APIs when running from a local file URL (`file:///...`). ReconForge v4 handles this gracefully by generating a pre-filled, one-click `curl` command that you can execute in your terminal. Alternatively, run `python -m http.server 8080` and open `http://localhost:8080`.
 
 #### Q3: Can I run ReconForge completely offline on an airplane or isolated lab?
-**A**: **Yes.** All 13,600+ dorks, payload catalogs, phase methodologies, and templates are bundled statically inside `index.html`. You do not need an active internet connection to use the framework.
+**A**: **Yes.** All 52,630+ dorks, payload catalogs, phase methodologies, and templates are bundled statically inside `index.html`. You do not need an active internet connection to use the framework.
 
 ---
 
