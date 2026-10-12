@@ -868,12 +868,12 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
    RECONFORGE UNIVERSAL DORK SEARCH ENGINE & SPOTLIGHT MODAL
    ================================================================ */
 .global-search-section {
-  max-width: 980px;
+  max-width: 1140px;
   margin: 0 auto 28px;
-  padding: 0 10px;
+  padding: 0 16px;
 }
 .global-search-card {
-  background: rgba(11, 17, 26, 0.92);
+  background: rgba(11, 17, 26, 0.94);
   border: 1px solid rgba(56, 189, 248, 0.35);
   border-radius: 10px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), 0 0 24px rgba(56, 189, 248, 0.12);
@@ -892,7 +892,8 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
 .gsearch-title-wrap {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 .gsearch-title {
   font-family: 'JetBrains Mono', Consolas, monospace;
@@ -908,7 +909,8 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
   border: 1px solid rgba(56, 189, 248, 0.3);
   color: #7dd3fc;
   padding: 2px 8px;
-  border-radius: 12px;
+  border-radius: 999px;
+  font-weight: 600;
 }
 .gsearch-input-wrap {
   position: relative;
@@ -918,20 +920,20 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
 }
 .gsearch-input {
   width: 100%;
-  background: #06090f;
-  border: 1.5px solid rgba(56, 189, 248, 0.35);
+  background: #030712;
+  border: 1px solid #1e293b;
   border-radius: 8px;
-  color: #f1f5f9;
-  font-family: 'JetBrains Mono', Consolas, monospace;
-  font-size: 13.5px;
   padding: 12px 42px 12px 14px;
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 14px;
+  color: #f8fafc;
   outline: none;
   transition: all 0.2s ease;
   box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
 }
 .gsearch-input:focus {
   border-color: #38bdf8;
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.35), inset 0 2px 6px rgba(0,0,0,0.6);
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.25), inset 0 2px 6px rgba(0,0,0,0.4);
 }
 .gsearch-clear-btn {
   position: absolute;
@@ -939,164 +941,165 @@ body.theme-light .badge { background: #f8fafc; border-color: #e2e8f0; color: #64
   background: transparent;
   border: none;
   color: #64748b;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   padding: 4px;
-  border-radius: 4px;
-  transition: color 0.15s;
+  line-height: 1;
 }
-.gsearch-clear-btn:hover { color: #f87171; }
-
-.gsearch-tags {
+.gsearch-clear-btn:hover {
+  color: #f8fafc;
+}
+.gsearch-tags-row {
   display: flex;
+  align-items: center;
+  gap: 8px;
   flex-wrap: wrap;
-  gap: 7px;
   margin-bottom: 12px;
 }
 .gsearch-tag {
   background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(56, 189, 248, 0.22);
+  border: 1px solid #334155;
   color: #94a3b8;
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
-  padding: 4px 10px;
+  padding: 5px 10px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.18s ease;
+  transition: all 0.15s ease;
   user-select: none;
 }
-.gsearch-tag:hover, .gsearch-tag.active {
-  border-color: #38bdf8;
-  color: #38bdf8;
-  background: rgba(56, 189, 248, 0.15);
-  transform: translateY(-1px);
+.gsearch-tag:hover {
+  border-color: #64748b;
+  color: #e2e8f0;
 }
-.gsearch-tag-elite {
-  border-color: rgba(251, 191, 36, 0.4);
+.gsearch-tag.active {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: #f59e0b;
   color: #fbbf24;
-  background: rgba(251, 191, 36, 0.08);
   font-weight: 700;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
 }
-.gsearch-tag-elite:hover, .gsearch-tag-elite.active {
-  border-color: #fbbf24;
-  color: #fef08a;
-  background: rgba(251, 191, 36, 0.2);
-}
-
-.gsearch-status {
+.gsearch-subbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 11px;
   color: #64748b;
   margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  padding: 0 2px;
 }
-.gsearch-status span.highlight { color: #38bdf8; font-weight: 700; }
-
 .gsearch-results {
   max-height: 480px;
   overflow-y: auto;
-  border: 1px solid rgba(56, 189, 248, 0.18);
-  border-radius: 6px;
-  background: #050811;
-  padding: 8px 12px;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  background: rgba(3, 7, 18, 0.8);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 .gsearch-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 9px 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  transition: background 0.15s;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  border-radius: 6px;
+  padding: 9px 12px;
+  transition: all 0.15s ease;
 }
-.gsearch-item:last-child { border-bottom: none; }
-.gsearch-item:hover { background: rgba(56, 189, 248, 0.04); }
-.gsearch-query {
+.gsearch-item:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(15, 23, 42, 0.95);
+}
+.gsearch-main {
   flex: 1;
+  min-width: 0;
+}
+.gsearch-query {
+  font-family: 'JetBrains Mono', Consolas, monospace;
+  font-size: 12.5px;
   color: #e2e8f0;
   word-break: break-all;
-}
-.gsearch-query mark {
-  background: rgba(56, 189, 248, 0.25);
-  color: #7dd3fc;
-  padding: 0 2px;
-  border-radius: 2px;
+  line-height: 1.4;
 }
 .gsearch-cat {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 9.5px;
-  color: #94a3b8;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(56, 189, 248, 0.18);
-  padding: 2px 7px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 1px 6px;
   border-radius: 4px;
-  white-space: nowrap;
+  margin-top: 4px;
 }
 .gsearch-actions {
   display: flex;
+  align-items: center;
   gap: 6px;
   flex-shrink: 0;
 }
 .gsearch-btn {
-  background: transparent;
-  border: 1px solid rgba(56, 189, 248, 0.3);
-  color: #38bdf8;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid #475569;
+  color: #cbd5e1;
+  padding: 4px 10px;
+  border-radius: 5px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  font-size: 11px;
   cursor: pointer;
-  transition: all 0.15s ease;
   text-decoration: none;
+  transition: all 0.15s ease;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  justify-content: center;
 }
 .gsearch-btn:hover {
-  background: #38bdf8;
-  color: #000;
+  background: #334155;
+  color: #f8fafc;
+  border-color: #94a3b8;
+}
+.gsearch-btn-google {
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.08);
+}
+.gsearch-btn-google:hover {
+  background: rgba(56, 189, 248, 0.2);
   border-color: #38bdf8;
+  color: #ffffff;
 }
-.gsearch-google-btn {
-  border-color: rgba(251, 191, 36, 0.4);
-  color: #fbbf24;
-}
-.gsearch-google-btn:hover {
-  background: #fbbf24;
-  color: #000;
-  border-color: #fbbf24;
-}
-
 /* Light theme overrides */
 body.theme-light .global-search-card {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.95);
   border-color: #cbd5e1;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 body.theme-light .gsearch-input {
-  background: #f8fafc;
+  background: #ffffff;
   border-color: #cbd5e1;
   color: #0f172a;
 }
 body.theme-light .gsearch-results {
   background: #f8fafc;
-  border-color: #cbd5e1;
+  border-color: #e2e8f0;
 }
 body.theme-light .gsearch-item {
-  border-bottom-color: #e2e8f0;
+  background: #ffffff;
+  border-color: #e2e8f0;
 }
 body.theme-light .gsearch-query {
-  color: #1e293b;
+  color: #0f172a;
 }
 body.theme-light .gsearch-tag {
   background: #f1f5f9;
   border-color: #cbd5e1;
   color: #475569;
 }
-
 </style>
 </head>
 <body>
@@ -1109,7 +1112,7 @@ body.theme-light .gsearch-tag {
     <span id="tbActiveEng" class="tb-active-eng" style="display:none;"></span>
   </div>
   <div class="tb-deck-center">
-    <button class="tb-btn" id="tbDorkSearchJump" type="button" style="border-color:var(--yellow);color:var(--yellow);background:rgba(251,191,36,0.12);font-weight:700;" onclick="document.getElementById('globalDorkInput').focus(); document.getElementById('globalDorkSection').scrollIntoView({behavior:'smooth'});">🔍 Search 17,000+ Dorks</button>
+    <button class="tb-btn" id="tbDorkSearchJump" type="button" style="border-color:var(--yellow);color:var(--yellow);background:rgba(251,191,36,0.12);font-weight:700;">🔍 Search 17,000+ Dorks</button>
     <button class="tb-btn" id="tbInstallBtn" type="button" style="border-color:var(--cyan);color:var(--cyan);background:rgba(56,189,248,0.12);font-weight:600;">📦 Install All Tools</button>
     <button class="tb-btn" id="tbEngBtn"    type="button">⚡ Engagements</button>
     <button class="tb-btn" id="tbReportBtn" type="button">📋 Report Gen</button>
@@ -1184,6 +1187,50 @@ body.theme-light .gsearch-tag {
         <div class="kpi-num">TELEGRAM SYNC &amp; HTML</div>
         <div class="kpi-lbl">Live Milestone Alerts &amp; Full 33-Phase Report</div>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     RECONFORGE UNIVERSAL DORK SEARCH CONSOLE
+     ================================================================ -->
+<section class="global-search-section" id="globalDorkSection">
+  <div class="global-search-card">
+    <div class="gsearch-header">
+      <div class="gsearch-title-wrap">
+        <span class="gsearch-title">🔍 RECONFORGE UNIVERSAL DORK SEARCH ENGINE</span>
+        <span class="gsearch-badge">17,071 LIVE DORKS EMBEDDED</span>
+      </div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8;">
+        Target: <strong id="gsearchTargetLabel" style="color:#38bdf8;">target.com</strong> (Auto-injected into queries)
+      </div>
+    </div>
+
+    <div class="gsearch-input-wrap">
+      <input type="text" id="globalDorkInput" class="gsearch-input" placeholder="🔍 Type any keyword to search 17,071 live dorks... (e.g. bug, aws, s3, .env, api, password, token)">
+      <button type="button" id="globalDorkClearBtn" class="gsearch-clear-btn" title="Clear search">✕</button>
+    </div>
+
+    <div class="gsearch-tags-row">
+      <span class="gsearch-tag active" data-cat="all">🌐 All 17,071 Dorks</span>
+      <span class="gsearch-tag" data-cat="elite">🔥 Top 1% Elite Vault (1,674)</span>
+      <span class="gsearch-tag" data-cat="cloud">☁ Cloud S3 &amp; Buckets</span>
+      <span class="gsearch-tag" data-cat="secrets">🔑 .env &amp; Secrets</span>
+      <span class="gsearch-tag" data-cat="actuators">📊 Actuators &amp; Heapdumps</span>
+      <span class="gsearch-tag" data-cat="admin">🚪 Admin Panels</span>
+      <span class="gsearch-tag" data-cat="api">⚡ APIs &amp; Swagger</span>
+      <span class="gsearch-tag" data-cat="sqli">💉 SQLi &amp; IDOR</span>
+      <span class="gsearch-tag" data-cat="bounty">🎯 Bug Bounty Programs</span>
+    </div>
+
+    <div class="gsearch-subbar">
+      <span>Showing <strong id="gsearchCount" style="color:#38bdf8;">0</strong> matching dorks</span>
+      <span>Click Copy or Google to execute directly &bull; Press <kbd style="background:#1e293b;padding:1px 5px;border-radius:3px;color:#38bdf8;">Ctrl+K</kbd> to focus</span>
+    </div>
+
+    <div class="gsearch-results" id="globalDorkResults">
+      <!-- Dork search cards rendered via JS -->
     </div>
   </div>
 </section>
@@ -1274,50 +1321,6 @@ body.theme-light .gsearch-tag {
         <div class="cmd-panel-head">GENERATED PIPELINE COMMANDS <span id="cmdDomainLabel">— enter a domain above —</span></div>
         <pre id="cmdPre"><code id="cmdCode">// commands will appear here as soon as you apply a domain list</code></pre>
       </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ================================================================
-     RECONFORGE UNIVERSAL DORK SEARCH CONSOLE
-     ================================================================ -->
-<section class="global-search-section" id="globalDorkSection">
-  <div class="global-search-card">
-    <div class="gsearch-header">
-      <div class="gsearch-title-wrap">
-        <span class="gsearch-title">🔍 RECONFORGE UNIVERSAL DORK SEARCH ENGINE</span>
-        <span class="gsearch-badge">17,071 LIVE DORKS EMBEDDED</span>
-      </div>
-      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#94a3b8;">
-        Target: <b id="gsearchTargetLabel" style="color:#38bdf8;">target.com</b> (Auto-injected into queries)
-      </div>
-    </div>
-
-    <div class="gsearch-input-wrap">
-      <input type="text" id="globalDorkInput" class="gsearch-input" placeholder="🔍 Type any keyword to search 17,071 dorks (e.g. .env, s3, admin, sql, actuator, token, backup, api)..." autocomplete="off" spellcheck="false">
-      <button type="button" id="globalDorkClearBtn" class="gsearch-clear-btn" title="Clear search">✕</button>
-    </div>
-
-    <!-- Quick Preset Tag Chips -->
-    <div class="gsearch-tags" id="globalQuickTags">
-      <span class="gsearch-tag gsearch-tag-elite active" data-filter="elite">🔥 Top 1% Elite Vault (1,674)</span>
-      <span class="gsearch-tag" data-filter="cloud">☁️ Cloud S3 &amp; Buckets</span>
-      <span class="gsearch-tag" data-filter="env">🔑 .env &amp; Secrets</span>
-      <span class="gsearch-tag" data-filter="actuator">📊 Actuators &amp; Heapdumps</span>
-      <span class="gsearch-tag" data-filter="admin">🚪 Admin Panels</span>
-      <span class="gsearch-tag" data-filter="api">⚡ APIs &amp; Swagger</span>
-      <span class="gsearch-tag" data-filter="sqli">💉 SQLi &amp; IDOR</span>
-      <span class="gsearch-tag" data-filter="bounty">🎯 Bug Bounty Programs</span>
-    </div>
-
-    <div class="gsearch-status" id="globalSearchStatus">
-      <span>Showing <span class="highlight" id="gsearchCount">0</span> matching dorks</span>
-      <span style="font-size:10.5px;color:#64748b;">Click <b>Copy</b> or <b>Google</b> to execute directly</span>
-    </div>
-
-    <div class="gsearch-results" id="globalSearchResults">
-      <!-- Search items dynamically populated here -->
     </div>
   </div>
 </section>
@@ -6507,167 +6510,6 @@ ${findingsHtml}
 <div class="footer">
   ReconForge v3 :: Advanced Bug Bounty &amp; VAPT Reconnaissance Framework :: Created by Pratik :: <a href="https://github.com/pratik-khairnar-sec" style="color:var(--primary);">github.com/pratik-khairnar-sec</a>
 </div>
-
-<script>
-// ================================================================
-// RECONFORGE UNIVERSAL DORK SEARCH LOGIC (17,071+ DORKS)
-// ================================================================
-(function initGlobalDorkSearch(){
-  const input = document.getElementById('globalDorkInput');
-  const clearBtn = document.getElementById('globalDorkClearBtn');
-  const resultsBox = document.getElementById('globalSearchResults');
-  const countEl = document.getElementById('gsearchCount');
-  const targetLabel = document.getElementById('gsearchTargetLabel');
-  const tagChips = document.querySelectorAll('.gsearch-tag');
-
-  if(!input || !resultsBox) return;
-
-  function getActiveDomain(){
-    if(typeof DOMAINS !== 'undefined' && DOMAINS && DOMAINS.length){
-      return DOMAINS[0];
-    }
-    const dIn = document.getElementById('domainInput');
-    if(dIn && dIn.value.trim()){
-      const first = dIn.value.trim().split(/[,\n\s]+/)[0].replace(/^\*\./,'').replace(/^https?:\/\//,'').replace(/\/.*$/,'');
-      if(first) return first;
-    }
-    return 'target.com';
-  }
-
-  function updateTargetLabel(){
-    const dom = getActiveDomain();
-    if(targetLabel) targetLabel.textContent = dom;
-  }
-
-  function formatDorkWithDomain(dork, dom){
-    if(!dom || dom === 'target.com') return dork;
-    return dork.replace(/\btarget\.com\b/g, dom);
-  }
-
-  function highlightMatches(text, query){
-    if(!query) return esc(text);
-    const escapedQ = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    const regex = new RegExp('(' + escapedQ + ')', 'gi');
-    return esc(text).replace(regex, '<mark>$1</mark>');
-  }
-
-  function esc(s){
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
-
-  function executeSearch(query, categoryFilter){
-    updateTargetLabel();
-    const activeDomain = getActiveDomain();
-    const q = (query || '').trim().toLowerCase();
-    
-    let matches = [];
-    const mega = (typeof MEGA_DATA !== 'undefined') ? MEGA_DATA : {};
-
-    // Specific category filter
-    if(categoryFilter === 'elite'){
-      const eliteKey = "🔥 Top 1% Elite Vault (P1/P2 Exploits & Cloud Leaks)";
-      const list = mega[eliteKey] || [];
-      for(const d of list){
-        if(!q || d.toLowerCase().includes(q)){
-          matches.push({ dork: d, cat: "Top 1% Elite" });
-          if(matches.length >= 300) break;
-        }
-      }
-    } else {
-      for(const cat in mega){
-        const list = mega[cat] || [];
-        for(const d of list){
-          let matched = false;
-          if(categoryFilter){
-            const cLower = cat.toLowerCase();
-            if(categoryFilter === 'cloud' && (cLower.includes('cloud') || cLower.includes('storage') || d.includes('s3') || d.includes('blob'))) matched = true;
-            else if(categoryFilter === 'env' && (cLower.includes('config') || cLower.includes('credential') || d.includes('.env') || d.includes('.git'))) matched = true;
-            else if(categoryFilter === 'actuator' && (d.includes('actuator') || d.includes('heapdump') || d.includes('jolokia') || d.includes('druid'))) matched = true;
-            else if(categoryFilter === 'admin' && (cLower.includes('admin') || cLower.includes('login') || d.includes('admin'))) matched = true;
-            else if(categoryFilter === 'api' && (cLower.includes('api') || d.includes('swagger') || d.includes('graphql'))) matched = true;
-            else if(categoryFilter === 'sqli' && (cLower.includes('sqli') || d.includes('?id=') || d.includes('?user='))) matched = true;
-            else if(categoryFilter === 'bounty' && (cLower.includes('bug bounty') || cLower.includes('vdp') || d.includes('bounty'))) matched = true;
-          } else {
-            matched = true;
-          }
-
-          if(matched && (!q || d.toLowerCase().includes(q))){
-            matches.push({ dork: d, cat: cat.replace(/^GHDB\s*—\s*/,'').slice(0, 24) });
-            if(matches.length >= 300) break;
-          }
-        }
-        if(matches.length >= 300) break;
-      }
-    }
-
-    if(countEl) countEl.textContent = matches.length + (matches.length >= 300 ? '+' : '');
-
-    if(!matches.length){
-      resultsBox.innerHTML = '<div style="padding:28px 16px;text-align:center;color:#64748b;font-family:monospace;font-size:12px;">No matching dorks found for "'+esc(query)+'". Try another keyword like <b>.env, s3, admin, sql, token</b>.</div>';
-      return;
-    }
-
-    let html = '';
-    for(const item of matches){
-      const renderedDork = formatDorkWithDomain(item.dork, activeDomain);
-      const googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(renderedDork);
-      
-      html += `
-        <div class="gsearch-item">
-          <div class="gsearch-query">${highlightMatches(renderedDork, q)}</div>
-          <span class="gsearch-cat">${esc(item.cat)}</span>
-          <div class="gsearch-actions">
-            <button type="button" class="gsearch-btn" onclick="navigator.clipboard.writeText('${esc(renderedDork).replace(/'/g, "\\\'")}'); this.textContent='✓ Copied'; setTimeout(()=>this.textContent='📋 Copy', 1200);">📋 Copy</button>
-            <a href="${googleUrl}" target="_blank" rel="noopener noreferrer" class="gsearch-btn gsearch-google-btn">🚀 Google</a>
-          </div>
-        </div>
-      `;
-    }
-    resultsBox.innerHTML = html;
-  }
-
-  // Event Listeners
-  let debounceTimer = null;
-  input.addEventListener('input', ()=>{
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(()=>{
-      const activeTag = document.querySelector('.gsearch-tag.active');
-      const cat = activeTag ? activeTag.getAttribute('data-filter') : null;
-      executeSearch(input.value, cat);
-    }, 40);
-  });
-
-  if(clearBtn){
-    clearBtn.addEventListener('click', ()=>{
-      input.value = '';
-      input.focus();
-      executeSearch('', 'elite');
-    });
-  }
-
-  tagChips.forEach(chip => {
-    chip.addEventListener('click', ()=>{
-      tagChips.forEach(c => c.classList.remove('active'));
-      chip.classList.add('active');
-      const cat = chip.getAttribute('data-filter');
-      executeSearch(input.value, cat);
-    });
-  });
-
-  // Hotkey: Ctrl+K or / focuses search box
-  document.addEventListener('keydown', (e)=>{
-    if((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')){
-      e.preventDefault();
-      input.focus();
-      document.getElementById('globalDorkSection').scrollIntoView({behavior:'smooth'});
-    }
-  });
-
-  // Initial render with Top 1% Elite Dorks
-  setTimeout(()=> executeSearch('', 'elite'), 200);
-})();
-</script>
-
 </body>
 </html>`;
 }
@@ -7546,5 +7388,231 @@ echo -e "\${C_CYAN}=============================================================
 })();
 
 </script>
+
+<script>
+(function(){
+  var megaCache = null;
+
+  function loadMegaData(){
+    if(megaCache) return megaCache;
+    try {
+      var script = document.getElementById('megaData');
+      if(script && script.textContent){
+        megaCache = JSON.parse(script.textContent);
+        return megaCache;
+      }
+    } catch(e) {
+      console.error('Failed to parse #megaData:', e);
+    }
+    return {};
+  }
+
+  function getActiveDomain(){
+    var mini = document.getElementById('miniDomainInput');
+    if(mini && mini.value && mini.value.trim()){
+      return mini.value.trim();
+    }
+    return 'target.com';
+  }
+
+  function escHtml(str){
+    return String(str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  function highlightMatches(text, query){
+    var escapedText = escHtml(text);
+    if(!query) return escapedText;
+    var q = String(query).trim().toLowerCase();
+    if(!q) return escapedText;
+    var lower = escapedText.toLowerCase();
+    var idx = lower.indexOf(q);
+    if(idx === -1) return escapedText;
+    return escapedText.slice(0, idx) +
+      '<mark style="background:#f59e0b;color:#000;padding:1px 3px;border-radius:2px;font-weight:700;">' +
+      escapedText.slice(idx, idx + q.length) +
+      '</mark>' +
+      escapedText.slice(idx + q.length);
+  }
+
+  window.runGlobalDorkSearch = function(){
+    var input = document.getElementById('globalDorkInput');
+    var resultsBox = document.getElementById('globalDorkResults');
+    var countBox = document.getElementById('gsearchCount');
+    var targetLabel = document.getElementById('gsearchTargetLabel');
+    if(!input || !resultsBox) return;
+
+    var query = input.value.trim().toLowerCase();
+    var domain = getActiveDomain();
+    if(targetLabel) targetLabel.textContent = domain;
+
+    var activeChip = document.querySelector('.gsearch-tag.active');
+    var activeCat = activeChip ? activeChip.getAttribute('data-cat') : 'all';
+
+    var data = loadMegaData();
+    var results = [];
+    var limit = 300;
+
+    for(var cat in data){
+      if(!Object.prototype.hasOwnProperty.call(data, cat)) continue;
+      
+      if(activeCat && activeCat !== 'all'){
+        var catLower = cat.toLowerCase();
+        var matchCat = false;
+        if(activeCat === 'elite' && (catLower.indexOf('top 1%') !== -1 || catLower.indexOf('elite') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'cloud' && (catLower.indexOf('cloud') !== -1 || catLower.indexOf('s3') !== -1 || catLower.indexOf('bucket') !== -1 || catLower.indexOf('storage') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'secrets' && (catLower.indexOf('.env') !== -1 || catLower.indexOf('secret') !== -1 || catLower.indexOf('key') !== -1 || catLower.indexOf('credential') !== -1 || catLower.indexOf('token') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'actuators' && (catLower.indexOf('actuator') !== -1 || catLower.indexOf('heapdump') !== -1 || catLower.indexOf('metrics') !== -1 || catLower.indexOf('spring') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'admin' && (catLower.indexOf('admin') !== -1 || catLower.indexOf('panel') !== -1 || catLower.indexOf('login') !== -1 || catLower.indexOf('dashboard') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'api' && (catLower.indexOf('api') !== -1 || catLower.indexOf('swagger') !== -1 || catLower.indexOf('graphql') !== -1 || catLower.indexOf('openapi') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'sqli' && (catLower.indexOf('sqli') !== -1 || catLower.indexOf('sql') !== -1 || catLower.indexOf('idor') !== -1 || catLower.indexOf('injection') !== -1 || catLower.indexOf('traversal') !== -1)){
+          matchCat = true;
+        } else if(activeCat === 'bounty' && (catLower.indexOf('bounty') !== -1 || catLower.indexOf('disclosure') !== -1 || catLower.indexOf('program') !== -1 || catLower.indexOf('security.txt') !== -1)){
+          matchCat = true;
+        }
+        if(!matchCat) continue;
+      }
+
+      var list = data[cat] || [];
+      for(var i = 0; i < list.length; i++){
+        var rawDork = list[i];
+        if(!query || rawDork.toLowerCase().indexOf(query) !== -1 || cat.toLowerCase().indexOf(query) !== -1){
+          results.push({
+            dork: rawDork,
+            cat: cat
+          });
+          if(results.length >= limit) break;
+        }
+      }
+      if(results.length >= limit) break;
+    }
+
+    if(countBox) countBox.textContent = results.length + (results.length >= limit ? '+' : '');
+
+    if(results.length === 0){
+      resultsBox.innerHTML = '<div style="padding:28px 16px;text-align:center;color:#64748b;font-family:monospace;font-size:13px;">No dorks found matching "' + escHtml(query) + '". Try searching generic terms like "bug", "admin", "token", "s3", or click "All 17,071 Dorks".</div>';
+      return;
+    }
+
+    var html = '';
+    for(var j = 0; j < results.length; j++){
+      var item = results[j];
+      var renderedDork = item.dork.replace(/target\.com/g, domain);
+      var googleUrl = 'https://www.google.com/search?q=' + encodeURIComponent(renderedDork);
+      var encodedDork = encodeURIComponent(renderedDork);
+
+      html += '<div class="gsearch-item">' +
+        '<div class="gsearch-main">' +
+          '<div class="gsearch-query">' + highlightMatches(renderedDork, query) + '</div>' +
+          '<span class="gsearch-cat">' + escHtml(item.cat) + '</span>' +
+        '</div>' +
+        '<div class="gsearch-actions">' +
+          '<button type="button" class="gsearch-btn gsearch-copy-btn" data-dork="' + encodedDork + '" title="Copy query to clipboard">📋 Copy</button>' +
+          '<a href="' + escHtml(googleUrl) + '" target="_blank" rel="noopener noreferrer" class="gsearch-btn gsearch-btn-google" title="Open query in Google">↗ Google</a>' +
+        '</div>' +
+      '</div>';
+    }
+    resultsBox.innerHTML = html;
+  };
+
+  function setupGlobalDorkEngine(){
+    var input = document.getElementById('globalDorkInput');
+    var clearBtn = document.getElementById('globalDorkClearBtn');
+    var chips = document.querySelectorAll('.gsearch-tag');
+    var resultsBox = document.getElementById('globalDorkResults');
+    var miniDomain = document.getElementById('miniDomainInput');
+    var jumpBtn = document.getElementById('tbDorkSearchJump');
+
+    if(jumpBtn){
+      jumpBtn.addEventListener('click', function(){
+        if(input) input.focus();
+        var s = document.getElementById('globalDorkSection');
+        if(s) s.scrollIntoView({behavior:'smooth'});
+      });
+    }
+
+    if(input){
+      input.addEventListener('input', window.runGlobalDorkSearch);
+      input.addEventListener('keyup', window.runGlobalDorkSearch);
+    }
+
+    if(clearBtn){
+      clearBtn.addEventListener('click', function(){
+        if(input){
+          input.value = '';
+          input.focus();
+        }
+        window.runGlobalDorkSearch();
+      });
+    }
+
+    chips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        window.runGlobalDorkSearch();
+      });
+    });
+
+    if(resultsBox){
+      resultsBox.addEventListener('click', function(e){
+        var btn = e.target.closest('.gsearch-copy-btn');
+        if(btn){
+          var encoded = btn.getAttribute('data-dork');
+          if(encoded){
+            var text = decodeURIComponent(encoded);
+            navigator.clipboard.writeText(text).then(function(){
+              var old = btn.textContent;
+              btn.textContent = '✓ Copied!';
+              btn.style.borderColor = '#10b981';
+              btn.style.color = '#10b981';
+              setTimeout(function(){
+                btn.textContent = old;
+                btn.style.borderColor = '';
+                btn.style.color = '';
+              }, 1200);
+            });
+          }
+        }
+      });
+    }
+
+    if(miniDomain){
+      miniDomain.addEventListener('input', window.runGlobalDorkSearch);
+      miniDomain.addEventListener('change', window.runGlobalDorkSearch);
+    }
+
+    document.addEventListener('keydown', function(e){
+      if((e.ctrlKey && e.key.toLowerCase() === 'k') || (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA')){
+        e.preventDefault();
+        if(input){
+          input.focus();
+          var s = document.getElementById('globalDorkSection');
+          if(s) s.scrollIntoView({behavior:'smooth'});
+        }
+      }
+    });
+
+    window.runGlobalDorkSearch();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', setupGlobalDorkEngine);
+  } else {
+    setupGlobalDorkEngine();
+  }
+})();
+</script>
+
 </body>
 </html>
