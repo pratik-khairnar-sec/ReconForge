@@ -1,21 +1,353 @@
 " Dumping data for table"
 "#mysql dump" filetype:sql
 "#mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
+"Directory Listing for" "Hosted by Xerver"
 "Dumping data for table"
+"Index Of /network" "last modified"
+"Index of /" +.htaccess
+"Index of /" +passwd
+"Index of /" +password.txt
+"Index of /admin"
+"Index of /backup"
+"Index of /mail"
+"Index of /password"
+"Index of /wp-content/uploads/backupbuddy_backups" zip
+"Index of" "database.sql"
+"Index of" / "chat/logs"
+"Index of" inurl:htdocs inurl:xampp
+"Index of" inurl:webalizer
+"Index of" rar r01 nfo Modified 2004
+"Parent Directory" "Last modified" ftp
+"Parent Directory" "Last modified" git
+"Parent Directory" "Last modified" jira
+"Parent Directory" "Last modified" monitoring
+"Parent Directory" "Last modified" wikipedia
+"To Parent Directory" AND "dir>" AND "web.config"
+"Welcome to the directory listing of" "NetworkActiv-Web-Server"
+"index of /" ( upload.cfm | upload.asp | upload.php | upload.cgi | upload.jsp | upload.pl )
+"index of /private" -site:net -site:com -site:org
+"index of /private" site:mil
+"index of /ups.com/WebTracking"
+"index of cgi-bin"
+"index of" "database.sql.zip"
+"index of" / lck
+"index of" / picasa.ini
+"index of" intext:fckeditor inurl:fckeditor
+"index of" inurl:recycler
+"index of/" "ws_ftp.ini" "parent directory"
+"intitle:index of"
+"m.zippyshare.com/"
 "mysql dump" filetype:sql
 "mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
-#mysql dump” filetype:sql
-#mysql dump” filetype:sql 21232f297a57a5a743894a0e4a801fc3
+"parent directory " /appz/ -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"parent directory " DVDRip -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"parent directory " Gamez -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"parent directory " MP3 -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"parent directory " Name of Singer or album -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"parent directory "Xvid -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+"signons.sqlite" intitle:"index of"
+(intext:"index of /.git") ("parent directory")
+Bill Gates intitle:"index.of" "parent directory" "size" "last modified" "description" Microsoft (pdf|txt|epub|doc|docx) -inurl:(jsp|php|html|aspx|htm|cf|shtml|ebooks|ebook) -site:.info
+Bill Gates intitle:”index.of” “parent directory” “size” “last modified” “description” Microsoft (pdf|txt|epub|doc|docx) -inurl:(jsp|php|html|aspx|htm|cf|shtml|ebooks|ebook) -site:.info
 Dumping data for table”
+Index Of /network” “last modified”
+Index of / *.ovpn
+Index of /.svn
+Index of /admin”
+Index of /backup”
+Index of /mail”
+Index of /password”
+Index of /” +.htaccess
+Index of /” +passwd
+Index of /” +password.txt
+Index of phpMyAdmin
+Index of” / “chat/logs”
+Nina Simone intitle:"index.of" "parent directory" "size" "last modified" "description" I Put A Spell On You (mp4|mp3|avi|flac|aac|ape|ogg) -inurl:(jsp|php|html|aspx|htm|cf|shtml|lyrics-realm|mp3-collection) -site:.info
+Nina Simone intitle:”index.of” “parent directory” “size” “last modified” “description” I Put A Spell On You (mp4|mp3|avi|flac|aac|ape|ogg) -inurl:(jsp|php|html|aspx|htm|cf|shtml|lyrics-realm|mp3-collection) -site:.info
+\"index of /private\" -site:net -site:com -site:org
+allintitle: "index of/root"
+allintitle: “index of/root”
+allintitle:"Index of /ThinkPHP" | inurl: "/ThinkPHP/"
+filetype:conf inurl:redis.conf.bak
+filetype:git "Index of /"
+filetype:pdb pdb backup (Pilot | Pluckerdb)
+filetype:php "Index of /src/" OR "Index of /source/" OR "Index of /code/"
 filetype:sql +"IDENTIFIED BY" -cvs
 filetype:sql +”IDENTIFIED BY” -cvs
+filetype:yaml inurl:elasticsearch.yaml.bak
+filetype:yaml inurl:elasticsearch.yml.bak
+index of /cache
+index of /ckeditor
+index of /etc/certs/
+index of /htdocs
+index of /private” -site:net -site:com -site:org
+index of /private” site:mil
+index of /storage/logs/
+index of /wp-content/uploads/userpro
+index of/” “ws_ftp.ini” “parent directory”
+index of: intext:Gallery in Configuration mode
+index of:/admin/login.asp
 intext:"#mysql dump" filetype:sql
 intext:"#mysql dump" filetype:sql 21232f297a57a5a743894a0e4a801fc3
 intext:"@gmail.com" AND intext:"@yahoo.com" filetype:sql
-inurl:nuke filetype:sql
-mysql dump” filetype:sql
-filetype:pdb pdb backup (Pilot | Pluckerdb)
+intext:"Index of /" +.htaccess
+intext:"Index of /" +passwd
+intext:"Index of /" +password.txt
+intext:"Index of /.git"
+intext:"Index of /admin"
+intext:"Index of /backup"
+intext:"Index of /database"
+intext:"Index of /mail"
+intext:"Index of /network" "last modified"
+intext:"Index of /password"
+intext:"Index of" /"chat/logs"
+intext:"index of /" ".composer-auth.json"
+intext:"index of /" "Index of" access_log
+intext:"index of /" "auth.json"
+intext:"index of /.git" "parent directory"
+intext:"index of /userfiles/file/"
+intext:"index of" intext:..bak intext:config
+intext:"~~Joomla1.txt" title:"Index of /"
+intext:@pwcache "parent directory"
+intext:Apache/2.2.29 (Unix) mod_ssl/2.2.29 | intitle:"Index of /"
+intext:[To Parent Directory] & ext:sql | ext:cnf | ext:config | ext:log
+intext:\"index of /\" \"Index of\" access_log
+intext:backup.sql intitle:index.of
+intext:bbdd index.of "/" "Parent Directory"
+intext:user.sql intitle:index.of
+intitle: "index of" "./" "./bitcoin"
+intitle: Index of /awstats/data
+intitle: index of "*db.tar.gz"
 intitle:"Backup-Management (phpMyBackup v.0.4 beta * )" -johnny.ihackstuff
+intitle:"Directory Listing For" intext:Tomcat -int
+intitle:"Directory Listing" "tree view"
+intitle:"Directory Listing, Index of /*/"
+intitle:"Index Of" -inurl:maillog  maillog size
+intitle:"Index Of" -inurl:maillog maillog size
+intitle:"Index Of" cookies.txt "size"
+intitle:"Index Of" cookies.txt size
+intitle:"Index of *" inurl:"my shared folder" size modified
+intitle:"Index of *" mode links bytes last-changed name
+intitle:"Index of /" "Apache/2.2.3 (CentOS)"
+intitle:"Index of /" "Apache/2.2.3 (Fedora)"
+intitle:"Index of /" "Apache/2.2.3 (Red Hat)"
+intitle:"Index of /" "Apache/2.2.3 (Ubuntu)"
+intitle:"Index of /" "CentOS" "Test Page"
+intitle:"Index of /" "Description"
+intitle:"Index of /" "FTP root"
+intitle:"Index of /" "Last modified"
+intitle:"Index of /" "Modified"
+intitle:"Index of /" "Name"
+intitle:"Index of /" "Parent Directory"
+intitle:"Index of /" "Parent Directory" "Error 403"
+intitle:"Index of /" "Parent Directory" "Error 403" "Forbidden"
+intitle:"Index of /" "Parent Directory" "Error 404"
+intitle:"Index of /" "Parent Directory" "Error 404" "Not Found"
+intitle:"Index of /" "Proudly Served by Surftown at"
+intitle:"Index of /" "Size"
+intitle:"Index of /" "Windows 2003 Server"
+intitle:"Index of /" "joomla_update.php"
+intitle:"Index of /" "mod_ssl 2.2.22 OpenSSL/1.0.1"
+intitle:"Index of /" + "backup"
+intitle:"Index of /" + "config"
+intitle:"Index of /" + "database"
+intitle:"Index of /" + "logs"
+intitle:"Index of /" + "uploads"
+intitle:"Index of /" + "wp-content"
+intitle:"Index of /" + "wp-includes"
+intitle:"Index of /" inurl:/ftp
+intitle:"Index of /" inurl:download.php
+intitle:"Index of /" inurl:passport
+intitle:"Index of /" modified php.exe
+intitle:"Index of /.git"
+intitle:"Index of /backup"
+intitle:"Index of /backup" AND (filetype:cfg OR filetype:conf OR filetype:backup OR filetype:bkp)
+intitle:"Index of /backup" inurl:/elasticsearch
+intitle:"Index of /backup" inurl:/mongodb
+intitle:"Index of /cam-config" AND (filetype:cfg OR filetype:conf OR filetype:backup OR filetype:bkp)
+intitle:"Index of /config"
+intitle:"Index of /config-backup"
+intitle:"Index of /database"
+intitle:"Index of /database-backup"
+intitle:"Index of /ftp"
+intitle:"Index of /fw" AND (filetype:cfg OR filetype:conf OR filetype:backup OR filetype:bkp)
+intitle:"Index of /git"
+intitle:"Index of /iot" AND (filetype:cfg OR filetype:conf OR filetype:backup OR filetype:bkp)
+intitle:"Index of /ipp" AND (filetype:conf OR filetype:config OR filetype:backup OR filetype:bkp)
+intitle:"Index of /logs"
+intitle:"Index of /logs-sensitive"
+intitle:"Index of /logs/" "lighttpd"
+intitle:"Index of /private"
+intitle:"Index of /private" OR "Index of /backup" OR "Index of /log" OR "Index of /logs"
+intitle:"Index of /private/"
+intitle:"Index of /s3"
+intitle:"Index of /s3bucket"
+intitle:"Index of /secret"
+intitle:"Index of /server-config"
+intitle:"Index of /switch-config" AND (filetype:cfg OR filetype:conf OR filetype:backup OR filetype:bkp)
+intitle:"Index of /temp"
+intitle:"Index of /upload"
+intitle:"Index of /uploads-private"
+intitle:"Index of /www"
+intitle:"Index of c:\Windows"
+intitle:"Index of" ".htpasswd" "htgroup"  -intitle:"dist" -apache -htpasswd.c
+intitle:"Index of" ".htpasswd" "htgroup" -intitle:"dist" -apache -htpasswd.c
+intitle:"Index of" ".htpasswd" htpasswd.bak
+intitle:"Index of" "people.lst"
+intitle:"Index of" .bash_history
+intitle:"Index of" .mysql_history
+intitle:"Index of" .sh_history
+intitle:"Index of" WSFTP.LOG
+intitle:"Index of" access_log
+intitle:"Index of" cfide
+intitle:"Index of" dbconvert.exe chats
+intitle:"Index of" finance.xls
+intitle:"Index of" finances.xls
+intitle:"Index of" fpcount.exe
+intitle:"Index of" global.inc
+intitle:"Index of" guestbook.cgi
+intitle:"Index of" index.html.bak
+intitle:"Index of" index.html~
+intitle:"Index of" index.jsp.bak
+intitle:"Index of" index.php.bak
+intitle:"Index of" index.php~
+intitle:"Index of" inurl:wp-json/oembed
+intitle:"Index of" master.passwd
+intitle:"Index of" msadcs.dll
+intitle:"Index of" mt-db-pass.cgi
+intitle:"Index of" passwd passwd.bak
+intitle:"Index of" passwords modified
+intitle:"Index of" pwd.db
+intitle:"Index of" sc_serv.conf sc_serv  content
+intitle:"Index of" sc_serv.conf sc_serv content
+intitle:"Index of" secring.bak
+intitle:"Index of" service.pwd
+intitle:"Index of" spwd.db passwd -pam.conf
+intitle:"Index of" upload size parent directory
+intitle:"Index of" upload.asp
+intitle:"Index of..etc" passwd
+intitle:"index of /" authorized_keys
+intitle:"index of /" inanchor:.kdbx
+intitle:"index of /" intext:/Download/
+intitle:"index of /" intext:/backup
+intitle:"index of /" intext:/descargas/
+intitle:"index of /" ssh
+intitle:"index of /bins" arm
+intitle:"index of" "#README.lilocked"
+intitle:"index of" ".cpanel/caches/config/"
+intitle:"index of" "/aws.s3/"
+intitle:"index of" "backup.bak"
+intitle:"index of" "env.bak"
+intitle:"index of" "htdocs.zip"
+intitle:"index of" "parent directory" "desktop.ini" site:dyndns.org
+intitle:"index of" +myd size
+intitle:"index of" -inurl:htm -inurl:html mp3
+intitle:"index of" etc/shadow
+intitle:"index of" hosts.csv | firewalls.csv | linux.csv | windows.csv
+intitle:"index of" htpasswd
+intitle:"index of" intext:"content.ie5?
+intitle:"index of" intext:connect.inc
+intitle:"index of" intext:globals.inc
+intitle:"index of" inurl:ftp (pub | incoming)
+intitle:"index of" master.passwd
+intitle:"index of" master.passwd 007电脑资讯
+intitle:"index of" members OR accounts
+intitle:"index of" mysql.conf OR mysql_config
+intitle:"index of" passwd
+intitle:"index of" people.lst
+intitle:"index of" pwd.db
+intitle:"index of" spwd
+intitle:"index of" unattend.xml
+intitle:"index of" user_carts OR user_cart
+intitle:"index of/" "db.sql"
+intitle:"index.of" "places.sqlite" "Mail" thunderbird -mozilla.org -scan
+intitle:"index.of" "places.sqlite" "key3.db" -mozilla.org
+intitle:Index of /__MACOSX ...
+intitle:index of /.sql.gz intext:/backup/
+intitle:index of /weekly cpbackup
+intitle:index of”
+intitle:index.of "db.zip"
 intitle:index.of intext:"secring.skr"|"secring.pgp"|"secring.bak"
 intitle:index.of intext:”secring.skr”|”secring.pgp”|”secring.bak”
+intitle:index.of./.sql
+intitle:index.of.?.bak
+intitle:index.of.?.sql
+intitle:index.of? configuration.php.zip
+intitle:”Index Of” -inurl:maillog maillog size
+intitle:”Index Of” cookies.txt size
+intitle:”Index of..etc” passwd
+intitle:”Index of” .bash_history
+intitle:”Index of” .mysql_history
+intitle:”Index of” .sh_history
+intitle:”Index of” cfide
+intitle:”Index of” passwords modified
+intitle:”Index of” pwd.db
+intitle:”Index of” sc_serv.conf sc_serv content
+intitle:”Index of” spwd.db passwd -pam.conf
+intitle:”Index of” upload size parent directory
+intitle:”Index of” “.htpasswd” “htgroup” -intitle:”dist” -apache -htpasswd.c
+intitle:”index of” +myd size
+intitle:”index of” etc/shadow
+intitle:”index of” htpasswd
+intitle:”index of” intext:connect.inc
+intitle:”index of” intext:globals.inc
+intitle:”index of” master.passwd
+intitle:”index of” members OR accounts
+intitle:”index of” mysql.conf OR mysql_config
+intitle:”index of” passwd
+intitle:”index of” people.lst
+intitle:”index of” pwd.db
+intitle:”index of” spwd
+intitle:”index of” user_carts OR user_cart
+inurl:"/includes/OAuth2" intext:"index of /"
+inurl:"/includes/api/" intext:"index of /"
+inurl:"ftp://www." "Index of /"
+inurl:"nfs://www." "index of /"
+inurl:/wp-content/plugins/ "index of /"
+inurl:backup "Parent Directory"
 inurl:backup filetype:mdb
+inurl:backup.sql
+inurl:backup.tar.gz
+inurl:backup.zip
+inurl:bc.googleusercontent.com intitle:index of
+inurl:ckfinder intext:"ckfinder.html" intitle:"Index of /ckfinder"
+inurl:database.sql
+inurl:db.sql
+inurl:db.sqlite
+inurl:dump.sql
+inurl:html.zip
+inurl:mysql.sql
+inurl:nuke filetype:sql
+inurl:public_html.zip
+inurl:setup.sql
+inurl:site.zip
+inurl:users.sql
+inurl:web.zip
+inurl:website.zip
+inurl:wp-content/uploads/dump.sql
+inurl:www.zip
+mysql dump” filetype:sql
+mystuff.xml intitle:"index of"
+parent directory /appz/ -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+parent directory DVDRip -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+parent directory Gamez -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+parent directory MP3 -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+parent directory Name of Singer or album -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+parent directory Xvid -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+server-dbs "intitle:index of"
+server-dbs “intitle:index of”
+site:*/wordpress/wordpress.bak/
+site:ftp.* index of /ftp/backup
+“Index Of /network” “last modified”
+“Index of /backup”
+“Index of /mail”
+“Index of /” +.htaccess
+“index of /private” -site:net -site:com -site:org
+“index of /private” site:mil
+“index of/” “ws_ftp.ini” “parent directory”
+“parent directory “Xvid -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+“parent directory ” /appz/ -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+“parent directory ” DVDRip -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+“parent directory ” Gamez -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+“parent directory ” MP3 -xxx -html -htm -php -shtml -opendivx -md5 -md5sums
+“parent directory ” Name of Singer or album -xxx -html -htm -php -shtml -opendivx -md5 -md5sums

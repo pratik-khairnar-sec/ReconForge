@@ -1,25 +1,298 @@
-site:*.target.com
-site:*.*.target.com
-site:target.com -www
-site:*.target.com -www -mail -ftp -smtp
-site:target.com inurl:dev OR inurl:staging OR inurl:test OR inurl:uat
-site:target.com inurl:beta OR inurl:alpha OR inurl:sandbox
-site:target.com inurl:old OR inurl:backup OR inurl:bak
-"target.com" inurl:jenkins OR inurl:jira OR inurl:confluence
-site:target.com inurl:admin OR inurl:api OR inurl:swagger
-site:target.com inurl:api
-site:target.com inurl:/api/v1 OR inurl:/api/v2 OR inurl:/api/v3
-site:target.com inurl:graphql
-site:target.com swagger OR openapi OR "api-docs"
-site:target.com intitle:"Swagger UI"
-site:target.com inurl:swagger.json OR inurl:openapi.json
-site:target.com inurl:rest OR inurl:soap
+intitle:"GraphQL Playground"
+intitle:"Swagger UI - " + "Show/Hide"
+inurl:"swagger-ui/index.html"
+inurl:/api/v1/*.*
+inurl:/api/v2/*.*
+inurl:/api/v3/*.*
+inurl:/graphiql
+inurl:/graphql
+inurl:/swagger/index.html
+inurl:/wp-json/wp/v2/users
+inurl:/wp-json/wp/v2/users "id":1
+inurl:/wp-json/wp/v2/users/ "id":1,"name":" -wordpress.stackexchange.com -stackoverflow.com
+inurl:/wp-json/wp/v2/users/ -wordpress.stackexchange.com -stackoverflow.com
+inurl:api-docs
+inurl:openapi.json
+inurl:swagger-ui
+inurl:swagger.json
 site:target.com intext:"api_key" OR intext:"access_token"
-site:target.com inurl:wp-content OR inurl:wp-includes
-site:target.com inurl:actuator OR inurl:/health OR inurl:/metrics
-site:target.com "X-Powered-By" OR "Powered by"
-"target" site:s3.amazonaws.com
-"target" site:blob.core.windows.net
-"target" site:storage.googleapis.com
-"target" site:firebaseio.com
-site:target.com inurl:robots.txt
+site:target.com intitle:"Swagger UI"
+site:target.com inurl:"/.well-known/openid-configuration"
+site:target.com inurl:"/.well-known/openid-configuration" "paths" "openapi"
+site:target.com inurl:"/.well-known/openid-configuration" ext:json
+site:target.com inurl:"/.well-known/openid-configuration" ext:yaml
+site:target.com inurl:"/.well-known/openid-configuration" filetype:json
+site:target.com inurl:"/.well-known/openid-configuration" intitle:"GraphQL Playground"
+site:target.com inurl:"/.well-known/openid-configuration" intitle:"Swagger UI"
+site:target.com inurl:"/altair"
+site:target.com inurl:"/altair" "paths" "openapi"
+site:target.com inurl:"/altair" ext:json
+site:target.com inurl:"/altair" ext:yaml
+site:target.com inurl:"/altair" filetype:json
+site:target.com inurl:"/altair" intitle:"GraphQL Playground"
+site:target.com inurl:"/altair" intitle:"Swagger UI"
+site:target.com inurl:"/api-docs"
+site:target.com inurl:"/api-docs" "paths" "openapi"
+site:target.com inurl:"/api-docs" ext:json
+site:target.com inurl:"/api-docs" ext:yaml
+site:target.com inurl:"/api-docs" filetype:json
+site:target.com inurl:"/api-docs" intitle:"GraphQL Playground"
+site:target.com inurl:"/api-docs" intitle:"Swagger UI"
+site:target.com inurl:"/api/docs"
+site:target.com inurl:"/api/docs" "paths" "openapi"
+site:target.com inurl:"/api/docs" ext:json
+site:target.com inurl:"/api/docs" ext:yaml
+site:target.com inurl:"/api/docs" filetype:json
+site:target.com inurl:"/api/docs" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/docs" intitle:"Swagger UI"
+site:target.com inurl:"/api/graphql"
+site:target.com inurl:"/api/graphql" "paths" "openapi"
+site:target.com inurl:"/api/graphql" ext:json
+site:target.com inurl:"/api/graphql" ext:yaml
+site:target.com inurl:"/api/graphql" filetype:json
+site:target.com inurl:"/api/graphql" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/graphql" intitle:"Swagger UI"
+site:target.com inurl:"/api/keys"
+site:target.com inurl:"/api/keys" "paths" "openapi"
+site:target.com inurl:"/api/keys" ext:json
+site:target.com inurl:"/api/keys" ext:yaml
+site:target.com inurl:"/api/keys" filetype:json
+site:target.com inurl:"/api/keys" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/keys" intitle:"Swagger UI"
+site:target.com inurl:"/api/secret"
+site:target.com inurl:"/api/secret" "paths" "openapi"
+site:target.com inurl:"/api/secret" ext:json
+site:target.com inurl:"/api/secret" ext:yaml
+site:target.com inurl:"/api/secret" filetype:json
+site:target.com inurl:"/api/secret" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/secret" intitle:"Swagger UI"
+site:target.com inurl:"/api/token"
+site:target.com inurl:"/api/token" "paths" "openapi"
+site:target.com inurl:"/api/token" ext:json
+site:target.com inurl:"/api/token" ext:yaml
+site:target.com inurl:"/api/token" filetype:json
+site:target.com inurl:"/api/token" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/token" intitle:"Swagger UI"
+site:target.com inurl:"/api/v1"
+site:target.com inurl:"/api/v1" "paths" "openapi"
+site:target.com inurl:"/api/v1" ext:json
+site:target.com inurl:"/api/v1" ext:yaml
+site:target.com inurl:"/api/v1" filetype:json
+site:target.com inurl:"/api/v1" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/v1" intitle:"Swagger UI"
+site:target.com inurl:"/api/v1/auth"
+site:target.com inurl:"/api/v1/auth" "paths" "openapi"
+site:target.com inurl:"/api/v1/auth" ext:json
+site:target.com inurl:"/api/v1/auth" ext:yaml
+site:target.com inurl:"/api/v1/auth" filetype:json
+site:target.com inurl:"/api/v1/auth" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/v1/auth" intitle:"Swagger UI"
+site:target.com inurl:"/api/v2"
+site:target.com inurl:"/api/v2" "paths" "openapi"
+site:target.com inurl:"/api/v2" ext:json
+site:target.com inurl:"/api/v2" ext:yaml
+site:target.com inurl:"/api/v2" filetype:json
+site:target.com inurl:"/api/v2" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/v2" intitle:"Swagger UI"
+site:target.com inurl:"/api/v2/auth"
+site:target.com inurl:"/api/v2/auth" "paths" "openapi"
+site:target.com inurl:"/api/v2/auth" ext:json
+site:target.com inurl:"/api/v2/auth" ext:yaml
+site:target.com inurl:"/api/v2/auth" filetype:json
+site:target.com inurl:"/api/v2/auth" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/v2/auth" intitle:"Swagger UI"
+site:target.com inurl:"/api/v3"
+site:target.com inurl:"/api/v3" "paths" "openapi"
+site:target.com inurl:"/api/v3" ext:json
+site:target.com inurl:"/api/v3" ext:yaml
+site:target.com inurl:"/api/v3" filetype:json
+site:target.com inurl:"/api/v3" intitle:"GraphQL Playground"
+site:target.com inurl:"/api/v3" intitle:"Swagger UI"
+site:target.com inurl:"/connect/token"
+site:target.com inurl:"/connect/token" "paths" "openapi"
+site:target.com inurl:"/connect/token" ext:json
+site:target.com inurl:"/connect/token" ext:yaml
+site:target.com inurl:"/connect/token" filetype:json
+site:target.com inurl:"/connect/token" intitle:"GraphQL Playground"
+site:target.com inurl:"/connect/token" intitle:"Swagger UI"
+site:target.com inurl:"/docs/swagger"
+site:target.com inurl:"/docs/swagger" "paths" "openapi"
+site:target.com inurl:"/docs/swagger" ext:json
+site:target.com inurl:"/docs/swagger" ext:yaml
+site:target.com inurl:"/docs/swagger" filetype:json
+site:target.com inurl:"/docs/swagger" intitle:"GraphQL Playground"
+site:target.com inurl:"/docs/swagger" intitle:"Swagger UI"
+site:target.com inurl:"/graphiql"
+site:target.com inurl:"/graphiql" "paths" "openapi"
+site:target.com inurl:"/graphiql" ext:json
+site:target.com inurl:"/graphiql" ext:yaml
+site:target.com inurl:"/graphiql" filetype:json
+site:target.com inurl:"/graphiql" intitle:"GraphQL Playground"
+site:target.com inurl:"/graphiql" intitle:"Swagger UI"
+site:target.com inurl:"/graphql"
+site:target.com inurl:"/graphql" "paths" "openapi"
+site:target.com inurl:"/graphql" ext:json
+site:target.com inurl:"/graphql" ext:yaml
+site:target.com inurl:"/graphql" filetype:json
+site:target.com inurl:"/graphql" intitle:"GraphQL Playground"
+site:target.com inurl:"/graphql" intitle:"Swagger UI"
+site:target.com inurl:"/grpc"
+site:target.com inurl:"/grpc" "paths" "openapi"
+site:target.com inurl:"/grpc" ext:json
+site:target.com inurl:"/grpc" ext:yaml
+site:target.com inurl:"/grpc" filetype:json
+site:target.com inurl:"/grpc" intitle:"GraphQL Playground"
+site:target.com inurl:"/grpc" intitle:"Swagger UI"
+site:target.com inurl:"/oauth/authorize"
+site:target.com inurl:"/oauth/authorize" "paths" "openapi"
+site:target.com inurl:"/oauth/authorize" ext:json
+site:target.com inurl:"/oauth/authorize" ext:yaml
+site:target.com inurl:"/oauth/authorize" filetype:json
+site:target.com inurl:"/oauth/authorize" intitle:"GraphQL Playground"
+site:target.com inurl:"/oauth/authorize" intitle:"Swagger UI"
+site:target.com inurl:"/oauth/token"
+site:target.com inurl:"/oauth/token" "paths" "openapi"
+site:target.com inurl:"/oauth/token" ext:json
+site:target.com inurl:"/oauth/token" ext:yaml
+site:target.com inurl:"/oauth/token" filetype:json
+site:target.com inurl:"/oauth/token" intitle:"GraphQL Playground"
+site:target.com inurl:"/oauth/token" intitle:"Swagger UI"
+site:target.com inurl:"/oauth2/authorize"
+site:target.com inurl:"/oauth2/authorize" "paths" "openapi"
+site:target.com inurl:"/oauth2/authorize" ext:json
+site:target.com inurl:"/oauth2/authorize" ext:yaml
+site:target.com inurl:"/oauth2/authorize" filetype:json
+site:target.com inurl:"/oauth2/authorize" intitle:"GraphQL Playground"
+site:target.com inurl:"/oauth2/authorize" intitle:"Swagger UI"
+site:target.com inurl:"/oauth2/token"
+site:target.com inurl:"/oauth2/token" "paths" "openapi"
+site:target.com inurl:"/oauth2/token" ext:json
+site:target.com inurl:"/oauth2/token" ext:yaml
+site:target.com inurl:"/oauth2/token" filetype:json
+site:target.com inurl:"/oauth2/token" intitle:"GraphQL Playground"
+site:target.com inurl:"/oauth2/token" intitle:"Swagger UI"
+site:target.com inurl:"/openapi.json"
+site:target.com inurl:"/openapi.json" "paths" "openapi"
+site:target.com inurl:"/openapi.json" ext:json
+site:target.com inurl:"/openapi.json" ext:yaml
+site:target.com inurl:"/openapi.json" filetype:json
+site:target.com inurl:"/openapi.json" intitle:"GraphQL Playground"
+site:target.com inurl:"/openapi.json" intitle:"Swagger UI"
+site:target.com inurl:"/playground"
+site:target.com inurl:"/playground" "paths" "openapi"
+site:target.com inurl:"/playground" ext:json
+site:target.com inurl:"/playground" ext:yaml
+site:target.com inurl:"/playground" filetype:json
+site:target.com inurl:"/playground" intitle:"GraphQL Playground"
+site:target.com inurl:"/playground" intitle:"Swagger UI"
+site:target.com inurl:"/postman_collection.json"
+site:target.com inurl:"/postman_collection.json" "paths" "openapi"
+site:target.com inurl:"/postman_collection.json" ext:json
+site:target.com inurl:"/postman_collection.json" ext:yaml
+site:target.com inurl:"/postman_collection.json" filetype:json
+site:target.com inurl:"/postman_collection.json" intitle:"GraphQL Playground"
+site:target.com inurl:"/postman_collection.json" intitle:"Swagger UI"
+site:target.com inurl:"/rest/v1"
+site:target.com inurl:"/rest/v1" "paths" "openapi"
+site:target.com inurl:"/rest/v1" ext:json
+site:target.com inurl:"/rest/v1" ext:yaml
+site:target.com inurl:"/rest/v1" filetype:json
+site:target.com inurl:"/rest/v1" intitle:"GraphQL Playground"
+site:target.com inurl:"/rest/v1" intitle:"Swagger UI"
+site:target.com inurl:"/rest/v2"
+site:target.com inurl:"/rest/v2" "paths" "openapi"
+site:target.com inurl:"/rest/v2" ext:json
+site:target.com inurl:"/rest/v2" ext:yaml
+site:target.com inurl:"/rest/v2" filetype:json
+site:target.com inurl:"/rest/v2" intitle:"GraphQL Playground"
+site:target.com inurl:"/rest/v2" intitle:"Swagger UI"
+site:target.com inurl:"/swagger"
+site:target.com inurl:"/swagger" "paths" "openapi"
+site:target.com inurl:"/swagger" ext:json
+site:target.com inurl:"/swagger" ext:yaml
+site:target.com inurl:"/swagger" filetype:json
+site:target.com inurl:"/swagger" intitle:"GraphQL Playground"
+site:target.com inurl:"/swagger" intitle:"Swagger UI"
+site:target.com inurl:"/swagger-ui"
+site:target.com inurl:"/swagger-ui" "paths" "openapi"
+site:target.com inurl:"/swagger-ui" ext:json
+site:target.com inurl:"/swagger-ui" ext:yaml
+site:target.com inurl:"/swagger-ui" filetype:json
+site:target.com inurl:"/swagger-ui" intitle:"GraphQL Playground"
+site:target.com inurl:"/swagger-ui" intitle:"Swagger UI"
+site:target.com inurl:"/swagger-ui.html"
+site:target.com inurl:"/swagger-ui.html" "paths" "openapi"
+site:target.com inurl:"/swagger-ui.html" ext:json
+site:target.com inurl:"/swagger-ui.html" ext:yaml
+site:target.com inurl:"/swagger-ui.html" filetype:json
+site:target.com inurl:"/swagger-ui.html" intitle:"GraphQL Playground"
+site:target.com inurl:"/swagger-ui.html" intitle:"Swagger UI"
+site:target.com inurl:"/swagger.json"
+site:target.com inurl:"/swagger.json" "paths" "openapi"
+site:target.com inurl:"/swagger.json" ext:json
+site:target.com inurl:"/swagger.json" ext:yaml
+site:target.com inurl:"/swagger.json" filetype:json
+site:target.com inurl:"/swagger.json" intitle:"GraphQL Playground"
+site:target.com inurl:"/swagger.json" intitle:"Swagger UI"
+site:target.com inurl:"/swagger/index.html"
+site:target.com inurl:"/swagger/index.html" "paths" "openapi"
+site:target.com inurl:"/swagger/index.html" ext:json
+site:target.com inurl:"/swagger/index.html" ext:yaml
+site:target.com inurl:"/swagger/index.html" filetype:json
+site:target.com inurl:"/swagger/index.html" intitle:"GraphQL Playground"
+site:target.com inurl:"/swagger/index.html" intitle:"Swagger UI"
+site:target.com inurl:"/v1/api-docs"
+site:target.com inurl:"/v1/api-docs" "paths" "openapi"
+site:target.com inurl:"/v1/api-docs" ext:json
+site:target.com inurl:"/v1/api-docs" ext:yaml
+site:target.com inurl:"/v1/api-docs" filetype:json
+site:target.com inurl:"/v1/api-docs" intitle:"GraphQL Playground"
+site:target.com inurl:"/v1/api-docs" intitle:"Swagger UI"
+site:target.com inurl:"/v1/graphql"
+site:target.com inurl:"/v1/graphql" "paths" "openapi"
+site:target.com inurl:"/v1/graphql" ext:json
+site:target.com inurl:"/v1/graphql" ext:yaml
+site:target.com inurl:"/v1/graphql" filetype:json
+site:target.com inurl:"/v1/graphql" intitle:"GraphQL Playground"
+site:target.com inurl:"/v1/graphql" intitle:"Swagger UI"
+site:target.com inurl:"/v2/api-docs"
+site:target.com inurl:"/v2/api-docs" "paths" "openapi"
+site:target.com inurl:"/v2/api-docs" ext:json
+site:target.com inurl:"/v2/api-docs" ext:yaml
+site:target.com inurl:"/v2/api-docs" filetype:json
+site:target.com inurl:"/v2/api-docs" intitle:"GraphQL Playground"
+site:target.com inurl:"/v2/api-docs" intitle:"Swagger UI"
+site:target.com inurl:"/v2/graphql"
+site:target.com inurl:"/v2/graphql" "paths" "openapi"
+site:target.com inurl:"/v2/graphql" ext:json
+site:target.com inurl:"/v2/graphql" ext:yaml
+site:target.com inurl:"/v2/graphql" filetype:json
+site:target.com inurl:"/v2/graphql" intitle:"GraphQL Playground"
+site:target.com inurl:"/v2/graphql" intitle:"Swagger UI"
+site:target.com inurl:"/v3/api-docs"
+site:target.com inurl:"/v3/api-docs" "paths" "openapi"
+site:target.com inurl:"/v3/api-docs" ext:json
+site:target.com inurl:"/v3/api-docs" ext:yaml
+site:target.com inurl:"/v3/api-docs" filetype:json
+site:target.com inurl:"/v3/api-docs" intitle:"GraphQL Playground"
+site:target.com inurl:"/v3/api-docs" intitle:"Swagger UI"
+site:target.com inurl:"/ws"
+site:target.com inurl:"/ws" "paths" "openapi"
+site:target.com inurl:"/ws" ext:json
+site:target.com inurl:"/ws" ext:yaml
+site:target.com inurl:"/ws" filetype:json
+site:target.com inurl:"/ws" intitle:"GraphQL Playground"
+site:target.com inurl:"/ws" intitle:"Swagger UI"
+site:target.com inurl:"/wss"
+site:target.com inurl:"/wss" "paths" "openapi"
+site:target.com inurl:"/wss" ext:json
+site:target.com inurl:"/wss" ext:yaml
+site:target.com inurl:"/wss" filetype:json
+site:target.com inurl:"/wss" intitle:"GraphQL Playground"
+site:target.com inurl:"/wss" intitle:"Swagger UI"
+site:target.com inurl:/api/v1 OR inurl:/api/v2 OR inurl:/api/v3
+site:target.com inurl:api
+site:target.com inurl:graphql
+site:target.com inurl:rest OR inurl:soap
+site:target.com inurl:swagger.json OR inurl:openapi.json
+site:target.com swagger OR openapi OR "api-docs"

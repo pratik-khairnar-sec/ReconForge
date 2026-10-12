@@ -1,81 +1,125 @@
-site:hackerone.com "submit report" "scope"
-site:hackerone.com/reports
-"powered by hackerone" -site:hackerone.com
-intext:"powered by hackerone" "submit vulnerability"
-site:bugcrowd.com "submit a bug" "targets"
-"powered by bugcrowd" -site:bugcrowd.com
-intext:"powered by bugcrowd" "report a vulnerability"
-site:intigriti.com "scope" "reward"
-"powered by intigriti" -site:intigriti.com
-site:yeswehack.com "program" "scope"
-"powered by yeswehack" -site:yeswehack.com
-"powered by synack" -site:synack.com
-site:synack.com "responsible disclosure"
-site:openbugbounty.org "program"
-site:cobalt.io "pentest" OR "program"
-"submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone" | "powered by intigriti"
-inurl:bug-bounty intext:"INR" OR intext:"₹"
-inurl:responsible-disclosure site:*.in
-site:*.in intext:"bug bounty" "reward"
-site:*.in intext:"responsible disclosure" "report"
-site:*.de inurl:bug inurl:bounty
-site:*.nl intext:"responsible disclosure" "reward"
-site:*.uk intext:"security report" "reward"
-site:*.eu responsible disclosure "reward"
-site:*.be intext:"responsible disclosure"
-site:*.fr intext:"signaler une vulnérabilité" OR intext:"programme de bug bounty"
-site:*.br responsible disclosure
-site:*.com.br intext:"bug bounty" "recompensa"
-site:*.au intext:"responsible disclosure" "reward"
-site:*.nz inurl:security "report vulnerability"
-site:*.gov intext:"vulnerability disclosure" OR intext:"responsible disclosure"
-site:*.mil intext:"vulnerability disclosure"
-site:*.edu intext:"security report" "vulnerability"
-site:*.ac.uk intext:"responsible disclosure"
-intext:"bug bounty" intext:"BTC" OR intext:"ETH" OR intext:"USDT" "reward"
-inurl:bug-bounty site:*.io "crypto" OR "blockchain" OR "defi"
-intext:"security hall of fame" -site:hackerone.com
-intext:"hall of fame" "security researcher" "thank you"
-"bug bounty program" "scope" "out of scope" -site:hackerone.com -site:bugcrowd.com
-intext:"we offer a bounty" "vulnerability"
-intext:"security researchers" "report" "reward" "responsible"
-"eligible for a reward" "vulnerability"
-"we may reward" "security vulnerability"
-"cash reward" "security vulnerability" "responsible disclosure"
-intext:"bounty" inurl:/security "report"
-inurl:/security "If you believe you have found" "reward"
-"You may be eligible" "monetary" "vulnerability"
-"security.txt" "policy" "reward" site:*.com
-intext:"private program" site:hackerone.com
-"invite only" "bug bounty" inurl:security
-"public program" site:bugcrowd.com new 2024 OR 2025
-"launched our bug bounty" OR "started our bug bounty" 2024 OR 2025
-"announcing our bug bounty program" 2024 OR 2025
-"we are launching" "bug bounty" 2024 OR 2025
-"new bug bounty program" 2024 OR 2025
-site:hackerone.com "launched" 2025
-site:bugcrowd.com "new program" 2025
-"expanding our bug bounty" 2024 OR 2025
-"we have launched a" "vulnerability disclosure"
-"security.txt" "expires" 2025
-"vulnerability disclosure program" "launched" 2024 OR 2025
-"bug bounty" "scope" site:*.bank OR site:*.finance OR site:*.financial
-"security report" "reward" site:*.healthcare OR site:*.health OR site:*.hospital
-"responsible disclosure" site:*.insurance
-"bug bounty" site:*.gov "vulnerability disclosure"
-"security vulnerability" "reward" site:*.airline OR site:*.travel
-"responsible disclosure" "reward" site:*.tech -site:hackerone.com
-"bug bounty" "in scope" site:*.app OR site:*.io
-"vulnerability disclosure" site:*.crypto OR site:*.exchange
-"bug bounty" "rewards" "web application" "mobile"
-"report a vulnerability" "we will respond" "reward"
 "*.target.com" "in scope" OR "in-scope" "bug bounty"
-"target.com" site:hackerone.com
-"target.com" site:bugcrowd.com
-"target.com" site:intigriti.com
+"@target.com" "security" "report" "vulnerability"
+"If you find a security issue"  "reward"
+"We value security researchers" OR "We appreciate security reports" AND (reward OR bounty)
+"You may be eligible" "monetary" "vulnerability"
+"announcing our bug bounty program" 2024 OR 2025
+"bug bounty program" "scope" "out of scope" -site:hackerone.com -site:bugcrowd.com
+"bug bounty" "in scope" site:*.app OR site:*.io
+"bug bounty" "rewards" "web application" "mobile"
+"bug bounty" "scope" site:*.bank OR site:*.finance OR site:*.financial
+"bug bounty" site:*.gov "vulnerability disclosure"
+"cash reward" "security vulnerability" "responsible disclosure"
+"cms" bug bounty
+"eligible for a reward" "vulnerability"
+"expanding our bug bounty" 2024 OR 2025
+"invite only" "bug bounty" inurl:security
+"launched our bug bounty" OR "started our bug bounty" 2024 OR 2025
+"new bug bounty program" 2024 OR 2025
+"powered by bugcrowd" -site:bugcrowd.com
+"powered by hackerone" -site:hackerone.com
+"powered by intigriti" -site:intigriti.com
+"powered by synack" -site:synack.com
+"powered by yeswehack" -site:yeswehack.com
+"public program" site:bugcrowd.com new 2024 OR 2025
+"report a vulnerability" "we will respond" "reward"
+"responsible disclosure" "reward" site:*.tech -site:hackerone.com
+"responsible disclosure" site:*.insurance
+"security report" "reward" site:*.healthcare OR site:*.health OR site:*.hospital
+"security vulnerability" "reward" site:*.airline OR site:*.travel
+"security.txt" "expires" 2025
+"security.txt" "policy" "reward" site:*.com
+"security.txt" AND "PGP" AND (bounty OR reward)
+"security.txt" AND ("mailto" OR "contact") AND (bounty OR reward)
+"security@*" AND ("bug bounty" OR "vulnerability disclosure") ext:txt
+"submit vulnerability report" -site:hackerone.com -site:bugcrowd.com -site:synack.com -site:openbugbounty.org
+"submit vulnerability report" | "powered by bugcrowd" | "powered by hackerone" | "powered by intigriti"
+"target" "bug bounty" "scope" "reward"
+"target" "vulnerability disclosure policy" "scope"
 "target.com" "responsible disclosure" "reward"
 "target.com" "security.txt"
+"target.com" site:bugcrowd.com
+"target.com" site:hackerone.com
+"target.com" site:intigriti.com
+"vulnerability disclosure program" "launched" 2024 OR 2025
+"vulnerability disclosure program" AND (bounty OR reward OR swag OR "hall of fame")
+"vulnerability disclosure" site:*.crypto OR site:*.exchange
+"we are launching" "bug bounty" 2024 OR 2025
+"we have launched a" "vulnerability disclosure"
+"we may reward" "security vulnerability"
+buy bitcoins "bug bounty"
+filetype:txt security reward rewards -"we currently" -"we do not" -"not offer"
+intext: we offer a bounty
+intext:"BugBounty" and intext:"BTC" and intext:"reward"
+intext:"CVSS score" AND "eligible for a reward" -hackerone -bugcrowd
+intext:"Powered by Bug Bounty HQ" OR "Powered by disclose.io"
+intext:"bounty" inurl:/security "report"
+intext:"hall of fame" "security researcher" "thank you"
+intext:"powered by bugcrowd" "report a vulnerability"
+intext:"powered by hackerone" "submit vulnerability"
+intext:"private program" site:hackerone.com
+intext:"security hall of fame" -site:hackerone.com
+intext:"security researchers" "report" "reward" "responsible"
+intext:"we offer a bounty" "vulnerability"
+intext:bounty inurl:/security
+intext:responsible disclosure bounty
+intext:security hackerone
+intext:security report reward inurl:report
+intitle:"Bug Bounty" OR intitle:"Vulnerability Disclosure" OR intitle:"Security Rewards"
+inurl /bug bounty
+inurl : / responsible-disclosure/ bounty
+inurl : /responsible-disclosure/ reward
+inurl: "responsible disclosure", "bug bounty", "bugbounty"
+inurl: private bugbountyprogram
+inurl:"bug bounty" and intext:"$" and inurl:/security
+inurl:"bug bounty" and intext:"INR" and inurl:/security
+inurl:"bug bounty" and intext:"€" and inurl:/security
+inurl:'vulnerability-disclosure-policy' reward
+inurl:/.well-known/security ext:txt -hackerone -bugcrowd -synack -openbugbounty
+inurl:/.well-known/security ext:txt intext:hackerone
+inurl:/.well-known/security.txt intext:bounty -hackerone -bugcrowd -synack
+inurl:/bug-bounty.json | inurl:/vdp.json
+inurl:/security "If you believe you have found" "reward"
+inurl:/security/index.html intext:bounty
+inurl:bug bounty intext:"rupees"
+inurl:bug bounty intext:"₹"
+inurl:security "reward"
+responsible disclosure bounty r=h:eu
+responsible disclosure bounty r=h:nl
+responsible disclosure bounty r=h:uk
+responsible disclosure reward r=h:eu
+responsible disclosure reward r=h:nl
+responsible disclosure reward r=h:uk
+site:*.*.* inurl:bug inurl:bounty
+site:*.*.cn intext:security report reward
+site:*.*.de inurl:bug inurl:bounty
+site:*.*.nl intext:responsible disclosure reward
+site:*.*.nl intext:security report reward
+site:*.*.uk intext:security report reward
+site:*.ca intext:"responsible disclosure" intext:reward
+site:*.ch filetype:txt inurl:security intext:bounty
+site:*.dk inurl:/sikkerhed intext:dusør                   (Danish: sikkerhed = security, dusør = bounty)
+site:*.edu "responsible disclosure" AND (reward OR swag OR bounty)
+site:*.edu intext:"we run a bug bounty program"
+site:*.es inurl:/seguridad intext:recompensa              (Spanish: seguridad = security, recompensa = reward)
+site:*.fr intext:"bug bounty" OR "prime de sécurité"
+site:*.gov* "vulnerability disclosure program" OR "bug bounty"
+site:*.gov* inurl:/security intext:contact intext:reward
+site:*.it intext:"bug bounty" OR intext:"security reward"
+site:*.no inurl:/sikkerhet intext:belønning               (Norwegian: sikkerhet = security, belønning = reward)
+site:*.pl inurl:/bezpieczenstwo intext:nagroda            (Polish: bezpieczenstwo = security, nagroda = reward)
 site:*.target.com "security" OR "disclosure" OR "bounty"
-"target" "bug bounty" "scope" "reward"
-"@target.com" "security" "report" "vulnerability"
-"target" "vulnerability disclosure policy" "scope"
+site:*/security.txt "bounty"
+site:bugcrowd.com "new program" 2025
+site:bugcrowd.com "submit a bug" "targets"
+site:cobalt.io "pentest" OR "program"
+site:hackerone.com "launched" 2025
+site:hackerone.com "submit report" "scope"
+site:hackerone.com/reports
+site:help.*.* inurl:bounty
+site:intigriti.com "scope" "reward"
+site:openbugbounty.org "program"
+site:security.*.* inurl: bounty
+site:support.*.* intext:security report reward
+site:synack.com "responsible disclosure"
+site:yeswehack.com "program" "scope"
