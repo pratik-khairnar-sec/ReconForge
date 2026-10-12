@@ -1262,6 +1262,9 @@ body.theme-light .gsearch-tag {
           <button type="button" id="liveCheckBtn" class="btn-terminal-secondary" onclick="typeof startLiveCheck==='function'&&startLiveCheck()" title="Auto-check dorks against active target">
             ⚡ Live Check Dorks
           </button>
+          <button type="button" class="btn-terminal-secondary" onclick="document.getElementById('globalDorkInput').focus(); document.getElementById('globalDorkSection').scrollIntoView({behavior:'smooth'});" title="Search all 17,000+ Dorks with active target">
+            🔍 Universal Dork Search
+          </button>
           <input type="file" id="domainFileInput" accept=".txt,.csv,.json,.yaml,.yml,.md,.log" style="display:none;">
         </div>
       </div>
@@ -4976,6 +4979,16 @@ function applyDomainEverywhere(domains){
   if(typeof renderPlaceholderDorkBoxes === 'function') renderPlaceholderDorkBoxes();
   const activeChip = document.querySelector('.mega-cat-chip.active');
   if(activeChip && typeof MEGA_DATA !== 'undefined'){ activeChip.click(); }
+
+  // ── Sync to Top Bar and Universal Dork Search Console ──
+  const primaryDomain = domains[0];
+  const mini = document.getElementById('miniDomainInput');
+  if(mini) mini.value = primaryDomain;
+  const targetLabel = document.getElementById('gsearchTargetLabel');
+  if(targetLabel) targetLabel.textContent = primaryDomain;
+  if(typeof window.runGlobalDorkSearch === 'function'){
+    window.runGlobalDorkSearch();
+  }
 }
 
 function resetAllCommandBlocks(){
@@ -4984,6 +4997,14 @@ function resetAllCommandBlocks(){
   });
   renderCommands([]);
   renderDomainChips();
+  const mini = document.getElementById('miniDomainInput');
+  if(mini) mini.value = '';
+  const targetLabel = document.getElementById('gsearchTargetLabel');
+  if(targetLabel) targetLabel.textContent = 'target.com';
+  if(typeof renderDorkboxes === 'function') renderDorkboxes();
+  if(typeof window.runGlobalDorkSearch === 'function'){
+    window.runGlobalDorkSearch();
+  }
 }
 
 function runForDomain(){
@@ -5065,7 +5086,7 @@ function renderPlaceholderDorkBoxes(){
     tmp.innerHTML = origHtml;
     tmp.querySelectorAll('.dork-row').forEach(row=>{
       let text = row.dataset.dtext || (row.querySelector('.dork-q') || {}).textContent || '';
-      text = text.replace(/example\.com/gi, dom);
+      text = text.replace(/example\.com/gi, dom).replace(/target\.com/gi, dom);
       row.dataset.dtext = text;
       const qSpan = row.querySelector('.dork-q'); if(qSpan) qSpan.textContent = text;
       const btn = row.querySelector('.dork-search-btn'); if(btn) btn.dataset.q = text;
@@ -5286,11 +5307,15 @@ async function processNext(){
 function startLiveCheck(){
   if(checksRunning){ stopLiveCheck(); return; }
 
-  // Grab primary domain (first loaded target — live-check runs against one
-  // representative target, not every domain, to respect rate limits)
-  const domain = (typeof DOMAINS !== 'undefined' && DOMAINS.length) ? DOMAINS[0] : null;
+  // Auto-apply scope if typed in textarea but not yet applied
+  if((typeof DOMAINS === 'undefined' || !DOMAINS.length) && document.getElementById('domainInput') && document.getElementById('domainInput').value.trim()){
+    if(typeof runForDomain === 'function') runForDomain();
+  }
+
+  // Grab primary domain
+  const domain = (typeof DOMAINS !== 'undefined' && DOMAINS.length) ? DOMAINS[0] : (document.getElementById('miniDomainInput') && document.getElementById('miniDomainInput').value.trim() ? document.getElementById('miniDomainInput').value.trim() : null);
   if(!domain){
-    alert('Please load at least one target domain first (top of page), then click Apply.');
+    alert('Please enter at least one target domain first in the Target Ingestion Engine, then click Apply.');
     return;
   }
 
@@ -5399,8 +5424,16 @@ function buildDorkRowsLive(rawHtml){
 }
 
 function renderDorkboxes(){
+  const dom = (typeof DOMAINS !== 'undefined' && DOMAINS.length) ? DOMAINS[0] : (document.getElementById('miniDomainInput') && document.getElementById('miniDomainInput').value.trim() ? document.getElementById('miniDomainInput').value.trim() : 'target.com');
   document.querySelectorAll('pre.dorkbox code').forEach(code=>{
-    code.innerHTML = buildDorkRowsLive(code.innerHTML);
+    if(!code.dataset.rawDorkOrig){
+      code.dataset.rawDorkOrig = code.innerHTML;
+    }
+    let html = code.dataset.rawDorkOrig;
+    if(dom && dom !== 'target.com'){
+      html = html.replace(/target\.com/gi, dom).replace(/example\.com/gi, dom);
+    }
+    code.innerHTML = buildDorkRowsLive(html);
   });
   updateDorkStats();
 }
@@ -6998,6 +7031,7 @@ setTimeout(()=>{
 window.injectPreset = function(domainsList){
   const inp = document.getElementById('domainInput');
   if(inp){
+    if(typeof DOMAINS !== 'undefined') DOMAINS.length = 0;
     inp.value = domainsList.join('\n');
     const applyBtn = document.getElementById('domainApplyBtn');
     if(applyBtn) applyBtn.click();
@@ -7007,9 +7041,16 @@ window.clearAllTargets = function(){
   const inp = document.getElementById('domainInput');
   if(inp) inp.value = '';
   if(confirm('Clear all loaded targets?')){
-    if(typeof DOMAINS !== 'undefined') DOMAINS = [];
+    if(typeof DOMAINS !== 'undefined') DOMAINS.length = 0;
     if(typeof resetAllCommandBlocks === 'function') resetAllCommandBlocks();
     if(typeof window.refreshTgPreview === 'function') window.refreshTgPreview();
+    const mini = document.getElementById('miniDomainInput');
+    if(mini) mini.value = '';
+    const targetLabel = document.getElementById('gsearchTargetLabel');
+    if(targetLabel) targetLabel.textContent = 'target.com';
+    if(typeof window.runGlobalDorkSearch === 'function'){
+      window.runGlobalDorkSearch();
+    }
   }
 };
 
@@ -7408,9 +7449,22 @@ echo -e "\${C_CYAN}=============================================================
   }
 
   function getActiveDomain(){
+    if(typeof DOMAINS !== 'undefined' && Array.isArray(DOMAINS) && DOMAINS.length && DOMAINS[0]){
+      return DOMAINS[0];
+    }
     var mini = document.getElementById('miniDomainInput');
     if(mini && mini.value && mini.value.trim()){
       return mini.value.trim();
+    }
+    var scopeInp = document.getElementById('domainInput');
+    if(scopeInp && scopeInp.value && scopeInp.value.trim()){
+      var first = scopeInp.value.trim().split(/[\s,;\n]+/)[0];
+      if(first){
+        var cleaned = first.replace(/^(?:https?:\/\/)?(?:\*\.)?/i, '').replace(/[\/:?#].*$/, '').trim();
+        if(cleaned && cleaned.indexOf('.') !== -1){
+          return cleaned;
+        }
+      }
     }
     return 'target.com';
   }
@@ -7607,6 +7661,16 @@ echo -e "\${C_CYAN}=============================================================
     if(miniDomain){
       miniDomain.addEventListener('input', window.runGlobalDorkSearch);
       miniDomain.addEventListener('change', window.runGlobalDorkSearch);
+    }
+
+    var scopeTextarea = document.getElementById('domainInput');
+    if(scopeTextarea){
+      scopeTextarea.addEventListener('input', function(){
+        var d = getActiveDomain();
+        var targetLabel = document.getElementById('gsearchTargetLabel');
+        if(targetLabel) targetLabel.textContent = d;
+        window.runGlobalDorkSearch();
+      });
     }
 
     document.addEventListener('keydown', function(e){
