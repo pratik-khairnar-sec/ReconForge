@@ -1323,6 +1323,158 @@ body {
   background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
   box-shadow: 0 0 30px rgba(239, 68, 68, 0.65) !important;
 }
+
+
+/* ── Tactical Corner HUD Reticles ── */
+.hud-corner {
+  position: absolute; width: 9px; height: 9px; pointer-events: none;
+  border-color: #ff3344; border-style: solid; z-index: 10;
+}
+.hud-tl { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.hud-tr { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.hud-bl { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.hud-br { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+/* ── DEFCON Posture Button ── */
+.tb-defcon-btn {
+  background: rgba(220, 38, 38, 0.16) !important;
+  border-color: #ef4444 !important;
+  color: #ff4d5a !important; font-weight: 700;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.defcon-dot {
+  width: 7px; height: 7px; border-radius: 50%; background: #ff3344;
+  box-shadow: 0 0 8px #ff3344; animation: pulseDot 1.2s infinite;
+}
+.tb-palette-btn {
+  background: rgba(15, 20, 34, 0.9) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+  color: #f1f5f9 !important; font-weight: 600;
+}
+.tb-palette-btn kbd {
+  background: rgba(0,0,0,0.4); border: 1px solid rgba(239,68,68,0.4);
+  padding: 1px 5px; border-radius: 3px; font-size: 9px; color: #ff4d5a;
+}
+.tb-sfx-btn {
+  background: rgba(15, 20, 34, 0.85); border-color: rgba(239, 68, 68, 0.25);
+  color: #cbd5e1; font-weight: 600;
+}
+
+/* ── Cyber Attack Kill Chain Pipeline Matrix ── */
+.killchain-card {
+  position: relative; max-width: 1150px; margin: 0 auto 36px;
+  background: rgba(11, 15, 25, 0.92); border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px; padding: 18px 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(239, 68, 68, 0.1);
+  backdrop-filter: blur(14px);
+}
+.killchain-head {
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.2); padding-bottom: 10px; margin-bottom: 16px;
+  flex-wrap: wrap; gap: 8px;
+}
+.kc-title {
+  font-family: var(--font-mono); font-size: 11.5px; font-weight: 800;
+  color: #f8fafc; letter-spacing: 1.2px; display: flex; align-items: center; gap: 8px;
+}
+.kc-pulse {
+  width: 7px; height: 7px; border-radius: 50%; background: #ff3344;
+  box-shadow: 0 0 10px #ff3344; animation: pulseDot 1.5s infinite;
+}
+.kc-meta { font-size: 10.5px; color: #94a3b8; font-family: var(--font-mono); }
+.killchain-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+.kc-node {
+  background: rgba(15, 20, 34, 0.85); border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 6px; padding: 10px 8px; text-align: center; cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); position: relative;
+}
+.kc-node:hover {
+  border-color: #ef4444; background: rgba(22, 29, 48, 0.95);
+  transform: translateY(-2px); box-shadow: 0 6px 18px rgba(239, 68, 68, 0.3);
+}
+.kc-node-step {
+  font-size: 9px; font-family: var(--font-mono); font-weight: 700;
+  color: #ff4d5a; letter-spacing: 0.8px; margin-bottom: 4px;
+}
+.kc-node-icon { font-size: 18px; margin-bottom: 4px; }
+.kc-node-name {
+  font-size: 11px; font-weight: 700; color: #f1f5f9; line-height: 1.3;
+}
+.kc-node-phases {
+  font-size: 9.5px; color: #94a3b8; font-family: var(--font-mono); margin-top: 3px;
+}
+
+/* ── C2 Command Palette Modal (Ctrl+K) ── */
+.c2-palette-backdrop {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0, 0, 0, 0.82); backdrop-filter: blur(12px);
+  display: flex; align-items: flex-start; justify-content: center; padding-top: 12vh;
+}
+.c2-palette-card {
+  position: relative; width: 100%; max-width: 640px;
+  background: rgba(11, 15, 25, 0.98); border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: 10px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(239, 68, 68, 0.25);
+  overflow: hidden;
+}
+.c2-palette-header {
+  display: flex; align-items: center; gap: 12px; padding: 14px 18px;
+  border-bottom: 1px solid rgba(239, 68, 68, 0.25); background: rgba(15, 20, 34, 0.95);
+}
+.c2-palette-icon { font-size: 20px; color: #ff3344; }
+.c2-palette-input {
+  flex: 1; background: transparent; border: none; outline: none;
+  font-family: var(--font-mono); font-size: 14px; color: #f8fafc;
+}
+.c2-palette-input::placeholder { color: #64748b; font-size: 12.5px; }
+.c2-palette-esc {
+  font-family: var(--font-mono); font-size: 10px; color: #94a3b8;
+  border: 1px solid rgba(239, 68, 68, 0.3); padding: 2px 6px; border-radius: 4px; cursor: pointer;
+}
+.c2-palette-results { max-height: 380px; overflow-y: auto; padding: 8px; }
+.c2-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-radius: 6px; cursor: pointer;
+  transition: all 0.15s ease; border: 1px solid transparent;
+}
+.c2-item:hover, .c2-item.selected {
+  background: rgba(22, 29, 48, 0.95); border-color: rgba(239, 68, 68, 0.4);
+}
+.c2-item-left { display: flex; align-items: center; gap: 10px; }
+.c2-item-icon { font-size: 16px; width: 22px; text-align: center; }
+.c2-item-title { font-size: 12.5px; font-weight: 600; color: #f1f5f9; }
+.c2-item-badge {
+  font-family: var(--font-mono); font-size: 9.5px; font-weight: 700;
+  color: #ff4d5a; background: rgba(239, 68, 68, 0.12); padding: 2px 7px;
+  border-radius: 3px; border: 1px solid rgba(239, 68, 68, 0.25);
+}
+.c2-palette-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 16px; border-top: 1px solid rgba(239, 68, 68, 0.2);
+  background: rgba(15, 20, 34, 0.95); font-family: var(--font-mono); font-size: 10.5px; color: #94a3b8;
+}
+.c2-palette-footer kbd {
+  background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15);
+  padding: 1px 4px; border-radius: 3px; font-size: 9px; color: #cbd5e1; margin-right: 4px;
+}
+.c2-palette-badge { color: #ff3344; font-weight: 700; }
+
+/* ── Tactical HUD Toast Notification ── */
+.hud-toast {
+  position: fixed; bottom: 24px; right: 24px; z-index: 10000;
+  background: rgba(11, 15, 25, 0.98); border: 1px solid #ef4444;
+  border-radius: 8px; padding: 12px 18px; display: flex; align-items: center; gap: 12px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.8), 0 0 25px rgba(239,68,68,0.35);
+  backdrop-filter: blur(12px); animation: toastIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 440px;
+}
+@keyframes toastIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+.hud-toast-icon { font-size: 20px; color: #ff3344; flex-shrink: 0; }
+.hud-toast-title { font-family: var(--font-mono); font-size: 11px; font-weight: 800; color: #ff4d5a; letter-spacing: 0.8px; }
+.hud-toast-msg { font-size: 11.5px; color: #e2e8f0; margin-top: 1px; }
+.hud-toast-code { font-family: var(--font-mono); font-size: 10.5px; color: #94a3b8; margin-top: 3px; word-break: break-all; max-height: 40px; overflow: hidden; }
 </style>
 </head>
 <body>
@@ -1339,6 +1491,9 @@ body {
     <span id="tbActiveEng" class="tb-active-eng" style="display:none;"></span>
   </div>
   <div class="tb-deck-center">
+    <button class="tb-btn tb-defcon-btn" id="tbDefconBtn" type="button" title="Toggle Operational Posture (Defcon 1/2/3)"><span class="defcon-dot"></span> <span id="defconText">DEFCON 1: KINETIC</span></button>
+    <button class="tb-btn tb-palette-btn" id="tbPaletteBtn" type="button" title="Open C2 Command Palette (Ctrl+K)"><kbd>⌘K</kbd> Quick Dispatch</button>
+    <button class="tb-btn tb-sfx-btn" id="tbSfxBtn" type="button" title="Toggle Cyber Audio Feedback"><span id="sfxIcon">🔊</span> SFX: ON</button>
     <button class="tb-btn" id="tbDorkSearchJump" type="button" style="border-color:var(--yellow);color:var(--yellow);background:rgba(251,191,36,0.12);font-weight:700;">🔍 Search 52,630+ Dorks</button>
     <button class="tb-btn" id="tbInstallBtn" type="button" style="border-color:var(--cyan);color:var(--cyan);background:rgba(56,189,248,0.12);font-weight:600;">📦 Install All Tools</button>
     <button class="tb-btn" id="tbEngBtn"    type="button">⚡ Engagements</button>
@@ -1521,8 +1676,75 @@ body {
     </div>
   </div>
 </section>
-
 <div class="container">
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     CYBER ATTACK KILL CHAIN // MITRE ATT&CK OPERATIONAL RECON MATRIX
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="killchain-card" id="killChainMatrix">
+  <div class="hud-corner hud-tl"></div>
+  <div class="hud-corner hud-tr"></div>
+  <div class="hud-corner hud-bl"></div>
+  <div class="hud-corner hud-br"></div>
+  <div class="killchain-head">
+    <div class="kc-title">
+      <span class="kc-pulse"></span>
+      CYBER ATTACK KILL CHAIN // MITRE ATT&amp;CK RECONNAISSANCE MATRIX
+    </div>
+    <div class="kc-meta">30 PHASES · 131 TACTICAL OPERATIONS · REAL-TIME ATTACK SURFACE DISCOVERY</div>
+  </div>
+  <div class="killchain-grid">
+    <div class="kc-node" onclick="jumpToPhase('p1')" title="Phases 01-03: Subdomains, Cloud Assets & Live Discovery">
+      <div class="kc-node-step">STAGE 01</div>
+      <div class="kc-node-icon">🔍</div>
+      <div class="kc-node-name">OSINT &amp; Recon</div>
+      <div class="kc-node-phases">P01 – P03</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p4')" title="Phases 04-06: Port Audits, ASN Mapping & HTTP Probing">
+      <div class="kc-node-step">STAGE 02</div>
+      <div class="kc-node-icon">🌐</div>
+      <div class="kc-node-name">DNS &amp; Infra</div>
+      <div class="kc-node-phases">P04 – P06</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p7')" title="Phases 07-10: Web Probing, Spidering & Tech Stack">
+      <div class="kc-node-step">STAGE 03</div>
+      <div class="kc-node-icon">⚡</div>
+      <div class="kc-node-name">Live Probing</div>
+      <div class="kc-node-phases">P07 – P10</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p11')" title="Phases 11-14: Crawling, Content Mining & Hidden Endpoints">
+      <div class="kc-node-step">STAGE 04</div>
+      <div class="kc-node-icon">🕷️</div>
+      <div class="kc-node-name">Web Crawl</div>
+      <div class="kc-node-phases">P11 – P14</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p15')" title="Phases 15-18: Exposed Secrets, Backups & S3 Buckets">
+      <div class="kc-node-step">STAGE 05</div>
+      <div class="kc-node-icon">🔐</div>
+      <div class="kc-node-name">Secrets &amp; Storage</div>
+      <div class="kc-node-phases">P15 – P18</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p19')" title="Phases 19-22: Parameter Mining, Dork Vault & GraphQL">
+      <div class="kc-node-step">STAGE 06</div>
+      <div class="kc-node-icon">🎯</div>
+      <div class="kc-node-name">Dork Vault &amp; Fuzz</div>
+      <div class="kc-node-phases">P19 – P22</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p23')" title="Phases 23-26: Request Smuggling, OAuth & Race Conditions">
+      <div class="kc-node-step">STAGE 07</div>
+      <div class="kc-node-icon">💣</div>
+      <div class="kc-node-name">Exploit Vectors</div>
+      <div class="kc-node-phases">P23 – P26</div>
+    </div>
+    <div class="kc-node" onclick="jumpToPhase('p27')" title="Phases 27-30: LLM/AI Security, Cloud Exfil & Report Gen">
+      <div class="kc-node-step">STAGE 08</div>
+      <div class="kc-node-icon">☁️</div>
+      <div class="kc-node-name">Cloud &amp; Reports</div>
+      <div class="kc-node-phases">P27 – P30</div>
+    </div>
+  </div>
+</div>
+
 
   <div class="toc">
     <h2>[ TABLE OF CONTENTS ]</h2>
@@ -3771,6 +3993,43 @@ python3 jwt_tool.py TOKEN -C -d /usr/share/wordlists/rockyou.txt  # crack weak s
   <div class="glow">root@reconforge:~# echo "stay curious, stay authorized"</div>
   <div style="margin-top:8px;">Recon methodology compiled &amp; maintained by <span style="color:#38bdf8;">Pratik</span>. For authorized security testing / personal study use only.</div>
 </footer>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     RECONFORGE C2 COMMAND PALETTE MODAL (Ctrl+K)
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="c2-palette-backdrop" id="c2PaletteModal" style="display:none;" onclick="if(event.target===this)closeCommandPalette()">
+  <div class="c2-palette-card">
+    <div class="hud-corner hud-tl"></div>
+    <div class="hud-corner hud-tr"></div>
+    <div class="hud-corner hud-bl"></div>
+    <div class="hud-corner hud-br"></div>
+    <div class="c2-palette-header">
+      <span class="c2-palette-icon">⚡</span>
+      <input type="text" id="paletteInput" class="c2-palette-input" placeholder="Type a phase (e.g. DNS, Race, Smuggling, Dorks), tool, or command..." autocomplete="off">
+      <span class="c2-palette-esc" onclick="closeCommandPalette()">ESC</span>
+    </div>
+    <div class="c2-palette-results" id="paletteResults"></div>
+    <div class="c2-palette-footer">
+      <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+      <span><kbd>Enter</kbd> Select</span>
+      <span><kbd>Esc</kbd> Close</span>
+      <span class="c2-palette-badge">RECONFORGE C2 DISPATCHER</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════════
+     UNIVERSAL TACTICAL HUD TOAST NOTIFICATION
+     ══════════════════════════════════════════════════════════════════════════════ -->
+<div class="hud-toast" id="hudToast" style="display:none;">
+  <div class="hud-toast-icon">📋</div>
+  <div class="hud-toast-content">
+    <div class="hud-toast-title" id="hudToastTitle">PAYLOAD EXFILTRATED</div>
+    <div class="hud-toast-msg" id="hudToastMsg">Copied to system clipboard</div>
+    <div class="hud-toast-code" id="hudToastCode"></div>
+  </div>
+</div>
+
 
 <div id="toTop">↑</div>
 
@@ -7454,5 +7713,309 @@ window.downloadDorkWordlist = function(filename){
 };
 </script>
 
+
+<script>
+
+// ══════════════════════════════════════════════════════════════════════════════
+// RECONFORGE RED TEAM C2 ENGINE: AUDIO, PALETTE, DEFCON & HUD TOASTS
+// ══════════════════════════════════════════════════════════════════════════════
+
+// 1. Native Web Audio API Synthesizer (0 dependencies, 100% offline)
+var audioCtx = null;
+var sfxEnabled = (localStorage.getItem('rf_sfx_v1') !== 'off');
+
+function initAudio(){
+  if(!audioCtx && (window.AudioContext || window.webkitAudioContext)){
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+}
+
+function playSfx(type){
+  if(!sfxEnabled) return;
+  try {
+    initAudio();
+    if(!audioCtx) return;
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+    var now = audioCtx.currentTime;
+
+    if(type === 'click'){
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(1200, now);
+      osc.frequency.exponentialRampToValueAtTime(700, now + 0.035);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.035);
+      osc.start(now);
+      osc.stop(now + 0.035);
+    } else if(type === 'copy'){
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(880, now);
+      osc.frequency.exponentialRampToValueAtTime(1760, now + 0.08);
+      gain.gain.setValueAtTime(0.12, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } else if(type === 'defcon'){
+      osc.type = 'sawtooth';
+      osc.frequency.setValueAtTime(440, now);
+      osc.frequency.linearRampToValueAtTime(660, now + 0.09);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+      osc.start(now);
+      osc.stop(now + 0.09);
+    }
+  } catch(e){}
+}
+
+function toggleSfx(){
+  sfxEnabled = !sfxEnabled;
+  localStorage.setItem('rf_sfx_v1', sfxEnabled ? 'on' : 'off');
+  var btn = document.getElementById('tbSfxBtn');
+  if(btn){
+    btn.innerHTML = '<span id="sfxIcon">' + (sfxEnabled ? '🔊' : '🔇') + '</span> ' + (sfxEnabled ? 'SFX: ON' : 'SFX: OFF');
+  }
+  if(sfxEnabled) playSfx('click');
+}
+
+// 2. Tactical HUD Toast
+var toastTimer = null;
+function showHudToast(title, msg, code){
+  var toast = document.getElementById('hudToast');
+  if(!toast) return;
+  document.getElementById('hudToastTitle').textContent = title || 'PAYLOAD EXFILTRATED';
+  document.getElementById('hudToastMsg').textContent = msg || 'Copied to system clipboard';
+  var codeEl = document.getElementById('hudToastCode');
+  if(code){
+    codeEl.textContent = (code.length > 85 ? code.substring(0, 85) + '...' : code);
+    codeEl.style.display = 'block';
+  } else {
+    codeEl.style.display = 'none';
+  }
+  toast.style.display = 'flex';
+  playSfx('copy');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){
+    toast.style.display = 'none';
+  }, 2400);
+}
+
+// Hook clipboard clicks across whole document
+document.addEventListener('click', function(e){
+  var btn = e.target.closest('.copy-btn, .pl-copy-btn, .gsearch-copy-btn, #pipeCopy, #reportCopyBtn');
+  if(btn){
+    var text = btn.innerText || btn.getAttribute('data-dork') || '';
+    showHudToast('C2 PAYLOAD EXFILTRATED', 'Copied to system clipboard', text);
+  }
+});
+
+// 3. DEFCON Posture Switcher
+var defconLevels = [
+  { level: 1, text: 'DEFCON 1: KINETIC', desc: 'Aggressive scanning, active probing & kinetic exploitation', color: '#ff3344' },
+  { level: 2, text: 'DEFCON 2: TARGETED', desc: 'Targeted port discovery, authenticated crawls & param mining', color: '#f59e0b' },
+  { level: 3, text: 'DEFCON 3: STEALTH', desc: 'Passive OSINT, Certificate Logs & Google Dorks only', color: '#10b981' }
+];
+var curDefconIdx = 0;
+
+function toggleDefcon(){
+  curDefconIdx = (curDefconIdx + 1) % defconLevels.length;
+  var d = defconLevels[curDefconIdx];
+  var txt = document.getElementById('defconText');
+  var btn = document.getElementById('tbDefconBtn');
+  if(txt && btn){
+    txt.textContent = d.text;
+    btn.style.borderColor = d.color;
+    btn.style.color = d.color;
+    btn.querySelector('.defcon-dot').style.background = d.color;
+    btn.querySelector('.defcon-dot').style.boxShadow = '0 0 8px ' + d.color;
+  }
+  playSfx('defcon');
+  showHudToast('OPERATIONAL POSTURE SHIFT', d.text, d.desc);
+}
+
+// 4. Cyber Attack Kill Chain Jump Helper
+function jumpToPhase(phaseId){
+  playSfx('click');
+  var el = document.getElementById(phaseId);
+  if(el){
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+    el.style.borderColor = '#ff3344';
+    el.style.boxShadow = '0 0 30px rgba(255, 51, 68, 0.4)';
+    setTimeout(function(){
+      el.style.boxShadow = '';
+    }, 1200);
+  }
+}
+
+// 5. C2 Command Palette (Ctrl+K)
+var paletteItems = [
+  { title: 'Phase 01: Subdomain Enumeration & Asset Gathering', cat: 'Phase', id: 'p1', icon: '🔍' },
+  { title: 'Phase 02: DNS Resolution, Permutations & Takeovers', cat: 'Phase', id: 'p2', icon: '🌐' },
+  { title: 'Phase 03: Live Host Probing & HTTP Status Fingerprinting', cat: 'Phase', id: 'p3', icon: '⚡' },
+  { title: 'Phase 04: Port Scanning & Service Discovery', cat: 'Phase', id: 'p4', icon: '🔌' },
+  { title: 'Phase 05: Visual Reconnaissance & Screenshotting', cat: 'Phase', id: 'p5', icon: '📸' },
+  { title: 'Phase 06: Crawling, Spidering & JS Endpoint Extraction', cat: 'Phase', id: 'p6', icon: '🕷️' },
+  { title: 'Phase 07: URL & Parameter Mining (Wayback, OTX, CommonCrawl)', cat: 'Phase', id: 'p7', icon: '⛏️' },
+  { title: 'Phase 08: Content Discovery, Directory & File Fuzzing', cat: 'Phase', id: 'p8', icon: '📁' },
+  { title: 'Phase 09: Sensitive File Hunting (.env, git, backups, keys)', cat: 'Phase', id: 'p9', icon: '🔐' },
+  { title: 'Phase 10: Automated Vulnerability Scanning with Nuclei', cat: 'Phase', id: 'p10', icon: '🛡️' },
+  { title: 'Phase 11: SQL Injection Discovery & Automation', cat: 'Phase', id: 'p11', icon: '💉' },
+  { title: 'Phase 12: Origin IP Discovery & WAF / Cloudflare Bypass', cat: 'Phase', id: 'p12', icon: '🎯' },
+  { title: 'Phase 13: GitHub Recon, Secret Leaks & Code Dorking', cat: 'Phase', id: 'p13', icon: '🐙' },
+  { title: 'Phase 14: Cloud Storage Discovery (AWS S3, GCP, Azure Blobs)', cat: 'Phase', id: 'p14', icon: '☁️' },
+  { title: 'Phase 15: GraphQL Endpoint Discovery & Introspection', cat: 'Phase', id: 'p15', icon: '📊' },
+  { title: 'Phase 16: Race Conditions & Single-Packet HTTP/2 Concurrency', cat: 'Phase', id: 'p16', icon: '🏎️' },
+  { title: 'Phase 17: Google Dorking Master Arsenal', cat: 'Phase', id: 'p17', icon: '🔎' },
+  { title: 'Phase 18: Google Hacking Database (GHDB) Categorized Vault', cat: 'Phase', id: 'p18', icon: '📚' },
+  { title: 'Phase 19: Vulnerability Parameter Dorking Matrix', cat: 'Phase', id: 'p19', icon: '🔬' },
+  { title: 'Phase 20: OSINT Master Framework', cat: 'Phase', id: 'p20', icon: '🌐' },
+  { title: 'Phase 21: Embedded Mega Dork Database (56,158 dorks)', cat: 'Phase', id: 'p21', icon: '🔥' },
+  { title: 'Phase 22: HTTP Request Smuggling (H2.CL / H2.TE)', cat: 'Phase', id: 'p22', icon: '📦' },
+  { title: 'Phase 23: Web Cache Poisoning & Deception (WCD)', cat: 'Phase', id: 'p23', icon: '🧪' },
+  { title: 'Phase 24: Server-Side Template Injection (SSTI) & XXE', cat: 'Phase', id: 'p24', icon: '💥' },
+  { title: 'Phase 25: OAuth 2.0 & OIDC Flow Flaws', cat: 'Phase', id: 'p25', icon: '🔑' },
+  { title: 'Phase 26: AI & LLM Security (OWASP Top 10 for LLMs)', cat: 'Phase', id: 'p26', icon: '🤖' },
+  { title: 'Phase 27: Executive VAPT & Bug Bounty Reporting', cat: 'Phase', id: 'p27', icon: '📋' },
+  { title: 'Phase 28: Curated Multi-Target Exploit Payloads', cat: 'Phase', id: 'p28', icon: '💣' },
+  { title: 'Phase 29: Mobile API & Android/iOS Reverse Engineering', cat: 'Phase', id: 'p29', icon: '📱' },
+  { title: 'Phase 30: Cloud Metadata, SSRF & Microservice Exfiltration', cat: 'Phase', id: 'p30', icon: '🛰️' },
+  { title: 'Action: Install All 41 VAPT Tools', cat: 'Action', action: 'install', icon: '📦' },
+  { title: 'Action: Generate Multi-Target Bash Pipeline Script', cat: 'Action', action: 'script', icon: '🚀' },
+  { title: 'Action: Generate Complete Audit Markdown / HTML Report', cat: 'Action', action: 'report', icon: '📋' },
+  { title: 'Action: Open Engagement Manager', cat: 'Action', action: 'eng', icon: '⚡' },
+  { title: 'Action: Search 56,158+ Dorks Vault', cat: 'Action', action: 'dorks', icon: '🔍' }
+];
+
+function openCommandPalette(){
+  playSfx('click');
+  var m = document.getElementById('c2PaletteModal');
+  if(!m) return;
+  m.style.display = 'flex';
+  var inp = document.getElementById('paletteInput');
+  if(inp){
+    inp.value = '';
+    inp.focus();
+    renderPaletteResults('');
+  }
+}
+
+function closeCommandPalette(){
+  var m = document.getElementById('c2PaletteModal');
+  if(m) m.style.display = 'none';
+}
+
+function renderPaletteResults(query){
+  var resBox = document.getElementById('paletteResults');
+  if(!resBox) return;
+  var q = (query || '').toLowerCase().trim();
+  var filtered = paletteItems.filter(function(it){
+    return !q || it.title.toLowerCase().indexOf(q) !== -1 || it.cat.toLowerCase().indexOf(q) !== -1;
+  });
+  if(filtered.length === 0){
+    resBox.innerHTML = '<div style="padding:20px;text-align:center;color:#64748b;font-family:var(--font-mono);font-size:12px;">No matching C2 commands or phases found.</div>';
+    return;
+  }
+  var html = '';
+  filtered.forEach(function(it, idx){
+    var sel = (idx === 0 ? ' selected' : '');
+    html += '<div class="c2-item' + sel + '" onclick="executePaletteItem(' + idx + ')" data-idx="' + idx + '">';
+    html += '  <div class="c2-item-left"><span class="c2-item-icon">' + it.icon + '</span><span class="c2-item-title">' + it.title + '</span></div>';
+    html += '  <span class="c2-item-badge">' + it.cat + '</span>';
+    html += '</div>';
+  });
+  resBox.innerHTML = html;
+  resBox.setAttribute('data-cur', '0');
+}
+
+function executePaletteItem(idx){
+  var inp = document.getElementById('paletteInput');
+  var q = (inp ? inp.value.toLowerCase().trim() : '');
+  var filtered = paletteItems.filter(function(it){
+    return !q || it.title.toLowerCase().indexOf(q) !== -1 || it.cat.toLowerCase().indexOf(q) !== -1;
+  });
+  var item = filtered[idx];
+  if(!item) return;
+  closeCommandPalette();
+  if(item.id){
+    jumpToPhase(item.id);
+  } else if(item.action === 'install'){
+    document.getElementById('toolsInstallPanel').style.display = 'block';
+  } else if(item.action === 'script'){
+    document.getElementById('pipePanel').style.display = 'block';
+  } else if(item.action === 'report'){
+    document.getElementById('reportPanel').style.display = 'block';
+  } else if(item.action === 'eng'){
+    document.getElementById('engPanel').style.display = 'block';
+  } else if(item.action === 'dorks'){
+    jumpToPhase('p21');
+  }
+}
+
+// Global Keyboard Shortcut: Ctrl+K or Cmd+K
+document.addEventListener('keydown', function(e){
+  if((e.ctrlKey || e.metaKey) && e.key === 'k'){
+    e.preventDefault();
+    var m = document.getElementById('c2PaletteModal');
+    if(m && m.style.display !== 'none'){
+      closeCommandPalette();
+    } else {
+      openCommandPalette();
+    }
+  } else if(e.key === 'Escape'){
+    closeCommandPalette();
+  }
+});
+
+// Setup Palette Input handlers
+document.addEventListener('DOMContentLoaded', function(){
+  var inp = document.getElementById('paletteInput');
+  if(inp){
+    inp.addEventListener('input', function(){
+      renderPaletteResults(inp.value);
+    });
+    inp.addEventListener('keydown', function(e){
+      var resBox = document.getElementById('paletteResults');
+      if(!resBox) return;
+      var items = resBox.querySelectorAll('.c2-item');
+      var cur = parseInt(resBox.getAttribute('data-cur') || '0', 10);
+      if(e.key === 'ArrowDown'){
+        e.preventDefault();
+        if(items.length > 0){
+          items[cur].classList.remove('selected');
+          cur = (cur + 1) % items.length;
+          items[cur].classList.add('selected');
+          items[cur].scrollIntoView({ block: 'nearest' });
+          resBox.setAttribute('data-cur', cur);
+        }
+      } else if(e.key === 'ArrowUp'){
+        e.preventDefault();
+        if(items.length > 0){
+          items[cur].classList.remove('selected');
+          cur = (cur - 1 + items.length) % items.length;
+          items[cur].classList.add('selected');
+          items[cur].scrollIntoView({ block: 'nearest' });
+          resBox.setAttribute('data-cur', cur);
+        }
+      } else if(e.key === 'Enter'){
+        e.preventDefault();
+        executePaletteItem(cur);
+      }
+    });
+  }
+
+  // Hook Defcon & SFX buttons
+  var defBtn = document.getElementById('tbDefconBtn');
+  if(defBtn) defBtn.addEventListener('click', toggleDefcon);
+  var sfxBtn = document.getElementById('tbSfxBtn');
+  if(sfxBtn) sfxBtn.addEventListener('click', toggleSfx);
+  var palBtn = document.getElementById('tbPaletteBtn');
+  if(palBtn) palBtn.addEventListener('click', openCommandPalette);
+});
+
+</script>
 </body>
 </html>
