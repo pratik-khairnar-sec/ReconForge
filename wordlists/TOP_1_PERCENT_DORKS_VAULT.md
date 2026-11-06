@@ -574,6 +574,21 @@ site:target.com inurl:?order=
 site:target.com inurl:?by=
 ```
 
+## 10b. High-Yield Cross-Site Scripting (XSS) Reflection Dorks
+
+```text
+site:target.com inurl:q= | inurl:s= | inurl:search= | inurl:query=
+site:target.com inurl:keyword= | inurl:lang= | inurl:view= | inurl:callback=
+site:target.com (ext:php | ext:asp | ext:aspx | ext:jsp) (inurl:search | inurl:query | inurl:keyword)
+site:target.com inurl:return= | inurl:return_url= | inurl:next= | inurl:redirect=
+site:target.com inurl:message= | inurl:msg= | inurl:alert= | inurl:error=
+site:target.com inurl:"search.php?q="
+site:target.com inurl:"result.php?keyword="
+site:target.com inurl:"view.php?id="
+site:target.com inurl:"index.php?lang="
+inurl:".php?q=" | inurl:".php?search=" | inurl:".php?query=" | inurl:".php?keyword="
+```
+
 ## 11. Systematic Subdomain & Staging Environment Discovery
 
 ```text

@@ -1,0 +1,489 @@
+# ==============================================================================
+#   CYBER WARFARE INTELLIGENCE LAB (CWIL) • OFFENSIVE SECURITY & RECONNAISSANCE
+#   PROJECT: CWIL RECONFORGE UNIVERSAL 400 OSINT DORK MATRIX
+#   SCOPE: UNIVERSAL ENTERPRISE RECONNAISSANCE (PORTABLE ACROSS 50 TARGET DOMAINS)
+#   VERSION: 2.0 (MULTI-TARGET READY • PRODUCTION GRADE)
+#   TOTAL CURATED DORKS: 400
+# ==============================================================================
+
+# ==============================================================================
+# OPERATIONAL INSTRUCTIONS FOR ASSIGNED INTERNS:
+# ==============================================================================
+# 1. UNIVERSAL COMPATIBILITY:
+#    - In each query, replace 'site:TARGET' with your assigned target domain.
+#      Example: If your target is 'zomato.com', change:
+#               'site:TARGET inurl:admin'  -->  'site:zomato.com inurl:admin'
+#    - For multi-subdomain root discovery, use wildcard:
+#               'site:*.TARGET' or 'site:TARGET -www.TARGET'
+#
+# 2. BULK EXECUTION / AUTOMATION:
+#    - To prepare dorks for your specific domain in bash / powershell:
+#      PowerShell: (Get-Content this_file.txt) -replace 'site:TARGET', 'site:yourdomain.com' | Set-Content target_dorks.txt
+#      Bash/Linux: sed 's/site:TARGET/site:yourdomain.com/g' this_file.txt > target_dorks.txt
+#
+# 3. EVIDENCE RECORDING PROTOCOL:
+#    - If a dork returns sensitive artifacts, take a full-screen screenshot showing:
+#      URL bar, timestamp, HTTP status, and artifact snippet.
+#    - Log the URL, Dork ID, and Severity in '03_OSINT_Dork_Findings.md'.
+#    - NEVER download PII, raw credentials, or databases beyond minimal PoC proof.
+# ==============================================================================
+
+
+# ------------------------------------------------------------------------------
+# CATEGORY 01: ADMIN PANELS, AUTHENTICATION GATEWAYS & EMPLOYEE PORTALS (40 DORKS)
+# ------------------------------------------------------------------------------
+
+[001] site:TARGET inurl:admin
+[002] site:TARGET inurl:login
+[003] site:TARGET inurl:signin
+[004] site:TARGET inurl:portal
+[005] site:TARGET inurl:dashboard
+[006] site:TARGET inurl:controlpanel
+[007] site:TARGET intitle:"admin login"
+[008] site:TARGET intitle:"dashboard login"
+[009] site:TARGET intitle:"administrator"
+[010] site:TARGET inurl:/wp-login.php
+[011] site:TARGET inurl:/wp-admin
+[012] site:TARGET inurl:cpanel
+[013] site:TARGET inurl:webmin
+[014] site:TARGET inurl:kibana
+[015] site:TARGET inurl:manager
+[016] site:TARGET inurl:management
+[017] site:TARGET inurl:staff
+[018] site:TARGET inurl:auth
+[019] site:TARGET inurl:sso
+[020] site:TARGET inurl:saml
+[021] site:TARGET inurl:user/login
+[022] site:TARGET inurl:users/sign_in
+[023] site:TARGET inurl:backoffice
+[024] site:TARGET inurl:backend/login
+[025] site:TARGET intitle:"index of" inurl:admin
+[026] site:TARGET inurl:portal/login
+[027] site:TARGET inurl:intranet
+[028] site:TARGET inurl:dev-admin
+[029] site:TARGET inurl:stage-admin
+[030] site:TARGET inurl:test-admin
+[031] site:TARGET inurl:moderator
+[032] site:TARGET inurl:superadmin
+[033] site:TARGET inurl:oauth/authorize
+[034] site:TARGET inurl:oauth/token
+[035] site:TARGET inurl:forgot-password "token="
+[036] site:TARGET inurl:reset-password "token="
+[037] site:TARGET inurl:partner/login
+[038] site:TARGET inurl:vendor/login
+[039] site:TARGET inurl:client/login
+[040] site:TARGET intitle:"Single Sign On" OR intitle:"Keycloak" OR intitle:"Okta"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 02: CONFIGURATION FILES, ENVIRONMENT VARIABLES & CREDENTIAL LEAKS (40 DORKS)
+# ------------------------------------------------------------------------------
+
+[041] site:TARGET ext:env
+[042] site:TARGET ext:env "DB_PASSWORD"
+[043] site:TARGET ext:env "APP_KEY"
+[044] site:TARGET ext:env "AWS_SECRET_ACCESS_KEY"
+[045] site:TARGET ext:env "JWT_SECRET"
+[046] site:TARGET ext:yml inurl:docker-compose
+[047] site:TARGET ext:yaml inurl:application
+[048] site:TARGET ext:json inurl:credentials
+[049] site:TARGET ext:json inurl:firebase
+[050] site:TARGET ext:xml inurl:web.config
+[051] site:TARGET ext:ini inurl:php.ini
+[052] site:TARGET ext:conf inurl:nginx
+[053] site:TARGET ext:conf inurl:httpd
+[054] site:TARGET ext:properties inurl:application
+[055] site:TARGET intext:"BEGIN RSA PRIVATE KEY"
+[056] site:TARGET intext:"BEGIN OPENSSH PRIVATE KEY"
+[057] site:TARGET intext:"BEGIN PRIVATE KEY"
+[058] site:TARGET ext:pem inurl:key OR inurl:cert
+[059] site:TARGET ext:key
+[060] site:TARGET ext:crt OR ext:csr
+[061] site:TARGET intext:"api_key" OR intext:"apikey"
+[062] site:TARGET intext:"client_secret"
+[063] site:TARGET intext:"access_token"
+[064] site:TARGET ext:cfg
+[065] site:TARGET ext:inc inurl:config
+[066] site:TARGET inurl:config.php
+[067] site:TARGET inurl:settings.py
+[068] site:TARGET inurl:database.php
+[069] site:TARGET inurl:wp-config.php
+[070] site:TARGET ext:bak inurl:config
+[071] site:TARGET ext:old inurl:config
+[072] site:TARGET ext:dist inurl:env
+[073] site:TARGET ext:example inurl:env
+[074] site:TARGET intext:"SENDGRID_API_KEY"
+[075] site:TARGET intext:"STRIPE_SECRET_KEY"
+[076] site:TARGET intext:"RAZORPAY_KEY_SECRET"
+[077] site:TARGET intext:"AWS_ACCESS_KEY_ID"
+[078] site:TARGET intext:"REDIS_PASSWORD"
+[079] site:TARGET intext:"MONGO_URI" OR intext:"MONGODB_URI"
+[080] site:TARGET intext:"POSTGRES_PASSWORD" OR intext:"MYSQL_PWD"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 03: DATABASE DUMPS, SQL EXPORTS & DATA SCHEMA EXPOSURES (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[081] site:TARGET ext:sql
+[082] site:TARGET ext:sql "INSERT INTO"
+[083] site:TARGET ext:sql "CREATE TABLE"
+[084] site:TARGET ext:dump
+[085] site:TARGET ext:sqlite OR ext:sqlite3
+[086] site:TARGET ext:db OR ext:db3
+[087] site:TARGET ext:mdb
+[088] site:TARGET inurl:phpmyadmin
+[089] site:TARGET inurl:pma
+[090] site:TARGET inurl:adminer.php
+[091] site:TARGET intitle:"phpMyAdmin" "Welcome to"
+[092] site:TARGET inurl:backup.sql
+[093] site:TARGET inurl:db.sql
+[094] site:TARGET inurl:dump.sql
+[095] site:TARGET inurl:database.sql
+[096] site:TARGET inurl:schema.sql
+[097] site:TARGET ext:sql inurl:temp OR inurl:tmp
+[098] site:TARGET ext:tar.gz inurl:sql
+[099] site:TARGET ext:zip inurl:sql
+[100] site:TARGET ext:7z inurl:backup
+[101] site:TARGET intext:"Table structure for table"
+[102] site:TARGET intext:"Dumping data for table"
+[103] site:TARGET intext:"PostgreSQL database dump"
+[104] site:TARGET intext:"MySQL dump"
+[105] site:TARGET intext:"sqlite_sequence"
+[106] site:TARGET inurl:export.sql
+[107] site:TARGET inurl:users.sql
+[108] site:TARGET inurl:customers.sql
+[109] site:TARGET inurl:orders.sql
+[110] site:TARGET inurl:transactions.sql
+[111] site:TARGET intitle:"index of" "mysqldump"
+[112] site:TARGET intitle:"index of" "*.sql.gz"
+[113] site:TARGET ext:rdb inurl:redis
+[114] site:TARGET ext:ibd OR ext:frm
+[115] site:TARGET intitle:"index of" "/backups/db"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 04: LOG FILES, SERVER TRACES, STACK DUMPS & ERROR OUTPUTS (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[116] site:TARGET ext:log
+[117] site:TARGET ext:log inurl:access
+[118] site:TARGET ext:log inurl:error
+[119] site:TARGET ext:log inurl:debug
+[120] site:TARGET ext:log inurl:laravel
+[121] site:TARGET ext:log inurl:production
+[122] site:TARGET ext:log inurl:staging
+[123] site:TARGET ext:log inurl:audit
+[124] site:TARGET ext:log "Exception in thread"
+[125] site:TARGET ext:log "Stack trace:"
+[126] site:TARGET ext:log "Fatal error:"
+[127] site:TARGET ext:log "SQLSTATE["
+[128] site:TARGET ext:txt inurl:log
+[129] site:TARGET ext:txt inurl:debug
+[130] site:TARGET inurl:storage/logs/
+[131] site:TARGET inurl:logs/catalina.out
+[132] site:TARGET intitle:"index of" inurl:logs
+[133] site:TARGET inurl:error_log
+[134] site:TARGET inurl:errors.log
+[135] site:TARGET inurl:access_log
+[136] site:TARGET inurl:server.log
+[137] site:TARGET inurl:app.log
+[138] site:TARGET inurl:crashdump
+[139] site:TARGET intitle:"Whoops! There was a problem."
+[140] site:TARGET intext:"SyntaxError:" OR intext:"TypeError:" inurl:trace
+[141] site:TARGET intext:"Internal Server Error" ext:log
+[142] site:TARGET inurl:yarn-error.log OR inurl:npm-debug.log
+[143] site:TARGET inurl:ws_ftp.log
+[144] site:TARGET inurl:httpd.log
+[145] site:TARGET inurl:nginx_error.log
+[146] site:TARGET inurl:fluentd.log OR inurl:logstash.log
+[147] site:TARGET inurl:supervisord.log
+[148] site:TARGET intext:"at org.springframework." ext:log
+[149] site:TARGET intext:"Traceback (most recent call last):"
+[150] site:TARGET intitle:"index of" "/var/log"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 05: API ROUTES, SWAGGER, GRAPHQL & DEVELOPER DOCUMENTATION (40 DORKS)
+# ------------------------------------------------------------------------------
+
+[151] site:TARGET inurl:swagger
+[152] site:TARGET inurl:swagger-ui
+[153] site:TARGET inurl:swagger.json
+[154] site:TARGET inurl:swagger.yaml
+[155] site:TARGET inurl:api-docs
+[156] site:TARGET inurl:openapi.json
+[157] site:TARGET inurl:openapi.yaml
+[158] site:TARGET inurl:redoc
+[159] site:TARGET inurl:graphql
+[160] site:TARGET inurl:graphiql
+[161] site:TARGET inurl:altair
+[162] site:TARGET inurl:playground inurl:graphql
+[163] site:TARGET inurl:api/v1
+[164] site:TARGET inurl:api/v2
+[165] site:TARGET inurl:api/v3
+[166] site:TARGET inurl:api/private
+[167] site:TARGET inurl:api/internal
+[168] site:TARGET ext:json inurl:postman_collection
+[169] site:TARGET ext:json inurl:openapi
+[170] site:TARGET intitle:"Swagger UI"
+[171] site:TARGET inurl:doc/api
+[172] site:TARGET inurl:docs/api
+[173] site:TARGET inurl:apidocs
+[174] site:TARGET inurl:rest-api
+[175] site:TARGET inurl:v1/users
+[176] site:TARGET inurl:v1/auth
+[177] site:TARGET inurl:v1/admin
+[178] site:TARGET inurl:webhooks
+[179] site:TARGET inurl:webhook/receive
+[180] site:TARGET inurl:callback/api
+[181] site:TARGET inurl:developers/api
+[182] site:TARGET inurl:developer-portal
+[183] site:TARGET inurl:api-explorer
+[184] site:TARGET ext:yaml inurl:swagger
+[185] site:TARGET intitle:"GraphQL Playground"
+[186] site:TARGET inurl:schema.graphql
+[187] site:TARGET inurl:graphql/console
+[188] site:TARGET intext:""paths": {" inurl:api-docs
+[189] site:TARGET intext:"getSchema" inurl:graphql
+[190] site:TARGET inurl:api/test OR inurl:api/mock
+
+# ------------------------------------------------------------------------------
+# CATEGORY 06: CLOUD STORAGE, AWS S3 BUCKETS & OBJECT STORAGE EXPOSURES (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[191] site:TARGET inurl:s3.amazonaws.com
+[192] site:TARGET intext:"ListBucketResult"
+[193] site:TARGET intext:"<CommonPrefixes>"
+[194] site:TARGET intext:"<Key>" intext:"<Size>"
+[195] site:TARGET inurl:storage.googleapis.com
+[196] site:TARGET inurl:blob.core.windows.net
+[197] site:TARGET inurl:digitaloceanspaces.com
+[198] site:TARGET inurl:cloudinary.com
+[199] site:TARGET inurl:cloudfront.net
+[200] site:TARGET inurl:s3-website
+[201] site:TARGET inurl:s3.dualstack
+[202] site:TARGET inurl:storage/app/public
+[203] site:TARGET intitle:"index of" inurl:uploads
+[204] site:TARGET intitle:"index of" inurl:attachments
+[205] site:TARGET intitle:"index of" inurl:media
+[206] site:TARGET intitle:"index of" inurl:assets/docs
+[207] site:TARGET inurl:firebaseio.com
+[208] site:TARGET inurl:r2.cloudflarestorage.com
+[209] site:TARGET inurl:backblazeb2.com
+[210] site:TARGET inurl:wasabisys.com
+[211] site:TARGET intext:"AccessDenied" inurl:s3.amazonaws.com
+[212] site:TARGET inurl:minio OR intitle:"MinIO Browser"
+[213] site:TARGET inurl:minio/login
+[214] site:TARGET inurl:bucket_name
+[215] site:TARGET inurl:public-bucket
+[216] site:TARGET inurl:static-assets/internal
+[217] site:TARGET intitle:"index of" inurl:cdn/files
+[218] site:TARGET inurl:attachments/private
+[219] site:TARGET inurl:storage/documents
+[220] site:TARGET inurl:s3-ap-south-1.amazonaws.com
+[221] site:TARGET inurl:s3.ap-south-1.amazonaws.com
+[222] site:TARGET inurl:s3-eu-west-1.amazonaws.com
+[223] site:TARGET inurl:s3-us-east-1.amazonaws.com
+[224] site:TARGET inurl:spaces/uploads
+[225] site:TARGET intext:"X-Amz-Signature"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 07: VERSION CONTROL, CODE REPOSITORIES & BACKUP ARCHIVES (40 DORKS)
+# ------------------------------------------------------------------------------
+
+[226] site:TARGET inurl:.git
+[227] site:TARGET inurl:.git/config
+[228] site:TARGET inurl:.git/HEAD
+[229] site:TARGET inurl:.git/index
+[230] site:TARGET inurl:.gitignore
+[231] site:TARGET inurl:.svn
+[232] site:TARGET inurl:.svn/entries
+[233] site:TARGET inurl:.hg
+[234] site:TARGET inurl:.bzr
+[235] site:TARGET inurl:.cvs
+[236] site:TARGET ext:zip inurl:backup
+[237] site:TARGET ext:zip inurl:source
+[238] site:TARGET ext:zip inurl:code
+[239] site:TARGET ext:tar inurl:backup
+[240] site:TARGET ext:tar.gz inurl:backup
+[241] site:TARGET ext:tgz
+[242] site:TARGET ext:rar inurl:backup
+[243] site:TARGET ext:7z
+[244] site:TARGET ext:bak
+[245] site:TARGET ext:old
+[246] site:TARGET ext:backup
+[247] site:TARGET ext:swp
+[248] site:TARGET ext:swo
+[249] site:TARGET ext:~
+[250] site:TARGET inurl:source-code
+[251] site:TARGET inurl:src.zip
+[252] site:TARGET inurl:app.zip
+[253] site:TARGET inurl:site.zip
+[254] site:TARGET inurl:repo
+[255] site:TARGET inurl:bitbucket
+[256] site:TARGET inurl:gitlab-ci.yml
+[257] site:TARGET inurl:.travis.yml
+[258] site:TARGET inurl:.circleci/config.yml
+[259] site:TARGET inurl:.github/workflows
+[260] site:TARGET inurl:composer.json
+[261] site:TARGET inurl:composer.lock
+[262] site:TARGET inurl:package.json
+[263] site:TARGET inurl:package-lock.json
+[264] site:TARGET inurl:Pipfile OR inurl:Pipfile.lock
+[265] site:TARGET inurl:requirements.txt
+
+# ------------------------------------------------------------------------------
+# CATEGORY 08: SENSITIVE DOCUMENTS, INVOICES, SALARIES & CORPORATE PII (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[266] site:TARGET ext:pdf inurl:invoice
+[267] site:TARGET ext:pdf inurl:bill
+[268] site:TARGET ext:pdf inurl:receipt
+[269] site:TARGET ext:pdf inurl:statement
+[270] site:TARGET ext:pdf inurl:salary
+[271] site:TARGET ext:pdf inurl:payslip
+[272] site:TARGET ext:pdf inurl:gst
+[273] site:TARGET ext:pdf inurl:tax
+[274] site:TARGET ext:pdf inurl:confidential
+[275] site:TARGET ext:pdf inurl:internal
+[276] site:TARGET ext:pdf inurl:audit
+[277] site:TARGET ext:pdf inurl:agreement
+[278] site:TARGET ext:pdf inurl:contract
+[279] site:TARGET ext:xls OR ext:xlsx inurl:customer
+[280] site:TARGET ext:xls OR ext:xlsx inurl:client
+[281] site:TARGET ext:xls OR ext:xlsx inurl:user
+[282] site:TARGET ext:xls OR ext:xlsx inurl:employee
+[283] site:TARGET ext:xls OR ext:xlsx inurl:lead
+[284] site:TARGET ext:xls OR ext:xlsx inurl:sales
+[285] site:TARGET ext:xls OR ext:xlsx inurl:payroll
+[286] site:TARGET ext:csv inurl:export
+[287] site:TARGET ext:csv inurl:contacts
+[288] site:TARGET ext:csv inurl:orders
+[289] site:TARGET ext:csv inurl:subscribers
+[290] site:TARGET ext:doc OR ext:docx inurl:confidential
+[291] site:TARGET ext:doc OR ext:docx inurl:minutes
+[292] site:TARGET ext:doc OR ext:docx inurl:nda
+[293] site:TARGET intext:"CONFIDENTIAL" ext:pdf
+[294] site:TARGET intext:"INTERNAL USE ONLY"
+[295] site:TARGET intext:"NOT FOR PUBLIC DISTRIBUTION"
+[296] site:TARGET inurl:kyc OR inurl:aadhaar OR inurl:pan
+[297] site:TARGET inurl:passport OR inurl:national-id
+[298] site:TARGET inurl:resume OR inurl:cv inurl:upload
+[299] site:TARGET inurl:quotation OR inurl:proposal ext:pdf
+[300] site:TARGET inurl:balance-sheet OR inurl:pnl ext:xlsx
+
+# ------------------------------------------------------------------------------
+# CATEGORY 09: TECHNOLOGY STACKS, WEB FRAMEWORKS & RUNTIME INFRASTRUCTURE (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[301] site:TARGET inurl:phpinfo.php
+[302] site:TARGET inurl:info.php
+[303] site:TARGET inurl:test.php
+[304] site:TARGET inurl:wp-json
+[305] site:TARGET inurl:wp-json/wp/v2/users
+[306] site:TARGET inurl:wp-content/uploads
+[307] site:TARGET inurl:xmlrpc.php
+[308] site:TARGET inurl:elmah.axd
+[309] site:TARGET inurl:trace.axd
+[310] site:TARGET inurl:actuator
+[311] site:TARGET inurl:actuator/health
+[312] site:TARGET inurl:actuator/env
+[313] site:TARGET inurl:actuator/heapdump
+[314] site:TARGET inurl:actuator/metrics
+[315] site:TARGET inurl:actuator/beans
+[316] site:TARGET inurl:actuator/mappings
+[317] site:TARGET inurl:telescope
+[318] site:TARGET inurl:horizon inurl:dashboard
+[319] site:TARGET inurl:laravel-websockets
+[320] site:TARGET inurl:server-status
+[321] site:TARGET inurl:server-info
+[322] site:TARGET inurl:status?full=true
+[323] site:TARGET inurl:nginx_status
+[324] site:TARGET inurl:haproxy?stats
+[325] site:TARGET inurl:solr
+[326] site:TARGET inurl:elasticsearch
+[327] site:TARGET inurl:_cat/indices
+[328] site:TARGET inurl:_search
+[329] site:TARGET inurl:drupal
+[330] site:TARGET inurl:joomla
+[331] site:TARGET inurl:magento
+[332] site:TARGET inurl:ghost/api
+[333] site:TARGET inurl:strapi
+[334] site:TARGET inurl:sanity
+[335] site:TARGET inurl:typo3
+
+# ------------------------------------------------------------------------------
+# CATEGORY 10: E-COMMERCE, ORDERS, CHECKOUT, PAYMENT GATEWAYS & WEBHOOKS (35 DORKS)
+# ------------------------------------------------------------------------------
+
+[336] site:TARGET inurl:order_id=
+[337] site:TARGET inurl:order-tracking
+[338] site:TARGET inurl:track-order
+[339] site:TARGET inurl:track/shipment
+[340] site:TARGET inurl:shipment_id=
+[341] site:TARGET inurl:awb=
+[342] site:TARGET inurl:invoice/download
+[343] site:TARGET inurl:receipt/print
+[344] site:TARGET inurl:order/view
+[345] site:TARGET inurl:cart/checkout
+[346] site:TARGET inurl:checkout/success
+[347] site:TARGET inurl:checkout/failure
+[348] site:TARGET inurl:payment/callback
+[349] site:TARGET inurl:payment/success
+[350] site:TARGET inurl:payment/webhook
+[351] site:TARGET inurl:razorpay/webhook
+[352] site:TARGET inurl:stripe/webhook
+[353] site:TARGET inurl:paytm/callback
+[354] site:TARGET inurl:payu/response
+[355] site:TARGET inurl:cashfree/notify
+[356] site:TARGET inurl:returns/exchange
+[357] site:TARGET inurl:refund/status
+[358] site:TARGET inurl:coupon/apply
+[359] site:TARGET inurl:voucher/redeem
+[360] site:TARGET inurl:giftcard/balance
+[361] site:TARGET inurl:wallet/history
+[362] site:TARGET inurl:payout/status
+[363] site:TARGET inurl:bank/account
+[364] site:TARGET inurl:beneficiary/add
+[365] site:TARGET inurl:commission/summary
+[366] site:TARGET inurl:affiliate/click
+[367] site:TARGET inurl:referral/track
+[368] site:TARGET inurl:claim/submit
+[369] site:TARGET inurl:loyalty/points
+[370] site:TARGET inurl:cdn/shop/files
+
+# ------------------------------------------------------------------------------
+# CATEGORY 11: CI/CD PIPELINES, DEVOPS TOOLS, MONITORING & INTERNAL SERVICES (30 DORKS)
+# ------------------------------------------------------------------------------
+
+[371] site:TARGET inurl:jenkins
+[372] site:TARGET inurl:jenkins/job
+[373] site:TARGET inurl:gitlab
+[374] site:TARGET inurl:gitlab/explore
+[375] site:TARGET inurl:sonarqube
+[376] site:TARGET inurl:sonar/dashboard
+[377] site:TARGET inurl:artifactory
+[378] site:TARGET inurl:nexus
+[379] site:TARGET inurl:grafana
+[380] site:TARGET inurl:prometheus
+[381] site:TARGET inurl:alertmanager
+[382] site:TARGET inurl:portainer
+[383] site:TARGET inurl:rancher
+[384] site:TARGET inurl:kubernetes-dashboard
+[385] site:TARGET inurl:traefik
+[386] site:TARGET inurl:kong
+[387] site:TARGET inurl:datadog
+[388] site:TARGET inurl:newrelic
+[389] site:TARGET inurl:sentry
+[390] site:TARGET inurl:graylog
+[391] site:TARGET inurl:splunk
+[392] site:TARGET inurl:rabbitmq
+[393] site:TARGET inurl:kafka
+[394] site:TARGET inurl:zookeeper
+[395] site:TARGET inurl:consul
+[396] site:TARGET inurl:vault/v1
+[397] site:TARGET inurl:rundeck
+[398] site:TARGET inurl:awx
+[399] site:TARGET inurl:ansible-tower
+[400] site:TARGET inurl:argocd
+
+# ==============================================================================
+# TOTAL CURATED UNIVERSAL DORKS: 400 (100% COMPLETE)
+# ==============================================================================

@@ -1,0 +1,283 @@
+# ==============================================================================
+#   CYBER WARFARE INTELLIGENCE LAB (CWIL) • OFFENSIVE RECONNAISSANCE VAULT
+#   PROJECT: 200 ELITE GOOGLE DORKS FOR INTERN RECONNAISSANCE
+#   TARGET DOMAINS: snitch.co.in (D2C E-Commerce) & cashkaro.com (FinTech Cashback)
+#   SCOPE: PASSIVE RECONNAISSANCE & ASSET DISCOVERY (STRICTLY SAFE HARBOR)
+# ==============================================================================
+
+# INSTRUCTIONS FOR ASSIGNED INTERN:
+# 1. Copy each dork query exactly into Google Search or automated recon crawlers.
+# 2. Replace or isolate target domains if scanning one domain at a time:
+#    - For Snitch only   : Use 'site:snitch.co.in'
+#    - For CashKaro only : Use 'site:cashkaro.com'
+# 3. Document all positive findings (URLs, exposed files, admin portals, configs).
+# 4. Screenshot and log findings into '03_OSINT_Dork_Findings.md'.
+# 5. Submit all raw outputs, URL lists, and findings in the final consolidated ZIP.
+
+# ==============================================================================
+
+
+# ------------------------------------------------------------------------------
+# CATEGORY 01: ADMIN PANELS, MANAGEMENT PORTALS & AUTHENTICATION ENDPOINTS
+# Focus: Discover unprotected administrative interfaces, internal dashboards, SSO gateways, and staff login panels.
+# ------------------------------------------------------------------------------
+
+[001] site:snitch.co.in inurl:admin
+[002] site:cashkaro.com inurl:admin
+[003] site:snitch.co.in inurl:login OR inurl:signin OR inurl:portal
+[004] site:cashkaro.com inurl:login OR inurl:signin OR inurl:portal
+[005] site:snitch.co.in inurl:dashboard OR inurl:controlpanel
+[006] site:cashkaro.com inurl:dashboard OR inurl:controlpanel
+[007] (site:snitch.co.in OR site:cashkaro.com) intitle:"admin login" OR intitle:"dashboard login"
+[008] (site:snitch.co.in OR site:cashkaro.com) intitle:"administrator" inurl:login
+[009] (site:snitch.co.in OR site:cashkaro.com) inurl:/wp-login.php OR inurl:/wp-admin
+[010] (site:snitch.co.in OR site:cashkaro.com) inurl:cpanel OR inurl:webmin OR inurl:kibana
+[011] (site:snitch.co.in OR site:cashkaro.com) inurl:manager OR inurl:management OR inurl:staff
+[012] (site:snitch.co.in OR site:cashkaro.com) inurl:auth OR inurl:sso OR inurl:saml
+[013] (site:snitch.co.in OR site:cashkaro.com) inurl:user/login OR inurl:users/sign_in
+[014] (site:snitch.co.in OR site:cashkaro.com) inurl:backoffice OR inurl:backend/login
+[015] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" inurl:admin
+[016] (site:snitch.co.in OR site:cashkaro.com) inurl:portal/login OR inurl:intranet
+[017] (site:snitch.co.in OR site:cashkaro.com) inurl:dev-admin OR inurl:stage-admin OR inurl:test-admin
+[018] (site:snitch.co.in OR site:cashkaro.com) inurl:moderator OR inurl:superadmin
+[019] (site:snitch.co.in OR site:cashkaro.com) intitle:"Grafana" OR intitle:"Prometheus" OR intitle:"Kibana"
+[020] (site:snitch.co.in OR site:cashkaro.com) inurl:jenkins OR inurl:gitlab OR inurl:teamcity
+[021] site:admin.snitch.co.in OR site:portal.snitch.co.in
+[022] site:admin.cashkaro.com OR site:portal.cashkaro.com
+[023] (site:snitch.co.in OR site:cashkaro.com) inurl:oauth/authorize OR inurl:oauth/token
+[024] (site:snitch.co.in OR site:cashkaro.com) inurl:forgot-password OR inurl:reset-password "token="
+[025] (site:snitch.co.in OR site:cashkaro.com) inurl:partner/login OR inurl:vendor/login
+
+# ------------------------------------------------------------------------------
+# CATEGORY 02: CONFIGURATION FILES, ENVIRONMENT VARIABLES & CREDENTIAL LEAKS
+# Focus: Hunt for exposed server configs, environment credentials (.env), API keys, and repository files.
+# ------------------------------------------------------------------------------
+
+[026] (site:snitch.co.in OR site:cashkaro.com) ext:env "DB_PASSWORD" OR "APP_KEY"
+[027] (site:snitch.co.in OR site:cashkaro.com) ext:env "AWS_SECRET_ACCESS_KEY"
+[028] (site:snitch.co.in OR site:cashkaro.com) ext:env "MAIL_PASSWORD" OR "REDIS_PASSWORD"
+[029] (site:snitch.co.in OR site:cashkaro.com) ext:conf OR ext:cfg "password" OR "db_user"
+[030] (site:snitch.co.in OR site:cashkaro.com) inurl:.git OR inurl:.gitignore OR inurl:.git/config
+[031] (site:snitch.co.in OR site:cashkaro.com) inurl:.git/HEAD OR inurl:.git/index
+[032] (site:snitch.co.in OR site:cashkaro.com) ext:yml OR ext:yaml "password" OR "secret_key"
+[033] (site:snitch.co.in OR site:cashkaro.com) inurl:docker-compose.yml OR inurl:Dockerfile
+[034] (site:snitch.co.in OR site:cashkaro.com) ext:json "client_secret" OR "private_key"
+[035] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-config.php.bak OR inurl:wp-config.old
+[036] (site:snitch.co.in OR site:cashkaro.com) ext:inc OR ext:bak "connection" OR "database"
+[037] (site:snitch.co.in OR site:cashkaro.com) inurl:.env.example OR inurl:.env.backup
+[038] (site:snitch.co.in OR site:cashkaro.com) ext:properties "password" OR "db.url"
+[039] (site:snitch.co.in OR site:cashkaro.com) ext:xml "password" OR "db_password"
+[040] (site:snitch.co.in OR site:cashkaro.com) ext:ini "database" OR "password"
+[041] (site:snitch.co.in OR site:cashkaro.com) inurl:web.config OR inurl:appsettings.json
+[042] (site:snitch.co.in OR site:cashkaro.com) inurl:server.xml OR inurl:database.yml
+[043] (site:snitch.co.in OR site:cashkaro.com) ext:pem OR ext:key OR ext:pkcs12 "PRIVATE KEY"
+[044] (site:snitch.co.in OR site:cashkaro.com) inurl:id_rsa OR inurl:id_dsa
+[045] (site:snitch.co.in OR site:cashkaro.com) inurl:known_hosts OR inurl:authorized_keys
+[046] (site:snitch.co.in OR site:cashkaro.com) ext:json "firebase" OR "apiKey"
+[047] (site:snitch.co.in OR site:cashkaro.com) inurl:manifest.json OR inurl:package.json
+[048] (site:snitch.co.in OR site:cashkaro.com) inurl:composer.json OR inurl:composer.lock
+[049] (site:snitch.co.in OR site:cashkaro.com) inurl:credentials.json OR inurl:secret.json
+[050] (site:snitch.co.in OR site:cashkaro.com) inurl:.htpasswd OR inurl:.htaccess.bak
+
+# ------------------------------------------------------------------------------
+# CATEGORY 03: DATABASE DUMPS, SQL EXPORTS & DATA SCHEMA EXPOSURES
+# Focus: Find exposed MySQL, PostgreSQL, SQLite, and MongoDB database backups and table dumps.
+# ------------------------------------------------------------------------------
+
+[051] (site:snitch.co.in OR site:cashkaro.com) ext:sql OR ext:dump OR ext:mysqldump
+[052] (site:snitch.co.in OR site:cashkaro.com) intext:"insert into" ext:sql
+[053] (site:snitch.co.in OR site:cashkaro.com) intext:"create table" ext:sql
+[054] (site:snitch.co.in OR site:cashkaro.com) ext:tar.gz OR ext:zip OR ext:rar "backup" OR "dump"
+[055] (site:snitch.co.in OR site:cashkaro.com) inurl:phpmyadmin OR inurl:pma OR inurl:adminer
+[056] (site:snitch.co.in OR site:cashkaro.com) ext:db OR ext:sqlite OR ext:sqlite3
+[057] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" "users.sql" OR "dump.sql"
+[058] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" "backup.sql" OR "database.sql"
+[059] (site:snitch.co.in OR site:cashkaro.com) inurl:schema.sql OR inurl:init.sql
+[060] (site:snitch.co.in OR site:cashkaro.com) ext:sql "admin" OR "password" OR "hash"
+[061] (site:snitch.co.in OR site:cashkaro.com) ext:sql "email" "user_id" "password"
+[062] (site:snitch.co.in OR site:cashkaro.com) inurl:mongodump OR inurl:mongo.backup
+[063] (site:snitch.co.in OR site:cashkaro.com) inurl:db_backup OR inurl:database_backup
+[064] (site:snitch.co.in OR site:cashkaro.com) intext:"PostgreSQL database dump"
+[065] (site:snitch.co.in OR site:cashkaro.com) intext:"MySQL dump" ext:sql
+[066] (site:snitch.co.in OR site:cashkaro.com) ext:bak "database" OR "sql"
+[067] (site:snitch.co.in OR site:cashkaro.com) ext:sql.gz OR ext:sql.tar OR ext:sql.bz2
+[068] (site:snitch.co.in OR site:cashkaro.com) inurl:data.sql OR inurl:tables.sql
+[069] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" inurl:mysql OR inurl:dumps
+[070] (site:snitch.co.in OR site:cashkaro.com) inurl:export.sql OR inurl:customers.sql
+
+# ------------------------------------------------------------------------------
+# CATEGORY 04: LOG FILES, SERVER TRACES, STACK DUMPS & ERROR OUTPUTS
+# Focus: Locate debug traces, server error logs, access histories, and application exceptions.
+# ------------------------------------------------------------------------------
+
+[071] (site:snitch.co.in OR site:cashkaro.com) ext:log "error" OR "exception" OR "debug"
+[072] (site:snitch.co.in OR site:cashkaro.com) inurl:storage/logs/ OR inurl:laravel.log
+[073] (site:snitch.co.in OR site:cashkaro.com) ext:log "password" OR "authorization" OR "token"
+[074] (site:snitch.co.in OR site:cashkaro.com) intext:"Fatal error:" OR intext:"uncaught exception"
+[075] (site:snitch.co.in OR site:cashkaro.com) intext:"Stack trace:" OR intext:"NullPointerException"
+[076] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" "error_log" OR "access_log"
+[077] (site:snitch.co.in OR site:cashkaro.com) ext:log "GET /" OR "POST /" "200"
+[078] (site:snitch.co.in OR site:cashkaro.com) inurl:debug.log OR inurl:system.log
+[079] (site:snitch.co.in OR site:cashkaro.com) inurl:production.log OR inurl:staging.log
+[080] (site:snitch.co.in OR site:cashkaro.com) intext:"SQLSTATE[" OR intext:"Syntax error or access violation"
+[081] (site:snitch.co.in OR site:cashkaro.com) ext:log inurl:payment OR inurl:checkout
+[082] (site:snitch.co.in OR site:cashkaro.com) ext:log inurl:api OR inurl:webhook
+[083] (site:snitch.co.in OR site:cashkaro.com) intext:"Warning: mysql_connect()" OR intext:"Warning: pg_connect()"
+[084] (site:snitch.co.in OR site:cashkaro.com) intext:"PHP Parse error" OR intext:"PHP Warning"
+[085] (site:snitch.co.in OR site:cashkaro.com) inurl:crash_report OR inurl:error_report
+[086] (site:snitch.co.in OR site:cashkaro.com) ext:txt "stack trace" OR "traceback"
+[087] (site:snitch.co.in OR site:cashkaro.com) intext:"Django Version" "Exception Type"
+[088] (site:snitch.co.in OR site:cashkaro.com) intext:"Whoops! There was an error." inurl:laravel
+[089] (site:snitch.co.in OR site:cashkaro.com) ext:log "curl" OR "authorization: Bearer"
+[090] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" inurl:logs OR inurl:trace
+
+# ------------------------------------------------------------------------------
+# CATEGORY 05: API ROUTES, SWAGGER, GRAPHQL & DEVELOPER DOCUMENTATION
+# Focus: Discover internal REST endpoints, GraphQL interactive consoles, and OpenAPI documentation.
+# ------------------------------------------------------------------------------
+
+[091] (site:snitch.co.in OR site:cashkaro.com) inurl:api/v1 OR inurl:api/v2 OR inurl:api/v3
+[092] (site:snitch.co.in OR site:cashkaro.com) inurl:swagger OR inurl:swagger-ui.html OR inurl:api-docs
+[093] (site:snitch.co.in OR site:cashkaro.com) inurl:graphql OR inurl:graphiql OR inurl:graphql.php
+[094] (site:snitch.co.in OR site:cashkaro.com) ext:json inurl:postman_collection
+[095] (site:snitch.co.in OR site:cashkaro.com) inurl:openapi.json OR inurl:swagger.json
+[096] (site:snitch.co.in OR site:cashkaro.com) inurl:/api/ "token=" OR "apikey=" OR "key="
+[097] (site:snitch.co.in OR site:cashkaro.com) inurl:api/user OR inurl:api/users OR inurl:api/profile
+[098] (site:snitch.co.in OR site:cashkaro.com) inurl:api/orders OR inurl:api/checkout
+[099] (site:snitch.co.in OR site:cashkaro.com) inurl:redoc OR inurl:rapidoc
+[100] (site:snitch.co.in OR site:cashkaro.com) inurl:api/internal OR inurl:api/private
+[101] (site:snitch.co.in OR site:cashkaro.com) inurl:api/test OR inurl:api/debug
+[102] (site:snitch.co.in OR site:cashkaro.com) inurl:api.json OR inurl:routes.json
+[103] (site:snitch.co.in OR site:cashkaro.com) inurl:api/auth OR inurl:api/login "jwt"
+[104] (site:snitch.co.in OR site:cashkaro.com) inurl:api/v1/users/export OR inurl:api/export
+[105] (site:snitch.co.in OR site:cashkaro.com) inurl:api/v1/webhook OR inurl:api/callbacks
+[106] (site:snitch.co.in OR site:cashkaro.com) intitle:"Swagger UI" inurl:api
+[107] (site:snitch.co.in OR site:cashkaro.com) inurl:docs/api OR inurl:developer/api
+[108] (site:snitch.co.in OR site:cashkaro.com) inurl:api/admin OR inurl:api/staff
+[109] (site:snitch.co.in OR site:cashkaro.com) inurl:api/v1/search "q=" OR "filter="
+[110] (site:snitch.co.in OR site:cashkaro.com) inurl:api/v1/upload OR inurl:api/media
+
+# ------------------------------------------------------------------------------
+# CATEGORY 06: SENSITIVE DOCUMENTS, INVOICES, SALARIES & CUSTOMER PII
+# Focus: Find exposed tax invoices, customer purchase orders, salary sheets, and identity records.
+# ------------------------------------------------------------------------------
+
+[111] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "invoice" OR "tax invoice" OR "bill to"
+[112] (site:snitch.co.in OR site:cashkaro.com) filetype:xlsx OR filetype:xls "salary" OR "payroll"
+[113] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf OR filetype:docx "confidential" OR "internal use"
+[114] (site:snitch.co.in OR site:cashkaro.com) filetype:csv "customer" OR "email" OR "mobile" OR "phone"
+[115] (site:snitch.co.in OR site:cashkaro.com) inurl:download OR inurl:attachment "receipt"
+[116] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "GSTIN" OR "PAN" OR "Aadhaar"
+[117] (site:snitch.co.in OR site:cashkaro.com) filetype:xlsx "sales report" OR "financial report"
+[118] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "purchase order" OR "PO number"
+[119] (site:snitch.co.in OR site:cashkaro.com) filetype:csv "first_name" "last_name" "phone"
+[120] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "shipping address" OR "billing address"
+[121] (site:snitch.co.in OR site:cashkaro.com) inurl:invoices/ OR inurl:receipts/
+[122] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "NDA" OR "Non-Disclosure Agreement"
+[123] (site:snitch.co.in OR site:cashkaro.com) filetype:xlsx "commission" OR "affiliate earnings"
+[124] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "employee" OR "offer letter"
+[125] (site:snitch.co.in OR site:cashkaro.com) inurl:export "users" OR "leads" ext:csv
+[126] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "bank statement" OR "NEFT"
+[127] (site:snitch.co.in OR site:cashkaro.com) filetype:xlsx "inventory" OR "wholesale price"
+[128] (site:snitch.co.in OR site:cashkaro.com) inurl:statements/ OR inurl:bills/
+[129] (site:snitch.co.in OR site:cashkaro.com) filetype:pdf "audit report" OR "compliance"
+[130] (site:snitch.co.in OR site:cashkaro.com) intitle:"index of" "invoices" OR "receipts"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 07: CLOUD STORAGE, AWS S3 BUCKETS & STORAGE OBJECT LEAKS
+# Focus: Probe publicly indexed Amazon S3 buckets, Google Cloud Storage, and Azure Blob storage assets.
+# ------------------------------------------------------------------------------
+
+[131] site:s3.amazonaws.com "snitch.co.in"
+[132] site:s3.amazonaws.com "cashkaro.com"
+[133] site:s3.amazonaws.com "snitch"
+[134] site:s3.amazonaws.com "cashkaro"
+[135] site:storage.googleapis.com "snitch.co.in" OR "snitch"
+[136] site:storage.googleapis.com "cashkaro.com" OR "cashkaro"
+[137] site:*.blob.core.windows.net "snitch.co.in" OR "snitch"
+[138] site:*.blob.core.windows.net "cashkaro.com" OR "cashkaro"
+[139] site:s3.amazonaws.com ext:pdf OR ext:xlsx "snitch"
+[140] site:s3.amazonaws.com ext:pdf OR ext:xlsx "cashkaro"
+[141] site:s3.amazonaws.com ext:sql OR ext:bak "snitch"
+[142] site:s3.amazonaws.com ext:sql OR ext:bak "cashkaro"
+[143] site:s3.amazonaws.com inurl:invoice OR inurl:bill "snitch"
+[144] site:s3.amazonaws.com inurl:payout OR inurl:rewards "cashkaro"
+[145] site:s3.amazonaws.com inurl:uploads OR inurl:media "snitch"
+[146] site:s3.amazonaws.com inurl:uploads OR inurl:media "cashkaro"
+[147] site:s3.amazonaws.com ext:env OR ext:log "snitch"
+[148] site:s3.amazonaws.com ext:env OR ext:log "cashkaro"
+[149] site:digitaloceanspaces.com "snitch" OR "cashkaro"
+[150] site:r2.cloudflarestorage.com "snitch" OR "cashkaro"
+
+# ------------------------------------------------------------------------------
+# CATEGORY 08: PHP RUNTIME, WORDPRESS CMS & LARAVEL FRAMEWORK TRAILS
+# Focus: Find exposed PHP scripts, active wp-content directories, XML-RPC APIs, and Laravel framework debug routes.
+# ------------------------------------------------------------------------------
+
+[151] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:id= OR inurl:cat= OR inurl:page=
+[152] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-content/uploads/
+[153] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-content/plugins/
+[154] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-includes/
+[155] (site:snitch.co.in OR site:cashkaro.com) inurl:xmlrpc.php
+[156] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-json/wp/v2/users
+[157] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-json/wp/v2/posts
+[158] (site:snitch.co.in OR site:cashkaro.com) inurl:/vendor/ OR inurl:/composer.json
+[159] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:test OR inurl:info OR inurl:phpinfo
+[160] (site:snitch.co.in OR site:cashkaro.com) inurl:phpinfo.php OR inurl:info.php
+[161] (site:snitch.co.in OR site:cashkaro.com) inurl:laravel_session OR inurl:PHPSESSID
+[162] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:action= OR inurl:do=
+[163] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-cron.php
+[164] (site:snitch.co.in OR site:cashkaro.com) inurl:readme.html OR inurl:license.txt
+[165] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:view= OR inurl:file=
+[166] (site:snitch.co.in OR site:cashkaro.com) inurl:wp-content/themes/
+[167] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:search OR inurl:query
+[168] (site:snitch.co.in OR site:cashkaro.com) inurl:woocommerce OR inurl:cart.php
+[169] (site:snitch.co.in OR site:cashkaro.com) inurl:checkout.php OR inurl:order.php
+[170] (site:snitch.co.in OR site:cashkaro.com) ext:php inurl:redirect= OR inurl:url=
+
+# ------------------------------------------------------------------------------
+# CATEGORY 09: E-COMMERCE, ORDER TRACKING & PAYMENT LOGISTICS (SNITCH FOCUS)
+# Focus: Specific to snitch.co.in: Discover order status APIs, shipment AWB trackers, discount codes, and payment callbacks.
+# ------------------------------------------------------------------------------
+
+[171] site:snitch.co.in inurl:order OR inurl:track "order_id=" OR "tracking_number="
+[172] site:snitch.co.in inurl:checkout OR inurl:cart "discount=" OR "coupon="
+[173] site:snitch.co.in inurl:return OR inurl:refund OR inurl:exchange
+[174] site:snitch.co.in inurl:shiprocket OR inurl:unicommerce OR inurl:delhivery
+[175] site:snitch.co.in inurl:webhook OR inurl:callback "payment_id=" OR "razorpay"
+[176] site:snitch.co.in inurl:invoice "AWB" OR "shipping"
+[177] site:snitch.co.in inurl:account inurl:orders
+[178] site:snitch.co.in inurl:cart "variant_id=" OR "quantity="
+[179] site:snitch.co.in inurl:wallets OR inurl:credit
+[180] site:snitch.co.in inurl:gift-card OR inurl:voucher "code="
+[181] site:snitch.co.in inurl:returns/create OR inurl:exchange/initiate
+[182] site:snitch.co.in inurl:track-order "phone=" OR "email="
+[183] site:snitch.co.in inurl:payment-status OR inurl:order-confirmation
+[184] site:snitch.co.in inurl:pincode OR inurl:serviceable "pincode="
+[185] site:snitch.co.in inurl:cdn/shop/files/ OR inurl:cdn/shop/t/
+
+# ------------------------------------------------------------------------------
+# CATEGORY 10: FINTECH, CASHBACK, WALLET, BANK PAYOUT & AFFILIATE FLOWS (CASHKARO FOCUS)
+# Focus: Specific to cashkaro.com: Discover cashback tracking parameters, wallet withdrawals, NEFT bank details, and affiliate redirects.
+# ------------------------------------------------------------------------------
+
+[186] site:cashkaro.com inurl:cashback OR inurl:rewards "user_id=" OR "account_id="
+[187] site:cashkaro.com inurl:payout OR inurl:withdraw OR inurl:redeem
+[188] site:cashkaro.com inurl:bank OR inurl:neft OR inurl:upi "account_number="
+[189] site:cashkaro.com inurl:referral OR inurl:refer OR inurl:invite "code="
+[190] site:cashkaro.com inurl:passbook OR inurl:wallet OR inurl:earnings
+[191] site:cashkaro.com inurl:claim OR inurl:missing-cashback
+[192] site:cashkaro.com inurl:affiliate OR inurl:partner "commission="
+[193] site:cashkaro.com inurl:callback OR inurl:attribution "click_id=" OR "sub_id="
+[194] site:cashkaro.com inurl:redirect OR inurl:out "target=" OR "url="
+[195] site:cashkaro.com inurl:my-account inurl:earnings
+[196] site:cashkaro.com inurl:payment-history OR inurl:payout-history
+[197] site:cashkaro.com inurl:voucher OR inurl:giftcard "redeem="
+[198] site:cashkaro.com inurl:track-cashback OR inurl:ticket
+[199] site:cashkaro.com inurl:coupon OR inurl:deal "store_id="
+[200] site:cashkaro.com inurl:api/v1/cashback OR inurl:api/v1/payout
+
+
+# ==============================================================================
+# TOTAL CURATED DORKS: 200 (100% COMPLETE)
+# ==============================================================================
